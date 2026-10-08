@@ -4,13 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dozer Sandbox</title>
+<link rel="icon" href="dozer-sleeping.jpg">
+<meta property="og:image" content="https://dozersandbox.com/dozer-sleeping.jpg">
 <meta name="description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac.">
 <style>
 :root{--bg:#fbfaf7;--fg:#1c1b19;--muted:#6b675f;--line:#e4e0d8;--code:#f1eee8;--accent:#b4531f}
 @media (prefers-color-scheme:dark){:root{--bg:#161513;--fg:#ece9e3;--muted:#a19c92;--line:#2e2b27;--code:#211f1c;--accent:#e98a4f}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif}
-main{max-width:680px;margin:0 auto;padding:72px 16px 48px}
+main{max-width:680px;margin:0 auto;padding:48px 16px 48px}
+.hero{display:block;width:min(260px,62vw);height:auto;margin:0 auto 28px;mix-blend-mode:multiply}
+@media (prefers-color-scheme:dark){.hero{filter:invert(1);mix-blend-mode:screen;opacity:.9}}
+header{text-align:center}
 h1{font-size:2.25rem;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
 .lede{font-size:1.15rem;color:var(--muted);margin:0 0 32px}
 h2{font-size:1rem;margin:36px 0 8px}
@@ -23,7 +28,10 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:v
 </head>
 <body>
 <main>
+<header>
+<img class="hero" src="dozer-sleeping.jpg" width="720" height="720" alt="A small bulldozer asleep in a sandbox">
 <h1>Dozer Sandbox</h1>
+</header>
 <p class="lede">Fast, suspendable Linux sandboxes for coding agents on your Mac. Each project gets its own small
 virtual machine that starts in about a third of a second, pauses in a millisecond, hibernates to disk and wakes
 with every program still running.</p>
