@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dozer Sandbox</title>
+<meta name="description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac.">
+<style>
+:root{--bg:#fbfaf7;--fg:#1c1b19;--muted:#6b675f;--line:#e4e0d8;--code:#f1eee8;--accent:#b4531f}
+@media (prefers-color-scheme:dark){:root{--bg:#161513;--fg:#ece9e3;--muted:#a19c92;--line:#2e2b27;--code:#211f1c;--accent:#e98a4f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif}
+main{max-width:680px;margin:0 auto;padding:72px 16px 48px}
+h1{font-size:2.25rem;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+.lede{font-size:1.15rem;color:var(--muted);margin:0 0 32px}
+h2{font-size:1rem;margin:36px 0 8px}
+pre{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:14px 16px;overflow-x:auto;font:14px/1.6 ui-monospace,"SF Mono",Menlo,monospace}
+code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.9em}
+ul{padding-left:20px}
+a{color:var(--accent)}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+<h1>Dozer Sandbox</h1>
+<p class="lede">Fast, suspendable Linux sandboxes for coding agents on your Mac. Each project gets its own small
+virtual machine that starts in about a third of a second, pauses in a millisecond, hibernates to disk and wakes
+with every program still running.</p>
+
+<ul>
+<li>Run Claude Code, Codex or pi with permission prompts off. The VM is the boundary.</li>
+<li>Every connection goes through a policy you can read. Your keys stay on your Mac.</li>
+<li>Your project folder is <code>/workspace</code> inside. <code>.dozignore</code> keeps an agent out of secrets.</li>
+<li>A dashboard in your browser for sandboxes, terminals, restore points and settings.</li>
+</ul>
+
+<h2>Install</h2>
+<p>An Apple silicon Mac with macOS 26 or later, and <a href="https://brew.sh">Homebrew</a>:</p>
+<pre>brew trust --tap dozer-sandbox/tap
+brew install dozer-sandbox/tap/doz-canary
+doz ui</pre>
+<p>The dashboard opens on its setup wizard. Prefer the terminal? Run <code>doz onboard</code>, then <code>doz up</code> in a project folder.</p>
+
+<h2>Read more</h2>
+<ul>
+<li><a href="https://github.com/dozer-sandbox/dozer-sandbox">Source code and README</a></li>
+<li><a href="https://github.com/dozer-sandbox/dozer-sandbox/tree/main/docs/manual">The manual</a></li>
+<li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
+</ul>
+
+<footer>A full website is on its way. Signed and notarised · open source.</footer>
+</main>
+</body>
+</html>
