@@ -55,7 +55,7 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .req { margin: 10px 0 0; font-size: 13px; color: var(--ink-2); }
 @media (max-width: 700px) { .intro { padding-top: 28px; } .oneline pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12.5px; padding: 11px 12px; } .oneline .copy { padding: 0 12px; font-size: 13px; } }
 .cta { display: flex; gap: 28px; align-items: center; justify-content: center; margin: 8px 0 0; }
-.dozer { display: block; width: min(520px, 82vw); height: auto; margin: 20px auto 0; mix-blend-mode: multiply; }
+.dozer { display: block; width: min(520px, 82vw); height: auto; margin: 20px auto 0; }
 .fine { font-size: 13px; color: var(--ink-2); margin: 28px 0 0; }
 
 /* ---------- big numbers ---------- */
@@ -109,13 +109,10 @@ pre code { font-size: inherit; }
 .all-title { font-size: clamp(26px, 3.4vw, 40px); margin: 0 0 14px; text-align: left; letter-spacing: -.03em; }
 .bento { list-style: none; margin: 0; padding: 0; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: repeat(5, minmax(0, 1fr)); gap: 10px; text-align: left; }
 .tile { border-radius: 18px; padding: 14px 14px 12px; display: flex; flex-direction: column; min-width: 0; min-height: 0; overflow: hidden; color: #000; border: 1px solid #000; }
-.tile.k { background: var(--tint); }
 .tile.w { background: #fff; }
-.tile.f { background: var(--accent); }
 .tile .ic { width: 22px; height: 22px; margin-bottom: auto; }
 .tile b { font-size: 13px; font-weight: 700; line-height: 1.15; letter-spacing: -.01em; margin-top: 8px; }
 .tile span { font-size: 11.5px; line-height: 1.25; color: var(--ink-2); margin-top: 3px; }
-.tile.f span { color: #000; }
 .tile.big { padding: 22px; }
 .tile.big .ic { width: 44px; height: 44px; stroke-width: 1.5; }
 .tile.big b { font-size: 26px; letter-spacing: -.03em; line-height: 1.08; }
