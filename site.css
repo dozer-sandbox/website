@@ -378,3 +378,6 @@ html { scroll-behavior: smooth; }
 .term-tip span { display: block; margin-bottom: 6px; }
 .term-tip a { font-weight: 700; color: #000; }
 .cli-points .more { display: inline-block; margin-top: 6px; font-weight: 600; color: #000; }
+/* Docs in the header on phones (the text links are hidden below 860 px). */
+.nav-docs { display: none; color: #000; font-size: 14px; font-weight: 600; text-decoration: none; }
+@media (max-width: 860px) { .nav-docs { display: inline; } }
