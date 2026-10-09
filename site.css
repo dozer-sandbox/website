@@ -351,3 +351,30 @@ html { scroll-behavior: smooth; }
   38%  { transform: translateX(40px) scaleX(.95); animation-timing-function: cubic-bezier(.6, 0, 1, .4); }
   100% { transform: translateX(-130vw) skewX(14deg) scaleX(1.25); }
 }
+
+/* CLI section: every doz command rolling fast in a stylised terminal (the lines come from cli-commands.txt). */
+.cli .sub code, .cli-points code { font: 600 .9em ui-monospace, "SF Mono", Menlo, monospace; }
+.cli-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: center; margin-top: 40px; text-align: left; }
+.term { background: #fff; border: 1px solid #000; border-radius: 14px; box-shadow: 0 6px 0 #000; overflow: hidden; }
+.term-bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; border-bottom: 1px solid #000; font: 600 12px ui-monospace, "SF Mono", Menlo, monospace; }
+.term-bar i { width: 11px; height: 11px; border: 1px solid #000; border-radius: 50%; }
+.term-bar i:first-child { background: var(--accent); }
+.term-bar span { margin-left: auto; margin-right: auto; padding-right: 50px; }
+.term-screen { height: 340px; overflow: hidden; position: relative;
+  -webkit-mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent); mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent); }
+.term-roll { font: 500 15px/1.75 ui-monospace, "SF Mono", Menlo, monospace; padding: 0 20px; animation: term-roll 9s linear infinite; }
+
+
+@keyframes term-roll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+.cli-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+.cli-points li { font-size: 17px; line-height: 1.4; color: var(--ink-2); }
+.cli-points strong { display: block; color: #000; font-size: clamp(20px, 2vw, 24px); letter-spacing: -.02em; margin-bottom: 4px; }
+@media (max-width: 860px) { .cli-grid { grid-template-columns: 1fr; gap: 28px; } .term-screen { height: 260px; } .term-roll { font-size: 13.5px; } }
+.term-roll .cmd, .term-roll p { display: block; margin: 0; white-space: nowrap; color: #000; text-decoration: none; border-radius: 4px; padding: 0 6px; margin-left: -6px; width: max-content; }
+.term-roll .cmd::before, .term-roll p::before { content: "$ "; font-weight: 700; }
+.term-roll .cmd:hover, .term-roll .cmd:focus-visible, .term-roll .cmd.on { background: var(--accent); outline: none; }
+.term-screen { position: relative; }
+.term-tip { position: absolute; z-index: 2; left: 20px; right: 20px; background: #fff; border: 1px solid #000; border-radius: 10px; box-shadow: 0 3px 0 #000; padding: 10px 12px; font: 14px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif; color: #000; }
+.term-tip span { display: block; margin-bottom: 6px; }
+.term-tip a { font-weight: 700; color: #000; }
+.cli-points .more { display: inline-block; margin-top: 6px; font-weight: 600; color: #000; }

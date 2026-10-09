@@ -1,0 +1,562 @@
+[
+ {
+  "cmd": "doz onboard",
+  "desc": "Set up this Mac for Dozer Sandbox (once): check it, choose and confirm Access (the Claude account, GitHub, the SSH agent), choose what workspace rules do, write the settings, prepare images in the background.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/03-setting-up.md"
+ },
+ {
+  "cmd": "doz init",
+  "desc": "Make a folder a Dozer Sandbox project: write doz_project.yaml there (onboarding this Mac first if it never was).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/04-projects.md"
+ },
+ {
+  "cmd": "doz uninstall",
+  "desc": "Remove Dozer Sandbox from this Mac: the store, the settings and the installed doz — listed first, asked once.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/02-install-upgrade-uninstall.md"
+ },
+ {
+  "cmd": "doz upgrade",
+  "desc": "Look for a newer doz on your channel and install it (Homebrew: brew upgrade; a tarball install: the signed download) — asks first; -y does not.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/02-install-upgrade-uninstall.md"
+ },
+ {
+  "cmd": "doz new",
+  "desc": "The quickest way in: a new sandbox with every default — created, started and attached.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz create",
+  "desc": "Create a sandbox (it stays off until start or up).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz up",
+  "desc": "Create the sandbox if it is missing, start or wake it, then attach (vagrant up / compose up).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/04-projects.md"
+ },
+ {
+  "cmd": "doz start",
+  "desc": "Boot a sandbox — or wake it, if it is asleep; resume it if paused.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz pause",
+  "desc": "Pause: guest CPU to 0 in ~1 ms, RAM kept.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz resume",
+  "desc": "Resume after pause (from sleep it wakes).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz sleep",
+  "desc": "Sleep: pause + snapshot to disk; RAM kept, and it survives a host crash.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz hibernate",
+  "desc": "Hibernate: snapshot to disk and stop the VM — RAM returned; sessions come back on wake.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz wake",
+  "desc": "Wake from sleep or hibernation (~0.3 s), sessions and pids where they were.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz shutdown",
+  "desc": "Shut down: a cold stop that keeps the disk; running programs end.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz reset",
+  "desc": "Reset to the image: shut down and discard the disk (restore points and the state disk stay).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz rm",
+  "desc": "Remove a sandbox and everything it has on disk.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz ls",
+  "desc": "List the sandboxes: phase, RAM held, disk, sessions, network.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz inspect",
+  "desc": "Everything about a sandbox, as JSON (--prompt: the agent's environment prompt, as its next session gets it).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz sessions",
+  "desc": "The sandbox's terminal sessions: list them (the default), end one, or restart one.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/07-terminals-and-sessions.md"
+ },
+ {
+  "cmd": "doz sessions end",
+  "desc": "End a session's program: it is hung up (as when its terminal closes), then terminated, then killed if it must be.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/07-terminals-and-sessions.md"
+ },
+ {
+  "cmd": "doz sessions ls",
+  "desc": "The sandbox's terminal sessions (they survive pause, sleep and hibernate).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/07-terminals-and-sessions.md"
+ },
+ {
+  "cmd": "doz sessions restart",
+  "desc": "Restart a session: end its program and start the same one again, in the same folder.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/07-terminals-and-sessions.md"
+ },
+ {
+  "cmd": "doz attach",
+  "desc": "Attach this terminal to a session (a paused or sleeping sandbox is woken).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/07-terminals-and-sessions.md"
+ },
+ {
+  "cmd": "doz run",
+  "desc": "Open a NEW session running a program, and attach to it.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/07-terminals-and-sessions.md"
+ },
+ {
+  "cmd": "doz exec",
+  "desc": "Run a command in the sandbox, non-interactively; its output and exit code pass through.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/07-terminals-and-sessions.md"
+ },
+ {
+  "cmd": "doz image",
+  "desc": "Images: the built-in lab, claude-code and pi, and custom images saved from restore points.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz point",
+  "desc": "Restore points: instant disk-only copies (APFS clones) to go back to or fork from.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz net",
+  "desc": "What a sandbox's agent may do (its permissions), its raw policy and its connection log.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/10-permissions-and-network.md"
+ },
+ {
+  "cmd": "doz key",
+  "desc": "Credentials held by the host's proxy — the sandbox only ever sees a placeholder.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz account",
+  "desc": "Accounts the host holds for sandboxes: the Mac's Claude login, setup tokens, API keys; for Codex, a ChatGPT sign-in or an OpenAI key.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz metrics",
+  "desc": "Lifecycle timings recorded by the host: per action count, median, p90, min, max, failures.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz doctor",
+  "desc": "Check this Mac and the store: macOS, Apple silicon, the entitlement, the kernel, vmnet, disk, the host.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/17-troubleshooting-and-faq.md"
+ },
+ {
+  "cmd": "doz host",
+  "desc": "The per-user host that owns every running sandbox (started for you; exits when idle).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz events",
+  "desc": "Follow what the host does: phases, timed steps, notes (Ctrl-C stops).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz console",
+  "desc": "Show a sandbox's boot console (the kernel and init); --follow keeps printing it as it boots (Ctrl-C stops).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/07-terminals-and-sessions.md"
+ },
+ {
+  "cmd": "doz base",
+  "desc": "The recommended bases a sandbox's image is made from (an image is a base × an agent).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz base ls",
+  "desc": "List the recommended bases: the image each follows, its download, the registries its sandboxes reach, which agents' images are prepared.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz builder",
+  "desc": "Apple's container tool, which builds Dockerfile bases (installed on demand; its services started only when you say so).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz builder status",
+  "desc": "Whether Apple's container tool is installed, supported and running.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz builder start",
+  "desc": "Start Apple's container services (container system start --enable-kernel-install) — asks first.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz builder install",
+  "desc": "Install Apple's container tool: its signed package (pinned, sha256-checked) opened in macOS Installer — asks first; never sudo.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz image ls",
+  "desc": "List the images and whether each is baked in this store (--tree: the lineage, with sizes).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz image bake",
+  "desc": "Bake (or rebuild) a built-in image now (otherwise the first start does it; minutes, needs network).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz image rm",
+  "desc": "Remove an image's baked disk (sandboxes cloned from it keep working).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz image pull",
+  "desc": "Pull an image from a registry (not yet).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz image push",
+  "desc": "Push an image to a registry (not yet).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/08-images-and-bases.md"
+ },
+ {
+  "cmd": "doz point take",
+  "desc": "Take a restore point (a running sandbox pauses for the clone: milliseconds).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz point ls",
+  "desc": "The sandbox's restore points, oldest first.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz point revert",
+  "desc": "Shut down and go back to a restore point (a \"before revert\" point is taken first).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz point fork",
+  "desc": "A new sandbox whose disks are a restore point's (it cold-boots on start).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz point rm",
+  "desc": "Delete a restore point (any, in any order).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz point save-image",
+  "desc": "Save a restore point (or the stopped sandbox's disk) as a custom image other sandboxes can start from.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz net show",
+  "desc": "What the agent can do: its permissions as a checklist, its sites, and what it was refused lately (the default: doz net NAME).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/10-permissions-and-network.md"
+ },
+ {
+  "cmd": "doz net allow",
+  "desc": "Switch permissions on (install:python, web, update, …; install = every ecosystem), allow a site (site:api.example.com), or set a preset (standard, locked, open).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/10-permissions-and-network.md"
+ },
+ {
+  "cmd": "doz net deny",
+  "desc": "Switch permissions off (web, update, install:node, …) or deny a site (site:HOST).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/10-permissions-and-network.md"
+ },
+ {
+  "cmd": "doz net permissions",
+  "desc": "Every permission, what it means, and the hosts behind it (this doz's).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/10-permissions-and-network.md"
+ },
+ {
+  "cmd": "doz net policy",
+  "desc": "Show the policy, or change it live (the next connection is judged by it; it is kept for the next start).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/10-permissions-and-network.md"
+ },
+ {
+  "cmd": "doz net log",
+  "desc": "The connection log (metadata only: host, verdict, rule, bytes — never contents).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/10-permissions-and-network.md"
+ },
+ {
+  "cmd": "doz key set",
+  "desc": "Give a proxied sandbox a key: read from stdin (or a prompt) or the keychain — never an argument.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz key rm",
+  "desc": "Forget a key.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz key ls",
+  "desc": "Which keys a sandbox has (never their values).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz key policy",
+  "desc": "What the proxy does with a credential the guest supplies itself: allow (and flag), strict (refuse), or auto.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz account ls",
+  "desc": "The accounts (never a secret).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz account add",
+  "desc": "Add an account: a setup token or an API key (prompt or stdin), another Claude config dir's Mac login, a ChatGPT sign-in or an OpenAI key (Codex).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz account verify",
+  "desc": "Check an account: one tiny request to api.anthropic.com (or api.openai.com for an OpenAI key); a ChatGPT sign-in is renewed when it is due.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz account rm",
+  "desc": "Remove an account and the keychain item doz made for it.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz account default",
+  "desc": "The account sandboxes that follow the default use (or none).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz account use",
+  "desc": "Which account a sandbox uses: a name, default (follow the store's), or none.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz account keepalive",
+  "desc": "on: near expiry, while a sandbox uses a Mac login and no Claude Code runs on the Mac, the host runs the Mac's claude once (off by default).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz access",
+  "desc": "Every credential sandboxes can use — the Claude account, GitHub as you, the SSH agent — confirmed live; set a choice.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz access show",
+  "desc": "Show each credential choice and confirm it works now (the default: doz access).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz access set",
+  "desc": "Change an Access choice (the defaults for new sandboxes) and confirm it — failures are said, never blocking.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/09-agents-and-accounts.md"
+ },
+ {
+  "cmd": "doz tools",
+  "desc": "A sandbox's tools layer: the tools Dozer manages from its settings, why, and their state (--apply: set them up again now).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/19-the-tools-layer.md"
+ },
+ {
+  "cmd": "doz ignore",
+  "desc": "Workspace rules: what a .dozignore / .dozreadonly in a sandbox's workspace folder does, and why.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/20-workspace-rules.md"
+ },
+ {
+  "cmd": "doz ignore check",
+  "desc": "Which rule decides each path — locked, hidden, read-only or visible — and from which line of which file.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/20-workspace-rules.md"
+ },
+ {
+  "cmd": "doz ignore show",
+  "desc": "A sandbox's workspace rules: every pattern with its line, the mode, warnings, and whether the view runs in the sandbox.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/20-workspace-rules.md"
+ },
+ {
+  "cmd": "doz host start",
+  "desc": "Start the host (detached, unless --foreground).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz host stop",
+  "desc": "Hibernate every running sandbox and stop the host (the next command starts a new one; wake brings each back).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz host restart",
+  "desc": "Stop the host (running sandboxes hibernate) and start it again — on this doz's build (after an update).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz host status",
+  "desc": "Is a host running, and what does it hold?",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz host upgrade-check",
+  "desc": "After an upgrade: is a host of an older build still running?",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/05-sandboxes-and-lifecycle.md"
+ },
+ {
+  "cmd": "doz ui",
+  "desc": "A local web dashboard for this store: sandboxes, sessions, terminals, images, restore points, network, accounts, metrics, events.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/06-the-dashboard.md"
+ },
+ {
+  "cmd": "doz ui link",
+  "desc": "A new one-use link to the running UI of this store (opened, or printed with --print-url).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/06-the-dashboard.md"
+ },
+ {
+  "cmd": "doz ui restart",
+  "desc": "Restart the running UI of this store — the same port (or a changed ui.port), open pages stay signed in and reconnect by themselves.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/06-the-dashboard.md"
+ },
+ {
+  "cmd": "doz ui start",
+  "desc": "Start the UI (the default) — or, when one runs for this store, open a new link to it.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/06-the-dashboard.md"
+ },
+ {
+  "cmd": "doz ui stop",
+  "desc": "Stop the running UI of this store (a detached one, or one in another terminal); its open pages say it stopped.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/06-the-dashboard.md"
+ },
+ {
+  "cmd": "doz serve",
+  "desc": "The dashboard for your other computers, tablets and phones: http://<this Mac>.local:7443 on your network.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/25-doz-serve.md"
+ },
+ {
+  "cmd": "doz serve devices",
+  "desc": "The browsers let in: name, when first and last seen, from where, which browser.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/25-doz-serve.md"
+ },
+ {
+  "cmd": "doz serve log",
+  "desc": "What the other browsers did (the audit log): admissions, changes, terminals, refusals.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/25-doz-serve.md"
+ },
+ {
+  "cmd": "doz serve rename",
+  "desc": "Give a browser a name you will recognise (\"Kitchen iPad\").",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/25-doz-serve.md"
+ },
+ {
+  "cmd": "doz serve revoke",
+  "desc": "Remove a browser (by its ID from doz serve devices), or --all: it is signed out at once and needs a new invite.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/25-doz-serve.md"
+ },
+ {
+  "cmd": "doz serve share",
+  "desc": "An invite for one more browser: a QR code, a short code and a link (each works once, for five minutes).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/25-doz-serve.md"
+ },
+ {
+  "cmd": "doz serve start",
+  "desc": "Start serving (the default) — or, when doz serve runs for this store, say where.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/25-doz-serve.md"
+ },
+ {
+  "cmd": "doz serve status",
+  "desc": "Whether doz serve runs for this store, where, and how many browsers are let in.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/25-doz-serve.md"
+ },
+ {
+  "cmd": "doz serve stop",
+  "desc": "Stop the running doz serve of this store (its browsers stay let in for the next one).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/25-doz-serve.md"
+ },
+ {
+  "cmd": "doz template",
+  "desc": "Templates: a sandbox's root disk saved as an image other sandboxes are created from (never its state disk).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz template create",
+  "desc": "Save a sandbox's root disk (now, or a restore point's) as a template.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz template ls",
+  "desc": "The templates in this store.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz template rm",
+  "desc": "Remove a template (sandboxes created from it keep working).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz duplicate",
+  "desc": "A new sandbox from an existing one's disk (or a restore point), with a new workspace, CPUs, memory, network or account.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/12-restore-points-duplicates-templates.md"
+ },
+ {
+  "cmd": "doz config",
+  "desc": "Settings: the doz.toml file, every value and where it came from (flag, env, file or default).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/15-settings-reference.md"
+ },
+ {
+  "cmd": "doz config show",
+  "desc": "Every setting: its effective value and its source (the default).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/15-settings-reference.md"
+ },
+ {
+  "cmd": "doz config get",
+  "desc": "One setting's effective value (--json adds its source and default).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/15-settings-reference.md"
+ },
+ {
+  "cmd": "doz config set",
+  "desc": "Set one setting in the file (checked against its type and range).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/15-settings-reference.md"
+ },
+ {
+  "cmd": "doz config unset",
+  "desc": "Put one setting back to its default (comment it out in the file).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/15-settings-reference.md"
+ },
+ {
+  "cmd": "doz config init",
+  "desc": "Write the settings file: every setting with its default commented out (an existing file keeps its values and gains any new settings).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/15-settings-reference.md"
+ },
+ {
+  "cmd": "doz config path",
+  "desc": "Where the settings file is (${XDG_CONFIG_HOME:-~/.config}/dozer-sandbox/doz.toml).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/15-settings-reference.md"
+ },
+ {
+  "cmd": "doz resources",
+  "desc": "Everything Dozer uses (disk to the byte, memory, CPUs, network) and deleting what can go.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/13-resources-and-disk-space.md"
+ },
+ {
+  "cmd": "doz resources ls",
+  "desc": "The account: every byte of the store on a row (the last row, unattributed, is ~0), then memory, CPUs, traffic and kernels.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/13-resources-and-disk-space.md"
+ },
+ {
+  "cmd": "doz resources rm",
+  "desc": "Delete resources by id (doz resources lists them): shows what goes, what it frees and what each costs later, then asks once.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/13-resources-and-disk-space.md"
+ },
+ {
+  "cmd": "doz resources clean",
+  "desc": "Delete what is re-creatable AND unused: the download cache, base disks, old kernels, images no sandbox was created from lately, leftovers.",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/13-resources-and-disk-space.md"
+ },
+ {
+  "cmd": "doz resources kernel",
+  "desc": "The kernel NEW sandboxes boot: a kernel:<version> doz resources lists, or pinned (this build's).",
+  "manual": "https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/13-resources-and-disk-space.md"
+ }
+]
