@@ -1,0 +1,2 @@
+The GitHub mark in the navigation bar is from GitHub's Octicons (https://github.com/primer/octicons),
+MIT License, Copyright (c) 2024 GitHub Inc. It is used unaltered to link to the project's GitHub repository.
