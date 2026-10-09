@@ -374,7 +374,7 @@ html { scroll-behavior: smooth; }
 .term-roll .cmd::before, .term-roll p::before { content: "$ "; font-weight: 700; }
 .term-roll .cmd:hover, .term-roll .cmd:focus-visible, .term-roll .cmd.on { background: var(--accent); outline: none; }
 .term-screen { position: relative; }
-.term-tip { position: absolute; z-index: 2; left: 20px; right: 20px; background: #fff; border: 1px solid #000; border-radius: 10px; box-shadow: 0 3px 0 #000; padding: 10px 12px; font: 14px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif; color: #000; }
+.term-tip { display: block; margin: 4px 0 10px; max-width: 34em; background: #fff; border: 1px solid #000; border-radius: 10px; box-shadow: 0 3px 0 #000; padding: 10px 12px; font: 14px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif; color: #000; white-space: normal; }
 .term-tip span { display: block; margin-bottom: 6px; }
 .term-tip a { font-weight: 700; color: #000; }
 .cli-points .more { display: inline-block; margin-top: 6px; font-weight: 600; color: #000; }

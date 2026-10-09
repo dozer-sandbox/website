@@ -10,19 +10,23 @@
   var LOOP = 9;                 // seconds for one pass through every command at full speed
   var WAIT = 2000, RAMP = 2600; // after the pointer leaves: wait, then accelerate back over this long
   roll.style.animation = 'none';
-  var y = 0, speed = 1, last = null, hovering = false, leftAt = 0, current = null;
+  var y = 0, speed = 1, last = null, hovering = false, leftAt = 0, current = null, halfCache = 0;
+  var sets = roll.querySelectorAll('.roll-set');
+  // One pass = the second (hidden) copy's offset. Measured only while the popup is closed: the popup sits INSIDE
+  // the list (between two commands) and would make one pass look longer.
+  function half() { if (tip.hidden || !halfCache) halfCache = sets.length > 1 ? sets[1].offsetTop : roll.scrollHeight / 2; return halfCache; }
 
   function frame(t) {
-    var half = roll.scrollHeight / 2;
-    if (last !== null && half > 0) {
+    var h = half();
+    if (last !== null && h > 0) {
       var target = hovering ? 0 : 1;
       if (!hovering) {
         var since = t - leftAt;
         target = leftAt === 0 ? 1 : since < WAIT ? 0 : Math.min(1, Math.pow((since - WAIT) / RAMP, 2));
       }
       speed = target;
-      y -= speed * (half / LOOP) * (t - last) / 1000;
-      if (-y >= half) y += half;
+      y -= speed * (h / LOOP) * (t - last) / 1000;
+      if (-y >= h) y += h;
       roll.style.transform = 'translateY(' + y + 'px)';
     }
     last = t;
@@ -36,18 +40,27 @@
     tipText.textContent = cmd.getAttribute('data-desc');
     tipLink.href = cmd.href;
     tipLink.setAttribute('aria-label', 'Manual: ' + cmd.textContent);
+    half();                                         // measure the loop before the popup joins the list
+    var before = cmd.getBoundingClientRect().top;
+    // Inline, between commands: under the command (moving down reaches it), or — near the bottom of the window,
+    // where it would not fit — above it. Either way nothing scrolls under the pointer.
+    // After each move of the popup, shift the list so the command under the pointer stays exactly where it was.
+    function settle() { y += before - cmd.getBoundingClientRect().top; roll.style.transform = 'translateY(' + y + 'px)'; }
+    cmd.insertAdjacentElement('afterend', tip);
     tip.hidden = false;
-    var s = screen.getBoundingClientRect(), r = cmd.getBoundingClientRect();
-    var below = r.bottom - s.top + 6, h = tip.offsetHeight;
-    tip.style.top = (below + h < s.height ? below : Math.max(4, r.top - s.top - h - 6)) + 'px';
+    settle();
+    if (cmd.getBoundingClientRect().bottom + tip.offsetHeight + 14 > screen.getBoundingClientRect().bottom) {
+      cmd.insertAdjacentElement('beforebegin', tip);
+      settle();
+    }
   }
   function hide() { tip.hidden = true; if (current) current.classList.remove('on'); current = null; }
 
   // The mouse wheel (or a trackpad) scrolls the list while the pointer is inside — the page itself stays put.
   // The list wraps around in both directions; the description box closes (its command moved).
   function wrap() {
-    var half = roll.scrollHeight / 2;
-    if (half > 0) { while (-y >= half) y += half; while (y > 0) y -= half; }
+    var h = half();
+    if (h > 0) { while (-y >= h) y += h; while (y > 0) y -= h; }
     roll.style.transform = 'translateY(' + y + 'px)';
   }
   term.addEventListener('wheel', function (e) {
@@ -61,7 +74,10 @@
 
   term.addEventListener('mouseenter', function () { hovering = true; });
   term.addEventListener('mouseleave', function () { hovering = false; leftAt = performance.now(); hide(); });
-  roll.addEventListener('mouseover', function (e) { var c = e.target.closest('.cmd'); if (c) show(c); });
+  roll.addEventListener('mouseover', function (e) {
+    if (e.target.closest('.term-tip')) return;      // inside the popup: keep it
+    var c = e.target.closest('.cmd'); if (c && c !== current) show(c);
+  });
   term.addEventListener('focusin', function (e) {
     var c = e.target.closest('.cmd');
     hovering = true;
