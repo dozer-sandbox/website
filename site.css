@@ -403,4 +403,6 @@ html { scroll-behavior: smooth; }
 .car-dot[aria-current="true"] { background: #000; }
 .car-count { font-size: 13px; color: var(--ink-2); min-width: 3.5em; text-align: center; font-variant-numeric: tabular-nums; }
 @media (max-width: 700px) { .slide { flex-basis: 88%; } .slide figcaption b { font-size: 18px; } .car-dots { display: none; } .car-ui { gap: 14px; } }
-@media (prefers-reduced-motion: no-preference) { .car-track { scroll-behavior: smooth; } }
+.car-track { scroll-behavior: smooth; }
+.carousel.pinned { position: sticky; }
+.carousel.pinned .car-track { scroll-behavior: auto; }

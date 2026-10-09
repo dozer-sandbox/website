@@ -63,7 +63,13 @@
     if (h > 0) { while (-y >= h) y += h; while (y > 0) y -= h; }
     roll.style.transform = 'translateY(' + y + 'px)';
   }
+  // …but only once the PAGE has stopped scrolling: while the reader scrolls down the page, the terminal passes the
+  // wheel on as it slides under the pointer (otherwise a page scroll gets stuck in it). A wheel turned over a still
+  // page scrolls the commands.
+  var pageScrolledAt = 0;
+  window.addEventListener('scroll', function () { pageScrolledAt = performance.now(); }, { passive: true });
   term.addEventListener('wheel', function (e) {
+    if (performance.now() - pageScrolledAt < 350) return;
     e.preventDefault();
     hovering = true;
     var lines = e.deltaMode === 1 ? 26 : e.deltaMode === 2 ? screen.clientHeight : 1;
