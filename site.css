@@ -74,6 +74,28 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .bignums span { display: block; margin-top: 14px; font-size: 15px; color: var(--ink-2); line-height: 1.35; }
 @media (max-width: 860px) { .bignums { grid-template-columns: repeat(2, 1fr); } .bignums li { border-bottom: 1px solid var(--hair); } .bignums li:nth-child(2n) { border-right: 0; } }
 
+ /* ---------- comparison ---------- */
+.compare { border-top: 1px solid #000; }
+.compare .sub { margin-bottom: 40px; }
+.sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.cmpwrap { overflow-x: auto; border: 1px solid #000; border-radius: 18px; background: #fff; text-align: left; margin: 0 auto 8px; max-width: 1000px; }
+.cmp { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 15px; line-height: 1.35; min-width: 640px; }
+.cmp th, .cmp td { padding: 13px 16px; border-bottom: 1px solid var(--hair); vertical-align: middle; }
+.cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+.cmp thead th { font-size: 14px; font-weight: 700; letter-spacing: -.01em; border-bottom: 1px solid #000; background: #fff; }
+.cmp tbody th { font-weight: 600; width: 28%; background: #fff; position: sticky; left: 0; z-index: 1; border-right: 1px solid var(--hair); }
+.cmp { table-layout: fixed; }
+.cmp thead th:first-child { position: sticky; left: 0; z-index: 2; width: 30%; }
+.cmp .us { background: var(--tint); font-weight: 700; }
+.cmp thead th.us { border-top: 3px solid #000; }
+.cmp .note { font-weight: 400; color: var(--ink-2); font-size: 13px; }
+.matrix td { text-align: center; font-size: 17px; }
+.matrix thead th:not(:first-child) { text-align: center; }
+.cmpwrap:focus-visible { outline: 3px solid #000; outline-offset: 3px; }
+.compare .honest { max-width: 1000px; margin: 14px auto 44px; font-size: 15px; color: #000; text-align: left; }
+.compare .foot-note { max-width: 1000px; margin: 14px auto 0; text-align: left; }
+@media (max-width: 700px) { .cmp { font-size: 14px; } .cmp th, .cmp td { padding: 11px 12px; } .cmp thead th:first-child, .cmp tbody th { width: 124px; } .compare .honest { margin-bottom: 32px; } }
+
 /* ---------- feature splits ---------- */
 .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 56px; align-items: center; text-align: left; }
 .split.flip .copy { order: 2; }

@@ -20,7 +20,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav"><div class="nav-in">
   <a class="nav-name" href="./">Dozer Sandbox</a>
-  <nav aria-label="Site"><a href="./#speed">Speed</a><a href="./#security">Security</a><a href="./#dashboard">Dashboard</a><a href="./#uses">Use cases</a><a href="./#features">Features</a><a href="timeline.html">Timeline</a></nav>
+  <nav aria-label="Site"><a href="./#speed">Speed</a><a href="./#compare">Compare</a><a href="./#security">Security</a><a href="./#dashboard">Dashboard</a><a href="./#uses">Use cases</a><a href="./#features">Features</a><a href="timeline.html">Timeline</a></nav>
   <a class="pill" href="./#install">Install</a>
 </div></header>
 
@@ -46,6 +46,36 @@
     <li class="reveal"><b>~0.3<small> s</small></b><span>to wake, with programs, sessions and terminal screens as they were</span></li>
   </ul>
   <p class="fine">Measured on an M3, with an Alpine guest of 512 MiB to 1 GiB.</p>
+</div></section>
+
+<section class="sec light compare" id="compare"><div class="wrap">
+  <p class="eyebrow reveal">Compared</p>
+  <h2 class="reveal">How it compares.</h2>
+  <p class="sub reveal">A Claude Code sandbox, measured by us on an M3 MacBook Air (24 GB, macOS 27) in September 2026 — the median of 5 runs, each tool at its defaults.</p>
+  <div class="cmpwrap reveal" tabindex="0" role="region" aria-label="Timings, scrolls sideways on narrow screens"><table class="cmp">
+<caption class="sr">Timings for a Claude Code sandbox</caption>
+<thead><tr><th scope="col"><span class="sr">Measure</span></th><th scope="col" class="us">Dozer Sandbox</th><th scope="col">Docker containers</th><th scope="col">Docker Sandboxes</th><th scope="col">Apple container</th></tr></thead>
+<tbody>
+<tr><th scope="row">Start, to Claude Code's first screen</th><td class="us">1.46 s</td><td>0.78 s</td><td>5.12 s</td><td>2.24 s</td></tr>
+<tr><th scope="row">Pause and resume, memory kept</th><td class="us">about 1 ms</td><td>about 35 ms</td><td>not offered</td><td>not offered</td></tr>
+<tr><th scope="row">Put away, memory freed</th><td class="us">1.16 s (hibernate)</td><td>0.12 s (stop)</td><td>5.31 s (stop)</td><td>0.18 s (stop)</td></tr>
+<tr><th scope="row">Back to a working agent</th><td class="us">0.57 s</td><td>0.71 s</td><td>1.28 s</td><td>2.01 s</td></tr>
+<tr><th scope="row">The same programs running afterwards</th><td class="us">Yes — same process, same screen</td><td>No — restarted</td><td>No — restarted</td><td>No — restarted</td></tr>
+</tbody></table></div>
+  <p class="fine honest reveal">Dozer is slower to start cold and to put away — it writes the sandbox's memory to disk, so it can bring the same programs back.</p>
+  <div class="cmpwrap reveal" tabindex="0" role="region" aria-label="What each tool does, scrolls sideways on narrow screens"><table class="cmp matrix">
+<caption class="sr">What each tool does</caption>
+<thead><tr><th scope="col"><span class="sr">Measure</span></th><th scope="col" class="us">Dozer Sandbox</th><th scope="col">Docker containers</th><th scope="col">Docker Sandboxes</th><th scope="col">Apple container</th></tr></thead>
+<tbody>
+<tr><th scope="row">Its own virtual machine per sandbox</th><td class="us"><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span><span class="note"> (one shared VM)</span></td><td><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">●</span><span class="sr">Yes</span></td></tr>
+<tr><th scope="row">Hibernate and wake with programs still running</th><td class="us"><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td></tr>
+<tr><th scope="row">Survives a restart of the app that runs it</th><td class="us"><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td></tr>
+<tr><th scope="row">No network card — the only way out is a proxy</th><td class="us"><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td></tr>
+<tr><th scope="row">Blocks the network by default, with rules per sandbox</th><td class="us"><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td><td><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td></tr>
+<tr><th scope="row">Your keys never enter the sandbox</th><td class="us"><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td><td><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td></tr>
+<tr><th scope="row">Every connection logged</th><td class="us"><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td><td><span aria-hidden="true">●</span><span class="sr">Yes</span></td><td><span aria-hidden="true">—</span><span class="sr">No</span></td></tr>
+</tbody></table></div>
+  <p class="fine foot-note reveal">Versions: Docker Desktop 4.91.0, Docker Sandboxes (sbx) 0.38.0, Apple container 1.2.2, and an earlier Dozer build. Docker Sandboxes' network and key rows are from its documentation; everything else was measured. One machine's numbers — yours will differ.</p>
 </div></section>
 
 <section class="sec tone" id="boundary"><div class="wrap split">
