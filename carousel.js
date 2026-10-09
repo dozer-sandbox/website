@@ -5,6 +5,17 @@
   var track = document.getElementById('car-track');
   if (!track) return;
   var slides = Array.prototype.slice.call(track.querySelectorAll('.slide'));
+  // The browser's lazy loading does not reliably load images inside a sideways-scrolling strip (slides 3–7 stayed
+  // blank in a real Chrome run): keep the page light on arrival, but load every screenshot once the section is
+  // near the screen.
+  (function eagerWhenNear() {
+    var imgs = track.querySelectorAll('img[loading="lazy"]');
+    function load() { Array.prototype.forEach.call(imgs, function (im) { im.loading = 'eager'; }); }
+    if (!('IntersectionObserver' in window)) { load(); return; }
+    var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { load(); io.disconnect(); } },
+                                      { rootMargin: '800px 0px' });
+    io.observe(track);
+  })();
   if (slides.length < 2) return;
   var NS = 'http://www.w3.org/2000/svg';
   function arrow(dir) {
