@@ -3,61 +3,164 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dozer Sandbox</title>
-<link rel="icon" href="dozer-sleeping.jpg">
+<meta name="color-scheme" content="dark light">
+<title>Dozer Sandbox: sleeps like a laptop, wakes in 0.3 s</title>
+<meta name="description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac. Start in about 0.3 s, pause in 1 ms, hibernate to disk and wake with every program still running.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dozer Sandbox: sleeps like a laptop, wakes in 0.3 s">
+<meta property="og:description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac. Start in about 0.3 s, pause in 1 ms, hibernate to disk and wake with every program still running.">
 <meta property="og:image" content="https://dozersandbox.com/dozer-sleeping.jpg">
-<meta name="description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac.">
-<style>
-:root{--bg:#fbfaf7;--fg:#1c1b19;--muted:#6b675f;--line:#e4e0d8;--code:#f1eee8;--accent:#b4531f}
-@media (prefers-color-scheme:dark){:root{--bg:#161513;--fg:#ece9e3;--muted:#a19c92;--line:#2e2b27;--code:#211f1c;--accent:#e98a4f}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif}
-main{max-width:680px;margin:0 auto;padding:48px 16px 48px}
-.hero{display:block;width:min(260px,62vw);height:auto;margin:0 auto 28px;mix-blend-mode:multiply}
-@media (prefers-color-scheme:dark){.hero{filter:invert(1);mix-blend-mode:screen;opacity:.9}}
-header{text-align:center}
-h1{font-size:2.25rem;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
-.lede{font-size:1.15rem;color:var(--muted);margin:0 0 32px}
-h2{font-size:1rem;margin:36px 0 8px}
-pre{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:14px 16px;overflow-x:auto;font:14px/1.6 ui-monospace,"SF Mono",Menlo,monospace}
-code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.9em}
-ul{padding-left:20px}
-a{color:var(--accent)}
-footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-</style>
+<meta property="og:url" content="https://dozersandbox.com/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="site.css">
 </head>
-<body>
-<main>
-<header>
-<img class="hero" src="dozer-sleeping.jpg" width="720" height="720" alt="A small bulldozer asleep in a sandbox">
-<h1>Dozer Sandbox</h1>
-</header>
-<p class="lede">Fast, suspendable Linux sandboxes for coding agents on your Mac. Each project gets its own small
-virtual machine that starts in about a third of a second, pauses in a millisecond, hibernates to disk and wakes
-with every program still running.</p>
+<body class="home">
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /> <path d="m16 9-5.5 5.5L8 12" /></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /> <path d="m3.3 7 8.7 5 8.7-5" /> <path d="M12 22V12" /></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" /> <circle cx="12" cy="13" r="3" /></symbol><symbol id="i-chart-line" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="m19 9-5 5-4-4-3 3" /></symbol><symbol id="i-clipboard-paste" viewBox="0 0 24 24"><path d="M11 14h10" /> <path d="M16 4h2a2 2 0 0 1 2 2v1.344" /> <path d="m17 18 4-4-4-4" /> <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 1.793-1.113" /> <rect x="8" y="2" width="8" height="4" rx="1" /></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-cylinder" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5v14a9 3 0 0 0 18 0V5" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 15V3" /> <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <path d="m7 10 5 5 5-5" /></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol><symbol id="i-git-fork" viewBox="0 0 24 24"><circle cx="12" cy="18" r="3" /> <circle cx="6" cy="6" r="3" /> <circle cx="18" cy="6" r="3" /> <path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9" /> <path d="M12 12v3" /></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /> <path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /> <path d="M12 7v5l4 2" /></symbol><symbol id="i-key-round" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /> <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /> <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /> <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></symbol><symbol id="i-layout-template" viewBox="0 0 24 24"><rect width="18" height="7" x="3" y="3" rx="1" /> <rect width="9" height="7" x="3" y="14" rx="1" /> <rect width="5" height="7" x="16" y="14" rx="1" /></symbol><symbol id="i-list-checks" viewBox="0 0 24 24"><path d="M13 5h8" /> <path d="M13 12h8" /> <path d="M13 19h8" /> <path d="m3 17 2 2 4-4" /> <path d="m3 7 2 2 4-4" /></symbol><symbol id="i-moon-star" viewBox="0 0 24 24"><path d="M18 5h4" /> <path d="M20 3v4" /> <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="3" width="5" height="18" rx="1" /> <rect x="5" y="3" width="5" height="18" rx="1" /></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></symbol><symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10" /> <path d="M18.4 6.6a9 9 0 1 1-12.77.04" /></symbol><symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /> <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" /> <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" /> <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></symbol><symbol id="i-settings" viewBox="0 0 24 24"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" /> <circle cx="12" cy="12" r="3" /></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></symbol><symbol id="i-square-terminal" viewBox="0 0 24 24"><path d="m7 11 2-2-2-2" /> <path d="M11 13h4" /> <rect width="18" height="18" x="3" y="3" rx="2" ry="2" /></symbol><symbol id="i-terminal" viewBox="0 0 24 24"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></symbol><symbol id="i-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5" /> <path d="M20 21a8 8 0 0 0-16 0" /></symbol><symbol id="i-net" viewBox="0 0 24 24"><rect x="3" y="6" width="9" height="12" rx="2"/><path d="M12 12h3"/><path d="M15 8v8"/><path d="M15 12h6"/></symbol><symbol id="i-window" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M7 6.5h.01M10 6.5h.01"/></symbol><symbol id="i-devices" viewBox="0 0 24 24"><rect x="3" y="5" width="12" height="9" rx="1.5"/><path d="M1.5 18h15"/><rect x="17.5" y="8" width="4" height="10" rx="1"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol><symbol id="i-folderlock" viewBox="0 0 24 24"><path d="M3 18V6a1 1 0 0 1 1-1h5l2 2h8a1 1 0 0 1 1 1v3"/><path d="M3 18a1 1 0 0 0 1 1h6"/><rect x="13" y="14" width="8" height="6" rx="1"/><path d="M15 14v-1.5a2 2 0 0 1 4 0V14"/></symbol><symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol><symbol id="i-tools" viewBox="0 0 24 24"><path d="M4 20l9-9"/><circle cx="16" cy="8" r="4"/></symbol><symbol id="i-message" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol><symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 20v-2"/></symbol><symbol id="i-disk" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol></defs></svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="nav-in">
+  <a class="nav-name" href="./">Dozer Sandbox</a>
+  <nav aria-label="Site"><a href="./#speed">Speed</a><a href="./#security">Security</a><a href="./#dashboard">Dashboard</a><a href="./#uses">Use cases</a><a href="./#features">Features</a><a href="timeline.html">Timeline</a></nav>
+  <a class="pill" href="./#install">Install</a>
+</div></header>
 
-<ul>
-<li>Run Claude Code, Codex or pi with permission prompts off. The VM is the boundary.</li>
-<li>Every connection goes through a policy you can read. Your keys stay on your Mac.</li>
-<li>Your project folder is <code>/workspace</code> inside. <code>.dozignore</code> keeps an agent out of secrets.</li>
-<li>A dashboard in your browser for sandboxes, terminals, restore points and settings.</li>
-</ul>
+<main id="main">
 
-<h2>Install</h2>
-<p>An Apple silicon Mac with macOS 26 or later, and <a href="https://brew.sh">Homebrew</a>:</p>
-<pre>brew trust --tap dozer-sandbox/tap
+<section class="sec dark intro" id="top"><div class="wrap">
+  <p class="eyebrow reveal">Dozer Sandbox</p>
+  <h1 class="reveal">Sleeps like a laptop.<br>Wakes in 0.3&nbsp;s.</h1>
+  <p class="lede reveal">Fast, suspendable Linux sandboxes for coding agents on your Mac.</p>
+  <p class="cta reveal"><a class="pill big" href="#install">Install</a><a class="ulink" href="#speed">See the numbers</a></p>
+  <img class="dozer" src="dozer-sleeping.jpg" width="720" height="720" alt="Line drawing of a bulldozer asleep, with Zs rising">
+</div></section>
+
+<section class="sec light nums" id="speed"><div class="wrap">
+  <p class="eyebrow reveal">Speed</p>
+  <h2 class="reveal">A small Linux VM for your project.<br>Fast enough to forget it is there.</h2>
+  <ul class="bignums">
+    <li class="reveal"><b>~0.3<small> s</small></b><span>to start, with the image prepared</span></li>
+    <li class="reveal"><b>~1<small> ms</small></b><span>to pause. Attached terminals freeze and continue.</span></li>
+    <li class="reveal"><b>~0.35<small> s</small></b><span>to hibernate. Its memory goes back to the Mac.</span></li>
+    <li class="reveal"><b>~0.3<small> s</small></b><span>to wake, with programs, sessions and terminal screens as they were</span></li>
+  </ul>
+  <p class="fine">Measured on an M3, with an Alpine guest of 512 MiB to 1 GiB.</p>
+</div></section>
+
+<section class="sec dark" id="boundary"><div class="wrap split">
+  <div class="copy reveal"><p class="eyebrow">The boundary</p><h2>The VM is the boundary.</h2><p class="sub">Each sandbox is its own Linux virtual machine on Apple's Virtualization framework, with your project folder inside it. Run Claude Code, Codex or pi with its permission prompts off.</p></div>
+  <div class="art reveal"><svg class="illo" viewBox="0 0 480 300" role="img" aria-label="A Mac running three separate Linux virtual machines, each in its own box"><rect x="60" y="14" width="360" height="206" rx="16"/><rect x="74" y="28" width="332" height="178" rx="8"/><path d="M24 244h432l-14 24H38z"/><path d="M200 244v0"/><rect x="92" y="62" width="88" height="88" rx="12" stroke-width="2.5"/><path d="M114 96l22-12 22 12v26l-22 12-22-12z"/><path d="M114 96l22 12 22-12M136 108v26"/><rect x="196" y="62" width="88" height="88" rx="12" stroke-width="2.5"/><path d="M218 96l22-12 22 12v26l-22 12-22-12z"/><path d="M218 96l22 12 22-12M240 108v26"/><rect x="300" y="62" width="88" height="88" rx="12" stroke-width="2.5"/><path d="M322 96l22-12 22 12v26l-22 12-22-12z"/><path d="M322 96l22 12 22-12M344 108v26"/><text class="t" x="240" y="184" font-size="17" text-anchor="middle" >Linux VMs, each in its own box</text><text class="t" x="240" y="290" font-size="16" text-anchor="middle" >your Mac</text></svg></div>
+</div></section>
+
+<section class="sec light" id="security"><div class="wrap split flip">
+  <div class="copy reveal"><p class="eyebrow">The network</p><h2>Every connection. A policy you can read.</h2><p class="sub">A sandbox has no network card. The proxy on your Mac judges every connection against permissions you can read and change with doz net permissions.</p></div>
+  <div class="art reveal"><svg class="illo" viewBox="0 0 480 300" role="img" aria-label="A sandbox connects to the internet only through a policy gate; a second connection is refused"><rect x="20" y="96" width="120" height="110" rx="14"/><path d="M52 128l28-14 28 14v30l-28 14-28-14z"/><path d="M52 128l28 14 28-14M80 142v30"/><path d="M140 138h68"/><path d="M272 138h74"/><path d="M240 82l44 16v38c0 28-20 46-44 58-24-12-44-30-44-58V98z" transform="translate(0 -4)"/><path d="M222 136l14 14 26-28"/><circle cx="404" cy="138" r="44"/><ellipse cx="404" cy="138" rx="18" ry="44"/><path d="M360 138h88M368 114h72M368 162h72"/><path d="M140 188h40"/><path d="M180 178v20"/><path d="M190 180l16 16m0-16l-16 16"/><text class="t" x="80" y="232" font-size="17" text-anchor="middle" >sandbox</text><text class="t" x="240" y="232" font-size="17" text-anchor="middle" >policy you can read</text><text class="t" x="404" y="232" font-size="17" text-anchor="middle" >internet</text><text class="t" x="200" y="262" font-size="15" text-anchor="middle" >refused, and on record</text></svg></div>
+</div></section>
+
+<section class="sec dark" id="keys"><div class="wrap split">
+  <div class="copy reveal"><p class="eyebrow">Credentials</p><h2>Your keys never go in.</h2><p class="sub">The proxy swaps your credentials in on the way out. The sandbox only ever sees a placeholder.</p></div>
+  <div class="art reveal"><svg class="illo" viewBox="0 0 480 300" role="img" aria-label="Your real key stays on your Mac; the sandbox only holds a placeholder token, swapped by the proxy"><rect x="14" y="70" width="130" height="150" rx="14"/><circle cx="50" cy="128" r="18"/><path d="M66 140l40 34M92 162l10-10M102 172l10-10"/><text class="t" x="79" y="206" font-size="16" text-anchor="middle" >real key</text><path d="M144 130h30" stroke-dasharray="4 6"/><path d="M210 78l36 14v32c0 24-16 38-36 48-20-10-36-24-36-48V92z" transform="translate(0 -4)"/><path d="M194 130l12 12 22-24"/><path d="M246 138h30"/><rect x="296" y="50" width="170" height="200" rx="14"/><rect x="316" y="104" width="130" height="62" rx="8" stroke-dasharray="6 5"/><text class="t" x="381" y="132" font-size="15" text-anchor="middle" >placeholder</text><text class="t" x="381" y="152" font-size="15" text-anchor="middle" >doz_cred_...</text><text class="t" x="381" y="232" font-size="16" text-anchor="middle" >sandbox</text><text class="t" x="210" y="262" font-size="16" text-anchor="middle" >proxy swaps it on the way out</text></svg></div>
+</div></section>
+
+<section class="sec light" id="workspace"><div class="wrap split flip">
+  <div class="copy reveal"><p class="eyebrow">Your project</p><h2>Your project, at /workspace.</h2><p class="sub">A folder on your Mac, shared into the sandbox. Keep .env files and secrets out of reach with .dozignore, or read-only with .dozreadonly. The rules guard against accidents; they are not a security boundary.</p></div>
+  <div class="art reveal"><svg class="illo" viewBox="0 0 480 300" role="img" aria-label="A folder on your Mac mapped to /workspace in the sandbox, with the .env file locked"><path d="M16 62a8 8 0 0 1 8-8h58l14 16h132a8 8 0 0 1 8 8v158a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8z"/><path d="M16 94h220"/><text class="t" x="40" y="132" font-size="17" text-anchor="start" >src/</text><text class="t" x="40" y="170" font-size="17" text-anchor="start" >README.md</text><text class="t" x="40" y="208" font-size="17" text-anchor="start" >.env</text><rect x="196" y="185" width="22" height="17" rx="3"/><path d="M201 185v-5a6 6 0 0 1 12 0v5"/><rect x="290" y="54" width="176" height="204" rx="14"/><text class="t" x="312" y="86" font-size="17" text-anchor="start" font-weight="700">/workspace</text><path d="M290 100h176"/><text class="t" x="312" y="132" font-size="17" text-anchor="start" >src/</text><text class="t" x="312" y="170" font-size="17" text-anchor="start" >README.md</text><text class="t" x="312" y="208" font-size="17" text-anchor="start" >.env</text><rect x="420" y="185" width="22" height="17" rx="3"/><path d="M425 185v-5a6 6 0 0 1 12 0v5"/><path d="M252 150h32m-8-8l8 8-8 8m-32-16l-8 8 8 8"/><text class="t" x="134" y="282" font-size="16" text-anchor="middle" >a folder on your Mac</text><text class="t" x="378" y="282" font-size="16" text-anchor="middle" >what the sandbox sees</text></svg></div>
+</div></section>
+
+<section class="sec dark" id="sleep"><div class="wrap split">
+  <div class="copy reveal"><p class="eyebrow">Sleep</p><h2>Hibernate. Give the memory back.</h2><p class="sub">A hibernated sandbox lets go of its memory and wakes with every program still running where it was. After a crash, sleeping sandboxes are restored with their sessions.</p></div>
+  <div class="art reveal"><svg class="illo" viewBox="0 0 480 300" role="img" aria-label="A sandbox with a moon and Zs above it hibernates to a disk and wakes from it"><rect x="160" y="70" width="160" height="90" rx="14"/><path d="M200 100l28-14 28 14v30l-28 14-28-14z"/><path d="M200 100l28 14 28-14M228 114v30"/><path d="M360 50a26 26 0 1 0 26 34a22 22 0 0 1-26-34z"/><text class="t" x="300" y="50" font-size="24" text-anchor="start" >z</text><text class="t" x="322" y="34" font-size="18" text-anchor="start" >z</text><text class="t" x="338" y="20" font-size="14" text-anchor="start" >z</text><path d="M215 160v30m-8-8l8 8 8-8"/><path d="M265 190v-30m-8 8l8-8 8 8"/><ellipse cx="240" cy="220" rx="70" ry="16"/><path d="M170 220v28c0 9 31 16 70 16s70-7 70-16v-28"/><text class="t" x="150" y="194" font-size="16" text-anchor="end" >hibernate, 0.35 s</text><text class="t" x="284" y="194" font-size="16" text-anchor="start" >wake, 0.3 s</text></svg></div>
+</div></section>
+
+<section class="sec light" id="dashboard"><div class="wrap split flip">
+  <div class="copy reveal"><p class="eyebrow">The dashboard</p><h2>One place for all of it.</h2><p class="sub">doz ui opens a dashboard with your sandboxes and their terminals in the browser. Install it as an app on your Mac.</p></div>
+  <div class="art reveal"><svg class="illo" viewBox="0 0 480 300" role="img" aria-label="A browser window showing the dashboard: a sandbox list and two terminal panes"><rect x="30" y="20" width="420" height="250" rx="14"/><path d="M30 56h420"/><circle cx="52" cy="38" r="5"/><circle cx="70" cy="38" r="5"/><circle cx="88" cy="38" r="5"/><path d="M150 56v214"/><rect x="44" y="72" width="94" height="26" rx="13"/><path d="M44 120h94M44 144h94M44 168h94"/><text class="t" x="91" y="90" font-size="14" text-anchor="middle" >upgrade</text><rect x="164" y="72" width="130" height="180" rx="8"/><rect x="308" y="72" width="130" height="180" rx="8"/><path d="M176 96l10 8-10 8"/><path d="M194 112h30M176 136h90M176 156h70M176 176h80"/><path d="M320 96l10 8-10 8"/><path d="M338 112h30M320 136h90M320 156h60M320 176h84"/><text class="t" x="229" y="236" font-size="14" text-anchor="middle" >claude</text><text class="t" x="373" y="236" font-size="14" text-anchor="middle" >shell</text></svg></div>
+</div></section>
+
+<section class="sec dark" id="lan"><div class="wrap split">
+  <div class="copy reveal"><p class="eyebrow">Every screen</p><h2>On every screen you own.</h2><p class="sub">doz serve shows the same dashboard to your other computers, tablets and phones on your network, admitted with an invite or a QR code.</p></div>
+  <div class="art reveal"><svg class="illo" viewBox="0 0 480 300" role="img" aria-label="A Mac serving its dashboard to a laptop, a tablet and a phone on the same network"><rect x="190" y="150" width="100" height="66" rx="6"/><path d="M174 232h132"/><path d="M200 60a60 60 0 0 1 80 0"/><path d="M214 76a40 40 0 0 1 52 0"/><path d="M228 92a20 20 0 0 1 24 0"/><circle cx="240" cy="108" r="3"/><path d="M190 170l-80-10" stroke-dasharray="4 6"/><path d="M290 170l80-10" stroke-dasharray="4 6"/><path d="M240 216l0 40" stroke-dasharray="4 6"/><rect x="30" y="110" width="90" height="120" rx="10"/><path d="M62 220h26"/><rect x="360" y="100" width="56" height="110" rx="10"/><path d="M380 198h16"/><rect x="424" y="130" width="40" height="40" rx="4"/><path d="M432 138h8v8h-8zM448 138h8v8h-8zM432 154h8v8h-8zM448 154h4v4h-4z"/><text class="t" x="240" y="196" font-size="15" text-anchor="middle" >doz serve</text><text class="t" x="75" y="252" font-size="15" text-anchor="middle" >tablet</text><text class="t" x="388" y="230" font-size="15" text-anchor="middle" >phone</text><text class="t" x="444" y="190" font-size="14" text-anchor="middle" >invite</text></svg></div>
+</div></section>
+
+<section class="sec light" id="points"><div class="wrap split flip">
+  <div class="copy reveal"><p class="eyebrow">Restore points</p><h2>Undo is instant.</h2><p class="sub">Restore points, duplicates and templates are APFS clones. Go back to a moment before the change, or fork a new sandbox from it.</p></div>
+  <div class="art reveal"><svg class="illo" viewBox="0 0 480 300" role="img" aria-label="A timeline of restore points; the sandbox is reverted to one taken before an upgrade"><path d="M30 150h420"/><circle cx="70" cy="150" r="9"/><circle cx="170" cy="150" r="9"/><circle cx="270" cy="150" r="9"/><circle cx="390" cy="150" r="11" fill="currentColor"/><circle cx="390" cy="150" r="5" fill="var(--bg)" stroke="none"/><path d="M390 130C390 70 270 70 270 130" /><path d="M262 118l8 12 10-10"/><text class="t" x="70" y="190" font-size="15" text-anchor="middle" >base</text><text class="t" x="170" y="190" font-size="15" text-anchor="middle" >before-upgrade</text><text class="t" x="270" y="190" font-size="15" text-anchor="middle" >tests passing</text><text class="t" x="390" y="190" font-size="15" text-anchor="middle" >now</text><text class="t" x="330" y="62" font-size="16" text-anchor="middle" >revert, or fork a new sandbox</text><text class="t" x="240" y="250" font-size="16" text-anchor="middle" >instant APFS clones</text></svg></div>
+</div></section>
+
+<section class="sec dark" id="agents"><div class="wrap split">
+  <div class="copy reveal"><p class="eyebrow">Agents</p><h2>Bring your agent.</h2><p class="sub">Claude Code, Codex and pi run ready to work, told where they run, with their credentials kept on your Mac.</p></div>
+  <div class="art reveal"><svg class="illo" viewBox="0 0 480 300" role="img" aria-label="Three agent cards: Claude Code, Codex and pi"><rect x="20" y="50" width="130" height="190" rx="14"/><path d="M50 100l16 14-16 14"/><path d="M76 130h26"/><text class="t" x="85" y="186" font-size="18" text-anchor="middle" font-weight="700">Claude Code</text><text class="t" x="85" y="208" font-size="14" text-anchor="middle" >image: claude-code</text><rect x="175" y="50" width="130" height="190" rx="14"/><path d="M205 100l16 14-16 14"/><path d="M231 130h26"/><text class="t" x="240" y="186" font-size="18" text-anchor="middle" font-weight="700">Codex</text><text class="t" x="240" y="208" font-size="14" text-anchor="middle" >image: codex</text><rect x="330" y="50" width="130" height="190" rx="14"/><path d="M360 100l16 14-16 14"/><path d="M386 130h26"/><text class="t" x="395" y="186" font-size="18" text-anchor="middle" font-weight="700">pi</text><text class="t" x="395" y="208" font-size="14" text-anchor="middle" >image: pi</text></svg></div>
+</div></section>
+
+
+<section class="sec light uses" id="uses"><div class="wrap">
+  <p class="eyebrow reveal">Use cases</p>
+  <h2 class="reveal">Three things worth a sandbox.</h2>
+  <ul class="cases">
+    <li class="reveal"><svg class="ic big" aria-hidden="true" focusable="false"><use href="#i-rocket"/></svg><h3>A risky change</h3><p>A dependency upgrade, a big refactor, a migration. Let a sandboxed agent work on your project folder, with a restore point to fall back to. Review it with git diff.</p></li>
+    <li class="reveal"><svg class="ic big" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg><h3>Jail an untrusted agent</h3><p>No folders shared, no logins held, the clipboard, browser and file bridges off, and the internet only where you allow it.</p></li>
+    <li class="reveal"><svg class="ic big" aria-hidden="true" focusable="false"><use href="#i-folderlock"/></svg><h3>A project that holds secrets</h3><p>Keep .env files, credentials and customer data out of the agent's reach, without moving anything.</p></li>
+  </ul>
+  <p class="fine"><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/22-prompts-for-your-agent.md">Prompts to paste for each, in the manual.</a></p>
+</div></section>
+
+<section class="sec dark install" id="install"><div class="wrap">
+  <p class="eyebrow reveal">Install</p>
+  <h2 class="reveal big">brew install dozer-sandbox/tap/doz</h2>
+  <pre class="reveal"><code><span class="cmt"># once per Mac: Homebrew loads a third-party tap only once trusted</span>
+brew trust --tap dozer-sandbox/tap
 brew install dozer-sandbox/tap/doz
-doz ui</pre>
-<p>The dashboard opens on its setup wizard. Prefer the terminal? Run <code>doz onboard</code>, then <code>doz up</code> in a project folder.</p>
+<span class="cmt"># opens the dashboard; a new install starts on its setup wizard</span>
+doz ui</code></pre>
+  <p class="sub reveal">Prefer the terminal? Run <code>doz onboard</code> once, then <code>doz up</code> in a project folder.</p>
+  <ul class="facts">
+    <li class="reveal"><h3>Requirements</h3><p>Apple silicon. macOS 26 or later. <a href="https://brew.sh">Homebrew</a>. For an agent, an account it can use.</p></li>
+    <li class="reveal"><h3>Channels</h3><p><code>doz</code> is stable and recommended. <code>doz-beta</code> and <code>doz-canary</code> come earlier.</p></li>
+    <li class="reveal"><h3>Trust</h3><p>Signed and notarised. Updates come from a feed signed with the project's own key, and nothing unverified is installed.</p></li>
+  </ul>
+</div></section>
 
-<h2>Read more</h2>
-<ul>
-<li><a href="https://github.com/dozer-sandbox/dozer-sandbox">Source code and README</a></li>
-<li><a href="https://github.com/dozer-sandbox/dozer-sandbox/tree/main/docs/manual">The manual</a></li>
-<li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
-</ul>
+<section class="sec dark all" id="features">
+  <div class="all-in">
+    <h2 class="all-title">Everything in the box.</h2>
+    <ul class="bento">
+<li class="tile k p1 big"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-moon-star"/></svg><b>Sleeps like a laptop</b><span>Pause in 1 ms. Hibernate to disk. Wake in 0.3 s, programs still running.</span></li>
+<li class="tile w p2 big"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-net"/></svg><b>No network card</b><span>Every connection goes through a policy you can read.</span></li>
+<li class="tile k p3 big"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-key-round"/></svg><b>Keys never go in</b><span>The proxy swaps credentials in. The sandbox sees a placeholder.</span></li>
+<li class="tile w p4"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-window"/></svg><b>Dashboard</b><span>doz ui. An installable app, with terminals in the browser.</span></li>
+<li class="tile k p5"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-terminal"/></svg><b>Claude Code, Codex, pi</b><span>Sessions outlive your terminal.</span></li>
+<li class="tile w p6"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-history"/></svg><b>Restore points</b><span>Instant APFS clones. Go back, or fork.</span></li>
+<li class="tile k p7"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folderlock"/></svg><b>.dozignore, .dozreadonly</b><span>Lock files, or make them read-only.</span></li>
+<li class="tile w p8"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-devices"/></svg><b>doz serve</b><span>The dashboard on your LAN, with invites and QR codes.</span></li>
+<li class="tile k p9"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg><b>Pause, resume</b><span>About 1 ms.</span></li>
+<li class="tile w p10"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart-pulse"/></svg><b>Crash recovery</b><span>Sleeping sandboxes return with their sessions.</span></li>
+<li class="tile k p11"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-list-checks"/></svg><b>Permissions</b><span>Readable and editable.</span></li>
+<li class="tile w p12"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg><b>Images</b><span>Base images and Dockerfiles.</span></li>
+<li class="tile k p13"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg><b>Templates, duplicates</b><span>Start set up your way.</span></li>
+<li class="tile w p14"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user-round"/></svg><b>GitHub as you</b><span>Read-only by default.</span></li>
+<li class="tile k p15"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-badge-check"/></svg><b>Signed and notarised</b><span>The doz binary is signed and notarised.</span></li>
+<li class="tile w p16"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-download"/></svg><b>Signed update feed</b><span>Stable, beta and canary. Nothing unverified installs.</span></li>
+<li class="tile w p17"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-message"/></svg><b>Let your Mac's agent drive</b><span>Prompts to install, set up and run sandboxes.</span></li>
+<li class="tile k p18"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-square-terminal"/></svg><b>SSH agent</b><span>Forward your Mac's agent.</span></li>
+<li class="tile w p19"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"/></svg><b>Browser sign-in</b><span>Opens on your Mac, returns to the sandbox.</span></li>
+<li class="tile k p20"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-clipboard-paste"/></svg><b>Clipboard, open files</b><span>Bridges back to the Mac.</span></li>
+<li class="tile w p21"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chart-line"/></svg><b>Resources</b><span>Every byte accounted. Clean up safely.</span></li>
+<li class="tile k p22"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg><b>Settings</b><span>doz config, doz.toml, dashboard.</span></li>
+<li class="tile w p23"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-tools"/></svg><b>Tools layer</b><span>gh, ssh and tmux, set up for you.</span></li>
+    </ul>
+  </div>
+</section>
 
-<footer>A full website is on its way. Signed and notarised · open source.</footer>
 </main>
+<footer class="foot"><div class="wrap">
+  <ul>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox">GitHub</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/tree/main/docs/manual">Manual</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
+    <li><a href="timeline.html">Timeline</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/LICENSE">MIT licence</a></li>
+    <li><a href="LICENSES/lucide.txt">Icon licence</a></li>
+  </ul>
+  <p>Requires Apple silicon and macOS 26 or later.</p>
+  <p>&copy; 2026 Johno Scott. Released under the MIT licence.</p>
+</div></footer>
 </body>
 </html>

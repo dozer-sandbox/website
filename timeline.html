@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Dozer Sandbox Timeline</title>
+<meta name="description" content="How Dozer Sandbox grew from a sleep-and-wake experiment into fast, suspendable Linux sandboxes for your Mac, in two weeks.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dozer Sandbox Timeline">
+<meta property="og:description" content="How Dozer Sandbox grew from a sleep-and-wake experiment into fast, suspendable Linux sandboxes for your Mac, in two weeks.">
+<meta property="og:image" content="https://dozersandbox.com/dozer-sleeping.jpg">
+<meta property="og:url" content="https://dozersandbox.com/timeline.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="tl">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="nav-in">
+  <a class="nav-name" href="./">Dozer Sandbox</a>
+  <nav aria-label="Site"><a href="./#speed">Speed</a><a href="./#security">Security</a><a href="./#dashboard">Dashboard</a><a href="./#uses">Use cases</a><a href="./#features">Features</a><a href="timeline.html" aria-current="page">Timeline</a></nav>
+  <a class="pill" href="./#install">Install</a>
+</div></header>
+<div class="hero">
+  <div class="wrap">
+    <h1>From one experiment to a product, <span>in two weeks.</span></h1>
+    <p class="lede">Dozer Sandbox gives every coding agent its own small Linux computer on your Mac — one that pauses in a millisecond, hibernates to disk and wakes with everything still running. This is how it was built.</p>
+    <ul class="stats">
+      <li><b>1 ms</b><span>to pause a sandbox</span></li>
+      <li><b>0.3 s</b><span>to wake from disk, programs still running</span></li>
+      <li><b>0</b><span>API keys inside a sandbox</span></li>
+      <li><b>100</b><span>sandboxes on one MacBook Air</span></li>
+    </ul>
+    <ul class="era-nav" aria-label="Eras">
+      <li><a href="#engine" style="--c: var(--e1)">The engine</a></li>
+      <li><a href="#cli" style="--c: var(--e2)">The command line</a></li>
+      <li><a href="#dashboard" style="--c: var(--e3)">The dashboard</a></li>
+      <li><a href="#agents" style="--c: var(--e4)">Agents &amp; credentials</a></li>
+      <li><a href="#workspace" style="--c: var(--e5)">Workspace &amp; sessions</a></li>
+      <li><a href="#public" style="--c: var(--e6)">Going public</a></li>
+    </ul>
+  </div>
+</div>
+<main class="wrap" id="main">
+  <div class="timeline">
+
+    <!-- ===================== Era I ===================== -->
+    <section class="era e1" id="engine" aria-labelledby="engine-h">
+      <div class="era-head">
+        <span class="era-mark" aria-hidden="true">I</span>
+        <div class="era-text">
+          <p class="era-kicker">Era I · 25–27 Sep 2026</p>
+          <h2 id="engine-h">The engine</h2>
+          <p class="blurb">Can a sandbox on your own Mac sleep like a laptop — and wake with its agent exactly where it was?</p>
+        </div>
+      </div>
+      <ol class="events">
+        <li class="event key">
+          <time class="when" datetime="2026-09-25">25 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">Prototype</p>
+            <h3>A Linux VM that sleeps like a laptop</h3>
+            <p>Driving Apple's Virtualization framework directly, a Linux VM paused in a millisecond, saved itself to disk and came back — even in a new process after a crash. A small session holder inside the VM keeps terminal screens alive through all of it.</p>
+            <p class="stat"><b>0.23 s</b> back from disk, every process intact</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-09-25">25 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.1.0</p>
+            <h3>The engine</h3>
+            <p>The whole lifecycle in one library: start from an instant APFS clone, pause, sleep, hibernate, wake, and restore after a crash. Terminals reattach in under 60 ms.</p>
+            <p class="stat"><b>0.3 s</b> from an image to a running Linux</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-09-25">25 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.2.0</p>
+            <h3>An agent in its own computer</h3>
+            <p>Claude Code and pi baked into ready-to-run VM images. Each sandbox is a copy-on-write clone with its own disk for the agent's state, and restore points let you revert, fork or save a sandbox as an image in milliseconds.</p>
+          </article>
+        </li>
+        <li class="event key">
+          <time class="when" datetime="2026-09-25">25 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.3.0</p>
+            <h3>No network card. Only a proxy.</h3>
+            <p>A sandbox has no network interface at all: every connection goes through a policy on your Mac, deny by default, and every one is logged. Your API keys never enter — the sandbox holds a placeholder that is swapped for the real key on the way out.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-09-26">26 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">Measured</p>
+            <h3>100 sandboxes on a MacBook Air</h3>
+            <p>Built in eight and a half minutes with zero errors. Wake time stays flat from one to twelve running sandboxes.</p>
+            <p class="stat"><b>~14,000</b> hibernated sandboxes would fit on its disk</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-09-26">26 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.4.0</p>
+            <h3>Hardened, and lighter</h3>
+            <p>Crash-safe disks, no leaks across hundreds of sleep cycles, safe parallel wakes — and a memory balloon that hands a woken sandbox's unused memory back to your Mac.</p>
+            <p class="stat"><b>−44 %</b> memory for a woken Claude Code sandbox</p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== Era II ===================== -->
+    <section class="era e2" id="cli" aria-labelledby="cli-h">
+      <div class="era-head">
+        <span class="era-mark" aria-hidden="true">II</span>
+        <div class="era-text">
+          <p class="era-kicker">Era II · 27–28 Sep 2026</p>
+          <h2 id="cli-h">The command line</h2>
+          <p class="blurb">One command, a host that looks after every VM, and your own Claude subscription.</p>
+        </div>
+      </div>
+      <ol class="events">
+        <li class="event key">
+          <time class="when" datetime="2026-09-27">27 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.5.0</p>
+            <h3><code>doz up</code></h3>
+            <p>One command creates, boots or wakes a sandbox and attaches your terminal. A per-user host owns every VM, starts only when it's needed and leaves when there's nothing to do.</p>
+            <p class="stat"><b>1 ms</b> pause · <b>0.3 s</b> wake, same processes and screens</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-09-27">27 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.6.0</p>
+            <h3>Your Claude subscription, no API key</h3>
+            <p>Sandboxes use this Mac's own Claude Code login. The token never enters the VM, and Dozer never touches the refresh token, so your Mac stays signed in.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-09-27">27 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.7.0</p>
+            <h3>Images that share their disk</h3>
+            <p>Every image is an APFS clone of its base, so preparing one is three times faster and each extra image costs a fraction of the space. A journal makes disks crash-safe; TRIM hands deleted space back.</p>
+            <p class="stat"><b>~255 MiB</b> saved per extra image</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-09-28">28 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.8.1</p>
+            <h3>Documentation</h3>
+            <p>A first-sandbox tutorial, the concepts, and a command reference that is checked against the real CLI on every build.</p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== Era III ===================== -->
+    <section class="era e3" id="dashboard" aria-labelledby="dashboard-h">
+      <div class="era-head">
+        <span class="era-mark" aria-hidden="true">III</span>
+        <div class="era-text">
+          <p class="era-kicker">Era III · 28 Sep – 2 Oct 2026</p>
+          <h2 id="dashboard-h">The dashboard</h2>
+          <p class="blurb">Everything in your browser — without opening a door into your Mac.</p>
+        </div>
+      </div>
+      <ol class="events">
+        <li class="event key">
+          <time class="when" datetime="2026-09-28">28 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.8.0</p>
+            <h3><code>doz ui</code></h3>
+            <p>A built-in dashboard, locked to your Mac: loopback only, a one-use sign-in link, strict origin checks, and every button exactly one typed operation the CLI also has.</p>
+          </article>
+        </li>
+        <li class="event key">
+          <time class="when" datetime="2026-09-29">29 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.9.0</p>
+            <h3>Terminals in the browser</h3>
+            <p>Real terminals, isolated in a sandboxed frame, with tabs, a split and a watch-only mode. A hibernated sandbox wakes on your first keystroke and shows the very same screen.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-09-30">30 Sep</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.11.0</p>
+            <h3>A page for every sandbox</h3>
+            <p>Each sandbox gets its own page with its terminals front and centre; All sessions shows every session at once. A sleeping sandbox shows its saved screen without being woken.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-01">1 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.12.0</p>
+            <h3>A first run done properly</h3>
+            <p><code>doz onboard</code> and a dashboard wizard check your Mac, set up your agent's account and prepare images up front. Sandboxes follow your Mac's time zone and tell the agent where it is running.</p>
+            <p class="stat"><b>~2 min</b> from a clean Mac to a prepared agent image</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-01">1 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.13.0</p>
+            <h3>Resources</h3>
+            <p>Every byte Dozer uses, including what clones share, and a way to give space back that previews exactly what goes before anything is deleted.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-02">2 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.14.0</p>
+            <h3>Install with Homebrew</h3>
+            <p>No clone, no build: <code>brew install</code>, and upgrades that never pull the program out from under a running sandbox.</p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== Era IV ===================== -->
+    <section class="era e4" id="agents" aria-labelledby="agents-h">
+      <div class="era-head">
+        <span class="era-mark" aria-hidden="true">IV</span>
+        <div class="era-text">
+          <p class="era-kicker">Era IV · 2 Oct 2026</p>
+          <h2 id="agents-h">Agents, bases &amp; credentials</h2>
+          <p class="blurb">What a sandbox is made of, what its agent may reach, and how it uses your accounts without ever holding them.</p>
+        </div>
+      </div>
+      <ol class="events">
+        <li class="event">
+          <time class="when" datetime="2026-10-02">2 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.15.0</p>
+            <h3>Any base, or your own Dockerfile</h3>
+            <p>Ten language bases from Node and Python to Rust and .NET, or build from your own Dockerfile — with your agent on top of any of them.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-02">2 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.16.0</p>
+            <h3>Permissions in plain words</h3>
+            <p>“Install Python packages”, “Update itself”, “Browse the web”: switches instead of firewall rules, with Locked, Standard and Open presets and a one-click fix when the agent is refused.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-02">2 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.17.0 – v0.18.0</p>
+            <h3>Bridges back to your Mac</h3>
+            <p>An agent's copy lands on your clipboard, a sign-in started in the sandbox opens in your Mac's browser and finds its way back, and HTML or Markdown files open in your Mac's apps. Plus a full user manual.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-02">2 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.19.0 – v0.22.0</p>
+            <h3>One click, or nine careful steps</h3>
+            <p>Quick add makes a sandbox with your defaults in one click. The New Sandbox wizard walks every choice and writes a <code>doz_project.yaml</code> your project keeps.</p>
+          </article>
+        </li>
+        <li class="event key">
+          <time class="when" datetime="2026-10-02">2 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.20.0 – v0.23.0</p>
+            <h3>GitHub as you, read-only by default</h3>
+            <p>git and <code>gh</code> use your Mac's GitHub login through the proxy; the token never enters the sandbox, and pushes are refused until you allow them. The tools your settings need appear by themselves.</p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== Era V ===================== -->
+    <section class="era e5" id="workspace" aria-labelledby="workspace-h">
+      <div class="era-head">
+        <span class="era-mark" aria-hidden="true">V</span>
+        <div class="era-text">
+          <p class="era-kicker">Era V · 5–8 Oct 2026</p>
+          <h2 id="workspace-h">Workspace &amp; sessions</h2>
+          <p class="blurb">Finer control over your files, a second first-class agent, the dashboard on your other devices, and sessions that never lose their place.</p>
+        </div>
+      </div>
+      <ol class="events">
+        <li class="event">
+          <time class="when" datetime="2026-10-05">5 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.24.0</p>
+            <h3><code>.dozignore</code> and <code>.dozreadonly</code></h3>
+            <p>Keep an agent out of parts of your project — with Docker's exact pattern rules and without moving a file — or let it read but not change them.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-06">6 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.25.0</p>
+            <h3>A calmer dashboard</h3>
+            <p>A style guide first, then every page restyled: one primary action per view, readable in light and dark, keyboard-friendly throughout.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-06">6 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.26.0</p>
+            <h3>Sound, as an experiment</h3>
+            <p>Your Mac's microphone and speakers inside a sandbox. An experiment for now, held back for a later version.</p>
+          </article>
+        </li>
+        <li class="event key">
+          <time class="when" datetime="2026-10-07">7 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.27.0</p>
+            <h3>Codex, first-class</h3>
+            <p>OpenAI's Codex runs like Claude Code: on any base, without approval prompts, signed in with your Mac's Codex login or an API key — and the token never enters the sandbox.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-07">7 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.28.0</p>
+            <h3>Install the dashboard</h3>
+            <p>Add it to your Dock as an app. It stays signed in, rides out restarts calmly and reattaches your terminals by itself.</p>
+          </article>
+        </li>
+        <li class="event key">
+          <time class="when" datetime="2026-10-07">7 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.29.0</p>
+            <h3><code>doz serve</code></h3>
+            <p>Your dashboard on your other computers, tablets and phones. Admit a browser with a QR code or an eight-character code and revoke it any time; sandboxes can never reach it.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-08">8 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.30.0</p>
+            <h3>Sessions survive every wake</h3>
+            <p>Programs keep their working folder through every hibernation and host restart, and Restart session brings an agent back mid-conversation.</p>
+          </article>
+        </li>
+        <li class="event">
+          <time class="when" datetime="2026-10-08">8 Oct</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.30.1 – v0.30.2</p>
+            <h3>Steadier terminals</h3>
+            <p>Full-screen agents draw cleanly in the browser, and a session opened while a sandbox is still preparing simply waits for it.</p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== Era VI ===================== -->
+    <section class="era e6" id="public" aria-labelledby="public-h">
+      <div class="era-head">
+        <span class="era-mark" aria-hidden="true">VI</span>
+        <div class="era-text">
+          <p class="era-kicker">Era VI · October 2026</p>
+          <h2 id="public-h">Going public</h2>
+          <p class="blurb">The first public release.</p>
+        </div>
+      </div>
+      <ol class="events">
+        <li class="event key next">
+          <time class="when" datetime="2026-10">Coming</time><span class="dot" aria-hidden="true"></span>
+          <article class="card">
+            <p class="ver">v0.31.0</p>
+            <h3>Dozer Sandbox, for everyone</h3>
+            <p>Signed and notarised, with a signed update feed and three channels — stable, beta and canary. Dozer tells you when there's a new release, or updates itself if you ask it to.</p>
+            <p class="stat"><code>brew install dozer-sandbox/tap/doz</code></p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+  </div>
+</main>
+<footer class="foot"><div class="wrap">
+  <ul>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox">GitHub</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/tree/main/docs/manual">Manual</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
+    <li><a href="timeline.html">Timeline</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/LICENSE">MIT licence</a></li>
+    <li><a href="LICENSES/lucide.txt">Icon licence</a></li>
+  </ul>
+  <p>Requires Apple silicon and macOS 26 or later.</p>
+  <p>&copy; 2026 Johno Scott. Released under the MIT licence.</p>
+</div></footer>
+</body>
+</html>
