@@ -4,15 +4,71 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Dozer Sandbox: sleeps like a laptop, wakes in 0.3 s</title>
-<meta name="description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac. Start in about 0.3 s, pause in 1 ms, hibernate to disk and wake with every program still running.">
+<title>Dozer Sandbox — fast, resumable, secure Linux sandboxes for AI coding agents on your Mac</title>
+<meta name="description" content="Run Claude Code, Codex or pi in a secure Linux VM on your Mac. Your API keys never enter the sandbox, every connection follows your policy, and it pauses in 1 ms and wakes in 0.3 s.">
+<link rel="canonical" href="https://dozersandbox.com/">
+<meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dozer Sandbox: sleeps like a laptop, wakes in 0.3 s">
-<meta property="og:description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac. Start in about 0.3 s, pause in 1 ms, hibernate to disk and wake with every program still running.">
-<meta property="og:image" content="https://dozersandbox.com/dozer-sleeping.jpg">
+<meta property="og:site_name" content="Dozer Sandbox">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Dozer Sandbox — fast, resumable, secure Linux sandboxes for AI coding agents on your Mac">
+<meta property="og:description" content="Run Claude Code, Codex or pi in a secure Linux VM on your Mac. Your API keys never enter the sandbox, every connection follows your policy, and it pauses in 1 ms and wakes in 0.3 s.">
 <meta property="og:url" content="https://dozersandbox.com/">
+<meta property="og:image" content="https://dozersandbox.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Dozer Sandbox sleeping bulldozer, with the name and the line: Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dozer Sandbox — fast, resumable, secure Linux sandboxes for AI coding agents on your Mac">
+<meta name="twitter:description" content="Run Claude Code, Codex or pi in a secure Linux VM on your Mac. Your API keys never enter the sandbox, every connection follows your policy, and it pauses in 1 ms and wakes in 0.3 s.">
+<meta name="twitter:image" content="https://dozersandbox.com/og-image.png">
+<meta name="twitter:image:alt" content="The Dozer Sandbox sleeping bulldozer, with the name and the line: Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Dozer Sandbox",
+    "alternateName": "doz",
+    "description": "Run Claude Code, Codex or pi in a secure Linux VM on your Mac. Your API keys never enter the sandbox, every connection follows your policy, and it pauses in 1 ms and wakes in 0.3 s.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS 26 or later (Apple silicon)",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "softwareVersion": "0.31.1",
+    "url": "https://dozersandbox.com/",
+    "downloadUrl": "https://github.com/dozer-sandbox/dozer-sandbox/releases",
+    "installUrl": "https://github.com/dozer-sandbox/dozer-sandbox/releases",
+    "license": "https://opensource.org/licenses/MIT",
+    "codeRepository": "https://github.com/dozer-sandbox/dozer-sandbox",
+    "sameAs": [
+      "https://github.com/dozer-sandbox/dozer-sandbox"
+    ],
+    "image": "https://dozersandbox.com/og-image.png",
+    "author": {
+      "@type": "Organization",
+      "name": "Dozer Sandbox",
+      "url": "https://dozersandbox.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Dozer Sandbox",
+      "url": "https://dozersandbox.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Dozer Sandbox",
+    "url": "https://dozersandbox.com/"
+  }
+]
+</script>
 <script defer src="site.js"></script>
 </head>
 <body class="home">
@@ -29,7 +85,7 @@
 <section class="sec light intro" id="top"><div class="wrap">
   <p class="eyebrow reveal">Dozer Sandbox</p>
   <h1 class="reveal">Sleeps like a laptop.<br>Wakes in 0.3&nbsp;s.</h1>
-  <p class="lede reveal">Fast, suspendable Linux sandboxes for coding agents on your Mac.</p>
+  <p class="lede reveal">Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac — your API keys never go inside.</p>
   <p class="alpha reveal"><span class="alpha-tag">Alpha</span><span class="alpha-ver">Stable <span id="stable-version">v0.31.1</span></span><a class="alpha-link" href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Version history &rarr;</a></p>
   <div class="oneline"><pre><code id="oneliner">brew trust --tap dozer-sandbox/tap &amp;&amp; brew install dozer-sandbox/tap/doz &amp;&amp; doz ui</code></pre></div>
   <p class="req">Apple silicon Mac &middot; macOS 26 or later &middot; <a href="https://brew.sh">Homebrew</a></p>
