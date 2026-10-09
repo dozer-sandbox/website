@@ -381,3 +381,27 @@ html { scroll-behavior: smooth; }
 /* Docs in the header on phones (the text links are hidden below 860 px). */
 .nav-docs { display: none; color: #000; font-size: 14px; font-weight: 600; text-decoration: none; }
 @media (max-width: 860px) { .nav-docs { display: inline; } }
+
+/* ---------- web UI carousel ---------- */
+.tour .sub { margin-bottom: 36px; }
+.carousel { position: relative; max-width: 1000px; margin: 0 auto; text-align: left; }
+.car-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 2px; padding: 4px 4px 14px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #000 transparent; }
+.car-track:focus-visible { outline: 3px solid #000; outline-offset: 3px; border-radius: 6px; }
+.slide { flex: 0 0 80%; margin: 0; scroll-snap-align: start; }
+.frame { border: 1px solid #000; border-radius: 14px; overflow: hidden; box-shadow: 0 3px 0 #000; background: #fff; line-height: 0; }
+.frame img { display: block; width: 100%; height: auto; }
+.slide figcaption { margin-top: 18px; padding-right: 8px; display: flex; flex-direction: column; gap: 4px; }
+.slide figcaption b { font-size: 21px; letter-spacing: -.02em; line-height: 1.2; }
+.slide figcaption span { color: var(--ink-2); font-size: 16px; line-height: 1.4; }
+.car-ui { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px; }
+.car-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #000; background: #fff; color: #000; cursor: pointer; display: grid; place-items: center; padding: 0; }
+.car-btn:hover:not(:disabled) { background: var(--accent); }
+.car-btn:disabled { opacity: .3; cursor: default; }
+.car-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.car-dots { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.car-dot { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 1px solid #000; background: #fff; cursor: pointer; }
+.car-dot[aria-current="true"] { background: #000; }
+.car-count { font-size: 13px; color: var(--ink-2); min-width: 3.5em; text-align: center; font-variant-numeric: tabular-nums; }
+@media (max-width: 700px) { .slide { flex-basis: 88%; } .slide figcaption b { font-size: 18px; } .car-dots { display: none; } .car-ui { gap: 14px; } }
+.car-track { scroll-behavior: smooth; }
+
