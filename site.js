@@ -102,5 +102,30 @@
     });
     wrap.appendChild(b);
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { build(); copyButton(); }); else { build(); copyButton(); }
+  // The latest STABLE version, from our own update feed. The HTML carries the current value as the fallback.
+  function stableVersion() {
+    var el = document.getElementById('stable-version');
+    if (!el || !window.fetch) return;
+    function parse(v) {
+      var m = /^(\d+)\.(\d+)\.(\d+)(?:-(.+))?$/.exec(v || '');
+      return m ? { n: [+m[1], +m[2], +m[3]], pre: m[4] || '' } : null;
+    }
+    function newer(a, b) {
+      for (var i = 0; i < 3; i++) if (a.n[i] !== b.n[i]) return a.n[i] > b.n[i];
+      return !a.pre && !!b.pre;
+    }
+    fetch('https://updates.dozersandbox.com/v1/feed.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (feed) {
+        var best = null;
+        (feed.entries || []).forEach(function (e) {
+          if (e.channel !== 'stable') return;
+          var p = parse(e.version);
+          if (p && (!best || newer(p, best.p))) best = { p: p, v: e.version };
+        });
+        if (best) el.textContent = 'v' + best.v;
+      })
+      .catch(function () {});
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { build(); copyButton(); stableVersion(); }); else { build(); copyButton(); stableVersion(); }
 })();
