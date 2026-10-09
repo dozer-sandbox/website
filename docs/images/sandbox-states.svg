@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 420" width="850" height="420" role="img" aria-labelledby="t">
+<title id="t">The states of a sandbox. doz create makes it, off. doz start boots it: booting, then running (or failed; doz start tries again). From running: doz pause and doz resume (paused: frozen, memory kept, back in about 1 ms); doz sleep and doz wake (asleep: frozen and saved to disk, memory kept, back in about 0.3 s); doz hibernate and doz wake (hibernated: saved to disk, memory given back, back in about 0.3 s); doz shutdown or doz reset (a fresh disk) back to off (powered off, disks kept, programs ended). doz rm removes it.</title>
+<desc>stateDiagram-v2
+    direction LR
+    [*] --&gt; off: doz create
+    off --&gt; booting: doz start
+    booting --&gt; running
+    booting --&gt; failed
+    failed --&gt; booting: doz start
+    running --&gt; paused: doz pause
+    paused --&gt; running: doz resume
+    running --&gt; asleep: doz sleep
+    asleep --&gt; running: doz wake
+    running --&gt; hibernated: doz hibernate
+    hibernated --&gt; running: doz wake
+    running --&gt; off: doz shutdown
+    running --&gt; off: doz reset (a fresh disk)
+    off --&gt; [*]: doz rm
+
+    note right of paused: frozen · memory kept · back in ~1 ms
+    note right of asleep: frozen and saved to disk · memory kept · back in ~0.3 s
+    note right of hibernated: saved to disk · memory given back · back in ~0.3 s
+    note left of off: powered off · disks kept · programs ended</desc>
+<!-- Drawn by tools/docs-diagrams/sandbox-states.py from the Mermaid state diagram in docs/manual/05-sandboxes-and-lifecycle.md
+     (the <desc> above is that source, verbatim: tools/docs-build.py fails when the manual's diagram changes). -->
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker></defs>
+<style>
+.n { font: 700 17px -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif; text-anchor: middle; fill: #000; letter-spacing: -.01em; }
+.t { font: 13.5px -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif; text-anchor: middle; fill: #2b2b2d; }
+.c { font: 600 13.5px ui-monospace, 'SF Mono', Menlo, Consolas, monospace; fill: #000; }
+</style>
+<rect width="850" height="420" fill="#fff"/>
+<path d="M430,60 H82 Q70,60 70,72 V170" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="250" y="51" class="c" text-anchor="middle">doz reset (a fresh disk)</text>
+<path d="M430,120 H132 Q120,120 120,132 V170" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="275" y="111" class="c" text-anchor="middle">doz shutdown</text>
+<rect x="20" y="176" width="150" height="96" rx="12" fill="#000"/>
+<rect x="20" y="172" width="150" height="96" rx="12" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="95" y="197" class="n">off</text>
+<line x1="34" y1="208" x2="156" y2="208" stroke="#000" stroke-opacity=".22"/>
+<text x="95" y="228" class="t">powered off</text>
+<text x="95" y="245" class="t">disks kept</text>
+<text x="95" y="262" class="t">programs ended</text>
+<rect x="260" y="204" width="100" height="40" rx="12" fill="#000"/>
+<rect x="260" y="200" width="100" height="40" rx="12" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="310" y="225.5" class="n">booting</text>
+<rect x="260" y="324" width="100" height="40" rx="12" fill="#000"/>
+<rect x="260" y="320" width="100" height="40" rx="12" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="310" y="345.5" class="n">failed</text>
+<rect x="430" y="34" width="100" height="380" rx="12" fill="#000"/>
+<rect x="430" y="30" width="100" height="380" rx="12" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="480" y="225.5" class="n">running</text>
+<circle cx="45" cy="372" r="9" fill="#000"/>
+<path d="M45,362 V272" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="53" y="322" class="c" text-anchor="start">doz create</text>
+<path d="M150,268 V356" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="158" y="316" class="c" text-anchor="start">doz rm</text>
+<circle cx="150" cy="372" r="11" fill="#fff" stroke="#000" stroke-width="1.5"/><circle cx="150" cy="372" r="6" fill="#000"/>
+<path d="M170,220 H256" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="215" y="211" class="c" text-anchor="middle">doz start</text>
+<path d="M360,220 H426" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M295,240 V316" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M325,320 V244" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="333" y="286" class="c" text-anchor="start">doz start</text>
+<path d="M530,66 H646" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="590" y="59" class="c" text-anchor="middle">doz pause</text>
+<path d="M650,90 H534" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="590" y="108" class="c" text-anchor="middle">doz resume</text>
+<rect x="650" y="34" width="190" height="96" rx="12" fill="#000"/>
+<rect x="650" y="30" width="190" height="96" rx="12" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="745" y="55" class="n">paused</text>
+<line x1="664" y1="66" x2="826" y2="66" stroke="#000" stroke-opacity=".22"/>
+<text x="745" y="86" class="t">frozen</text>
+<text x="745" y="103" class="t">memory kept</text>
+<text x="745" y="120" class="t">back in ~1 ms</text>
+<path d="M530,208 H646" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="590" y="201" class="c" text-anchor="middle">doz sleep</text>
+<path d="M650,232 H534" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="590" y="250" class="c" text-anchor="middle">doz wake</text>
+<rect x="650" y="176" width="190" height="96" rx="12" fill="#000"/>
+<rect x="650" y="172" width="190" height="96" rx="12" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="745" y="197" class="n">asleep</text>
+<line x1="664" y1="208" x2="826" y2="208" stroke="#000" stroke-opacity=".22"/>
+<text x="745" y="228" class="t">frozen and saved to disk</text>
+<text x="745" y="245" class="t">memory kept</text>
+<text x="745" y="262" class="t">back in ~0.3 s</text>
+<path d="M530,350 H646" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="590" y="343" class="c" text-anchor="middle">doz hibernate</text>
+<path d="M650,374 H534" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="590" y="392" class="c" text-anchor="middle">doz wake</text>
+<rect x="650" y="318" width="190" height="96" rx="12" fill="#000"/>
+<rect x="650" y="314" width="190" height="96" rx="12" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="745" y="339" class="n">hibernated</text>
+<line x1="664" y1="350" x2="826" y2="350" stroke="#000" stroke-opacity=".22"/>
+<text x="745" y="370" class="t">saved to disk</text>
+<text x="745" y="387" class="t">memory given back</text>
+<text x="745" y="404" class="t">back in ~0.3 s</text>
+</svg>

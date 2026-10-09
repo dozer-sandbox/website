@@ -162,3 +162,19 @@ kbd { font: 600 .85em var(--mono); background: #fff; color: #000; border: 1px so
 .tablewrap.wide td:last-child, .tablewrap.wide th:last-child { min-width: 22em; white-space: normal; }
 .prose blockquote.callout.warn { margin: 1.4em 0; }
 .prose ul.pager, .prose ul.chlist, .prose ul.swatches { padding-left: 0; } .prose .pager li, .prose .chlist li { margin: 0; padding: 0; }
+
+/* ---------- a drawn diagram (chapter 5's states): scrolls inside its frame on phones; its source under it ---------- */
+.shot.diagram .frame { overflow-x: auto; }
+.shot.diagram .frame:focus-visible { outline: 3px solid #000; outline-offset: 3px; }
+@media (max-width: 600px) { .shot.diagram img { width: 640px; max-width: none; } }
+.diagram-text { margin-top: 14px; }
+.diagram-text > summary { display: inline-block; cursor: pointer; font-size: 14px; font-weight: 600; border: 1px solid #000; border-radius: 980px; padding: 3px 12px; background: #fff; }
+.diagram-text > summary:hover { background: var(--accent); }
+.diagram-text > .code { margin-top: 12px; }
+
+/* wide tables (the settings reference): room for the description, and long values in the middle columns wrap
+   (a path default would otherwise take the description's width and make every row tall) */
+.tablewrap.wide table { min-width: 1200px; }
+.tablewrap.wide td:last-child, .tablewrap.wide th:last-child { min-width: 30em; }
+.tablewrap.wide td:not(:first-child):not(:last-child) code { white-space: normal; overflow-wrap: anywhere; }
+.tablewrap.wide td:not(:first-child):not(:last-child) { max-width: 14em; }

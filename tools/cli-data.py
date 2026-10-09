@@ -9,7 +9,8 @@ import glob, json, os, re, subprocess, sys
 
 app = os.path.abspath(sys.argv[1])
 doz = sys.argv[2] if len(sys.argv) > 2 else os.path.join(app, '.build/debug/doz')
-MANUAL = 'https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/'
+MANUAL = 'https://dozersandbox.com/docs/'   # the manual's pages on the site (tools/docs-build.py): NN-slug.md -> slug.html
+page_url = lambda md: MANUAL + re.sub(r'^\d+-', '', md)[:-3] + '.html'
 names = [l.strip().replace('/', ' ') for l in open(os.path.join(app, 'Scripts/docs-known-commands.txt'))
          if l.strip() and not l.startswith('#')]
 pages = sorted(glob.glob(os.path.join(app, 'docs/manual/[0-9]*.md')))
@@ -45,7 +46,7 @@ HOME = {
 def manual(cmd):
     home = HOME.get(cmd.split()[0])
     if home and os.path.exists(os.path.join(app, 'docs/manual', home)):
-        return MANUAL + home
+        return page_url(home)
     """The page that shows the command MOST (its home page, not the getting-started tour); the earlier page on a tie."""
     pat = re.compile(r'doz %s(?![\w-])' % re.escape(cmd))
     # The two pages of example scripts for agents show many commands in passing — a command's home is elsewhere
@@ -54,7 +55,7 @@ def manual(cmd):
     counts = [(os.path.basename(p) not in examples and len(pat.findall(texts[p])) > 0, len(pat.findall(texts[p])), -i, p)
               for i, p in enumerate(pages)]
     best = max(counts)
-    return MANUAL + os.path.basename(best[3]) if best[1] else MANUAL
+    return page_url(os.path.basename(best[3])) if best[1] else MANUAL
 
 
 data = [{'cmd': 'doz ' + n, 'desc': describe(n), 'manual': manual(n)} for n in names]

@@ -2,4 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://dozersandbox.com/</loc><lastmod>2026-10-09</lastmod></url>
   <url><loc>https://dozersandbox.com/timeline.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/getting-started.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/install-upgrade-uninstall.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/setting-up.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/projects.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/sandboxes-and-lifecycle.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/the-dashboard.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/terminals-and-sessions.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/images-and-bases.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/agents-and-accounts.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/permissions-and-network.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/signing-in-from-a-sandbox.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/restore-points-duplicates-templates.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/resources-and-disk-space.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/letting-another-agent-drive.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/settings-reference.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/security-model.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/troubleshooting-and-faq.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/github.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/the-tools-layer.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/workspace-rules.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/the-workspace-view.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/prompts-for-your-agent.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/audio-experimental.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/codex.html</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://dozersandbox.com/docs/doz-serve.html</loc><lastmod>2026-10-09</lastmod></url>
 </urlset>
