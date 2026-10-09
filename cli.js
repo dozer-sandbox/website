@@ -1,5 +1,5 @@
-/* The CLI section's terminal: the commands roll fast; hovering the terminal stops them at once, leaving it waits 2 s
-   and then slowly accelerates back. Hovering (or focusing) a command shows what it does and a link to its manual page.
+/* The CLI section's terminal: the commands roll fast; hovering the terminal stops them at once (and the mouse wheel
+   scrolls them), leaving it waits 2 s and then slowly accelerates back. Hovering (or focusing) a command shows what it does and a link to its manual page.
    Without this file the roll is the plain CSS animation. */
 (function () {
   'use strict';
@@ -42,6 +42,22 @@
     tip.style.top = (below + h < s.height ? below : Math.max(4, r.top - s.top - h - 6)) + 'px';
   }
   function hide() { tip.hidden = true; if (current) current.classList.remove('on'); current = null; }
+
+  // The mouse wheel (or a trackpad) scrolls the list while the pointer is inside — the page itself stays put.
+  // The list wraps around in both directions; the description box closes (its command moved).
+  function wrap() {
+    var half = roll.scrollHeight / 2;
+    if (half > 0) { while (-y >= half) y += half; while (y > 0) y -= half; }
+    roll.style.transform = 'translateY(' + y + 'px)';
+  }
+  term.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    hovering = true;
+    var lines = e.deltaMode === 1 ? 26 : e.deltaMode === 2 ? screen.clientHeight : 1;
+    y -= e.deltaY * lines;
+    wrap();
+    hide();
+  }, { passive: false });
 
   term.addEventListener('mouseenter', function () { hovering = true; });
   term.addEventListener('mouseleave', function () { hovering = false; leftAt = performance.now(); hide(); });
