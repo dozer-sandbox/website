@@ -1,0 +1,14 @@
+# The hero's headlines, in the order the page shows them. One per line; " / " splits it into its two lines.
+# The FIRST is the primary: tools/stamp.sh writes it into index.html (what search engines and no-JS visitors see).
+# The page shows each for 5 seconds, then the next. Lines starting with # are notes. Run tools/stamp.sh after editing.
+Suspend AI agents / Wake in 0.3s
+Let your agent loose. / Safely.
+Full speed for your agent. / No keys to lose.
+Give your agent a computer. / Not your computer.
+Your agent runs wild. / Your Mac stays yours.
+Your agent's own Linux. / None of your keys.
+It can use your keys. / It never sees them.
+Put your agent to sleep. / It wakes mid-thought.
+Pause the agent. / Not the work.
+A sandbox / that sleeps.
+Locked down. / Never shut down.

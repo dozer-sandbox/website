@@ -1,5 +1,6 @@
-/* Accent colour picker. Optional: delete this file and its <script> tag to remove it
-   (and the ".accent-picker" block in site.css). Without it the page keeps its default accent. */
+/* Accent colour picker — shown ONLY when the site is opened locally (localhost, 127.0.0.1, a file); the public site
+   is always the default yellow (owner, 2026-10-09: "use the yellow … and hide the colour picker unless hosted
+   locally"). Also here: the Copy button and the stable version, which run everywhere. */
 (function () {
   'use strict';
   var KEY = 'dozer-accent';
@@ -8,6 +9,7 @@
     ['c9f23c', 'lime'], ['7fe3b5', 'mint'], ['6ec6ff', 'sky blue'], ['c4a8ff', 'lavender']
   ];
   var root = document.documentElement;
+  var LOCAL = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\]|::1)$/.test(location.hostname);
 
   function clean(v) {
     if (!v) return null;
@@ -36,7 +38,7 @@
 
   var fromUrl = clean(new URLSearchParams(location.search).get('accent')) ||
                 clean((location.hash.match(/accent=([0-9a-fA-F#]+)/) || [])[1]);
-  var saved = fromUrl || clean(read(function () { return localStorage.getItem(KEY); }));
+  var saved = LOCAL ? fromUrl || clean(read(function () { return localStorage.getItem(KEY); })) : null;
   if (saved) apply(saved);
 
   function remember(hex) {
@@ -49,6 +51,7 @@
   }
 
   function build() {
+    if (!LOCAL) return;
     var box = document.createElement('div');
     box.className = 'accent-picker';
     box.setAttribute('role', 'group');

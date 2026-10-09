@@ -68,17 +68,17 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .fine { font-size: 13px; color: var(--ink-2); margin: 28px 0 0; }
 
 /* ---------- big numbers ---------- */
-.nums h2 { max-width: 14em; margin-left: auto; margin-right: auto; }
+.nums h2 { max-width: 20em; margin-left: auto; margin-right: auto; }
 .bignums { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid #000; }
 .bignums li { padding: 40px 16px 16px; border-right: 1px solid var(--hair); }
 .bignums li:last-child { border-right: 0; }
 .bignums b { display: block; white-space: nowrap; font-size: clamp(40px, 5.2vw, 76px); font-weight: 700; letter-spacing: -.04em; line-height: 1; background: linear-gradient(transparent 62%, var(--accent) 62% 94%, transparent 94%); display: inline-block; padding: 0 .06em; }
 .bignums small { font-size: .42em; font-weight: 700; letter-spacing: -.01em; }
 .bignums span { display: block; margin-top: 14px; font-size: 15px; color: var(--ink-2); line-height: 1.35; }
+.bignums .verb { display: block; font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; color: #000; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 4px; }
 @media (max-width: 860px) { .bignums { grid-template-columns: repeat(2, 1fr); } .bignums li { border-bottom: 1px solid var(--hair); } .bignums li:nth-child(2n) { border-right: 0; } }
 
  /* ---------- comparison ---------- */
-.compare { border-top: 1px solid #000; }
 .compare .sub { margin-bottom: 40px; }
 .sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .cmpwrap { overflow-x: auto; border: 1px solid #000; border-radius: 18px; background: #fff; text-align: left; margin: 0 auto 8px; max-width: 1000px; }
@@ -175,14 +175,13 @@ pre code { font-size: inherit; }
 .foot a { color: #000; }
 .foot p { margin: 0 0 6px; color: var(--ink-2); }
 
-/* ---------- motion: CSS only, degrades to static ---------- */
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
-    @keyframes rise { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: none; } }
-  }
-  html { scroll-behavior: smooth; }
+/* ---------- motion: CSS only, degrades to static. Shown to everyone, whatever the system's reduced-motion
+   setting (owner, 2026-10-09: "ignore the setting (for all)"). ---------- */
+@supports (animation-timeline: view()) {
+  .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+  @keyframes rise { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: none; } }
 }
+html { scroll-behavior: smooth; }
 
 /* ---------- colour picker (site.js). Remove with site.js: delete this block. ---------- */
 .accent-picker { position: fixed; right: 16px; bottom: 16px; z-index: 60; display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #000; border-radius: 980px; padding: 6px 8px; box-shadow: 0 2px 0 #000; max-width: calc(100vw - 32px); }
@@ -329,11 +328,26 @@ pre code { font-size: inherit; }
   .card { margin-left: 8px; padding: 12px 14px 14px; }
   .card h3 { font-size: 17px; }
 }
-@media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
-}
 
 
 /* timeline hero band (after the structural rules so it wins) */
 .tl .hero { padding-top: 56px; padding-bottom: 40px; }
 @media (max-width: 720px) { .tl .hero { padding-top: 32px; padding-bottom: 28px; } }
+
+/* Cycling hero headlines (headlines.js): crash down from the top, stay, wind up to the right, fling off to the left. */
+.intro { overflow-x: clip; }
+#headline { min-height: 2.08em; transform-origin: 50% 100%; }
+#headline.hl-in  { animation: hl-crash 760ms both; }
+#headline.hl-out { animation: hl-fling 640ms both; }
+@keyframes hl-crash {
+  0%   { transform: translateY(-110vh); animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  60%  { transform: translateY(0) scale(1, 1); animation-timing-function: ease-out; }
+  70%  { transform: translateY(0) scale(1.07, .84); animation-timing-function: ease-out; }
+  84%  { transform: translateY(-12px) scale(.98, 1.04); animation-timing-function: ease-in-out; }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+@keyframes hl-fling {
+  0%   { transform: translateX(0); animation-timing-function: ease-out; }
+  38%  { transform: translateX(40px) scaleX(.95); animation-timing-function: cubic-bezier(.6, 0, 1, .4); }
+  100% { transform: translateX(-130vw) skewX(14deg) scaleX(1.25); }
+}
