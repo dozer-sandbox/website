@@ -3,61 +3,123 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dozer Sandbox</title>
-<link rel="icon" href="dozer-sleeping.jpg">
+<meta name="color-scheme" content="light dark">
+<title>Dozer Sandbox: fast, suspendable Linux sandboxes for your Mac</title>
+<meta name="description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac. Start in about 0.3 s, pause in 1 ms, hibernate to disk and wake with every program still running.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dozer Sandbox: fast, suspendable Linux sandboxes for your Mac">
+<meta property="og:description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac. Start in about 0.3 s, pause in 1 ms, hibernate to disk and wake with every program still running.">
 <meta property="og:image" content="https://dozersandbox.com/dozer-sleeping.jpg">
-<meta name="description" content="Fast, suspendable Linux sandboxes for coding agents on your Mac.">
-<style>
-:root{--bg:#fbfaf7;--fg:#1c1b19;--muted:#6b675f;--line:#e4e0d8;--code:#f1eee8;--accent:#b4531f}
-@media (prefers-color-scheme:dark){:root{--bg:#161513;--fg:#ece9e3;--muted:#a19c92;--line:#2e2b27;--code:#211f1c;--accent:#e98a4f}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif}
-main{max-width:680px;margin:0 auto;padding:48px 16px 48px}
-.hero{display:block;width:min(260px,62vw);height:auto;margin:0 auto 28px;mix-blend-mode:multiply}
-@media (prefers-color-scheme:dark){.hero{filter:invert(1);mix-blend-mode:screen;opacity:.9}}
-header{text-align:center}
-h1{font-size:2.25rem;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
-.lede{font-size:1.15rem;color:var(--muted);margin:0 0 32px}
-h2{font-size:1rem;margin:36px 0 8px}
-pre{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:14px 16px;overflow-x:auto;font:14px/1.6 ui-monospace,"SF Mono",Menlo,monospace}
-code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.9em}
-ul{padding-left:20px}
-a{color:var(--accent)}
-footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-</style>
+<meta property="og:url" content="https://dozersandbox.com/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<main>
-<header>
-<img class="hero" src="dozer-sleeping.jpg" width="720" height="720" alt="A small bulldozer asleep in a sandbox">
-<h1>Dozer Sandbox</h1>
-</header>
-<p class="lede">Fast, suspendable Linux sandboxes for coding agents on your Mac. Each project gets its own small
-virtual machine that starts in about a third of a second, pauses in a millisecond, hibernates to disk and wakes
-with every program still running.</p>
-
-<ul>
-<li>Run Claude Code, Codex or pi with permission prompts off. The VM is the boundary.</li>
-<li>Every connection goes through a policy you can read. Your keys stay on your Mac.</li>
-<li>Your project folder is <code>/workspace</code> inside. <code>.dozignore</code> keeps an agent out of secrets.</li>
-<li>A dashboard in your browser for sandboxes, terminals, restore points and settings.</li>
-</ul>
-
-<h2>Install</h2>
-<p>An Apple silicon Mac with macOS 26 or later, and <a href="https://brew.sh">Homebrew</a>:</p>
-<pre>brew trust --tap dozer-sandbox/tap
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap">
+  <a class="name" href="./">Dozer Sandbox</a>
+  <nav aria-label="Site">
+    <a href="./#why">Why</a>
+    <a href="./#install">Install</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="https://github.com/dozer-sandbox/dozer-sandbox/tree/main/docs/manual">Manual</a>
+    <a href="https://github.com/dozer-sandbox/dozer-sandbox">GitHub</a>
+  </nav>
+</div></div>
+<main id="main">
+<section class="home-hero"><div class="wrap narrow">
+  <img class="dozer" src="dozer-sleeping.jpg" width="720" height="720" alt="Line drawing of a bulldozer asleep, with Zs rising">
+  <h1>Dozer Sandbox</h1>
+  <p class="lede">Fast, suspendable Linux sandboxes for coding agents on your Mac.</p>
+  <pre class="hero-install"><code>brew trust --tap dozer-sandbox/tap
 brew install dozer-sandbox/tap/doz
-doz ui</pre>
-<p>The dashboard opens on its setup wizard. Prefer the terminal? Run <code>doz onboard</code>, then <code>doz up</code> in a project folder.</p>
+doz ui</code></pre>
+  <div class="cta"><a class="btn" href="#install">Install</a><a class="btn alt" href="timeline.html">Read the timeline</a></div>
+</div></section>
 
-<h2>Read more</h2>
-<ul>
-<li><a href="https://github.com/dozer-sandbox/dozer-sandbox">Source code and README</a></li>
-<li><a href="https://github.com/dozer-sandbox/dozer-sandbox/tree/main/docs/manual">The manual</a></li>
-<li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
-</ul>
+<section class="home-section" id="what"><div class="wrap narrow">
+  <p>Each sandbox is a small Linux virtual machine with your project folder inside it. It starts in about a third of a second, pauses in a millisecond, and hibernates to disk to give its memory back, then wakes with every program still running where it was. Run a coding agent (Claude Code, Codex or pi) with its permission prompts off: the VM is the boundary, the network goes through a policy you can read, and your keys never enter the sandbox.</p>
+</div></section>
 
-<footer>A full website is on its way. Signed and notarised · open source.</footer>
+<section class="home-section" id="why"><div class="wrap narrow">
+  <h2>Why Dozer</h2>
+  <ul class="features">
+    <li><strong>The VM is the boundary</strong><span>Each sandbox is its own Linux VM on Apple's Virtualization framework. Root inside it is still only root inside a virtual machine.</span></li>
+    <li><strong>Keys never enter the sandbox</strong><span>The proxy swaps credentials in. The sandbox only ever sees a placeholder.</span></li>
+    <li><strong>A policy you can read</strong><span>The network is proxied by default, with no network card in the VM. Every connection is judged by permissions you can read and change with <code>doz net permissions</code>.</span></li>
+    <li><strong>Your project at /workspace</strong><span>A folder on your Mac, shared into the sandbox. <code>.dozignore</code> and <code>.dozreadonly</code> keep files out of reach or read-only.</span></li>
+    <li><strong>Sleeps like a laptop</strong><span>Pause, hibernate and wake, with programs, sessions and terminal screens as they were.</span></li>
+    <li><strong>A dashboard</strong><span><code>doz ui</code> opens it, it can be installed as an app, and <code>doz serve</code> shows it to your other devices on the network.</span></li>
+  </ul>
+  <p class="muted" style="margin-top:12px">Also: restore points and templates (APFS clones), browser sign-ins and open/clipboard bridges back to the Mac, and GitHub as you (read-only by default). For agents: Claude Code, Codex and pi.</p>
+</div></section>
+
+<section class="home-section" id="numbers"><div class="wrap narrow">
+  <h2>The numbers</h2>
+  <div class="tablewrap"><table class="facts">
+    <tbody>
+    <tr><th scope="row">Start (image prepared)</th><td>about 0.3 to 0.4 s to a running Linux</td></tr>
+    <tr><th scope="row">Pause / resume</th><td>about 1 ms; attached terminals freeze and continue</td></tr>
+    <tr><th scope="row">Hibernate (sleep to disk)</th><td>about 0.35 s; its memory goes back to the Mac</td></tr>
+    <tr><th scope="row">Wake</th><td>about 0.3 s, with its programs, sessions and terminal screens as they were</td></tr>
+    <tr><th scope="row">After a crash</th><td>sleeping sandboxes are restored with their sessions; nothing is lost silently</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="margin-top:8px">Measured on an M3 (Alpine guest, 512 MiB to 1 GiB).</p>
+</div></section>
+
+<section class="home-section" id="uses"><div class="wrap narrow">
+  <h2>Three things worth using it for</h2>
+  <div class="cases">
+    <article><h3>A risky change</h3><p>A dependency upgrade, a big refactor, a migration: let a sandboxed agent work on your project folder with a restore point to fall back to. The changes land in your folder as they are made, so you review them with <code>git diff</code>.</p></article>
+    <article><h3>Jail an untrusted agent</h3><p>Run a new agent CLI or an unfamiliar model in a sandbox that shares none of your folders, holds none of your logins, has the clipboard, browser and file bridges off, and reaches the internet only where you allow it.</p></article>
+    <article><h3>A project that holds secrets</h3><p>Keep <code>.env</code> files, credentials or customer data out of the agent's reach with <code>.dozignore</code>, and make folders read-only with <code>.dozreadonly</code>, without moving anything. These rules guard against accidents; they are not a security boundary.</p></article>
+  </div>
+  <p style="margin-top:12px">The manual has a prompt to paste for each: <a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/22-prompts-for-your-agent.md">Prompts for your agent</a>.</p>
+</div></section>
+
+<section class="home-section" id="install"><div class="wrap narrow">
+  <h2>Install</h2>
+  <pre><code><span class="cmt"># once per Mac: Homebrew loads a third-party tap only once trusted</span>
+brew trust --tap dozer-sandbox/tap
+brew install dozer-sandbox/tap/doz
+<span class="cmt"># opens the dashboard; a new install starts on its setup wizard</span>
+doz ui</code></pre>
+  <p>The setup wizard checks this Mac, chooses how your agent signs in, and prepares an image. Then <strong>New sandbox</strong> makes one.</p>
+  <p>Prefer the terminal?</p>
+  <pre><code>doz onboard         <span class="cmt"># once: checks this Mac and your agent's account, prepares an image</span>
+cd ~/code/my-project
+doz up              <span class="cmt"># a sandbox for this folder, its agent running, your terminal attached</span></code></pre>
+  <h3>Requirements</h3>
+  <ul>
+    <li>A Mac with Apple silicon and macOS 26 (Tahoe) or later.</li>
+    <li><a href="https://brew.sh">Homebrew</a>. Each release is also a tarball on the <a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">releases page</a>.</li>
+    <li>For an agent: an account it can use, such as this Mac's own Claude Code or Codex login (read, never copied), an API key, or a Claude setup token.</li>
+  </ul>
+  <h3>Channels</h3>
+  <div class="tablewrap"><table class="facts"><tbody>
+    <tr><th scope="row"><code>doz</code></th><td>Stable. Recommended.</td></tr>
+    <tr><th scope="row"><code>doz-beta</code></th><td>Beta (and stable).</td></tr>
+    <tr><th scope="row"><code>doz-canary</code></th><td>Every build, first.</td></tr>
+  </tbody></table></div>
+  <p style="margin-top:12px">Install one with <code>brew install dozer-sandbox/tap/&lt;channel&gt;</code>; <code>doz update --channel beta</code> switches, and your sandboxes and settings stay. <code>doz</code> is signed and notarised. It tells you when a release is out, from an update feed signed with the project's own key, and never installs anything that does not verify. See <a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/02-install-upgrade-uninstall.md">Installing, upgrading and uninstalling</a>.</p>
+</div></section>
+
+<section class="home-section" id="timeline"><div class="wrap narrow">
+  <h2>Timeline</h2>
+  <p>Dozer Sandbox went from a sleep-and-wake experiment on 25 September 2026 to a public release in about two weeks. <a href="timeline.html">Read how it was built.</a></p>
+</div></section>
 </main>
+<footer class="site-footer"><div class="wrap">
+  <ul>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox">GitHub</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/tree/main/docs/manual">Manual</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
+    <li><a href="timeline.html">Timeline</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/LICENSE">MIT licence</a></li>
+  </ul>
+  <p>Dozer Sandbox requires Apple silicon and macOS 26 or later.</p>
+  <p>&copy; 2026 Johno Scott. Released under the MIT licence.</p>
+</div></footer>
 </body>
 </html>
