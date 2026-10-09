@@ -1,9 +1,5 @@
-/* Screenshot carousel: buttons, dots and arrow keys over a CSS scroll-snap strip. On a wide screen with a mouse or
-   trackpad it is PINNED (owner: "scrolling the page will get to the carousel and continuing to scroll will scroll
-   horizontally until the end and then the page will resume scrolling vertically"): the carousel sticks under the
-   header and the page's own vertical scroll moves the slides sideways, one pixel for one pixel — wheel, trackpad,
-   keyboard or scrollbar alike, and backwards too. It pins only when it fits in the window; on phones and touch
-   screens it stays a swipe strip. Without this file the strip is still scrollable. */
+/* Screenshot carousel: buttons, dots and arrow keys over a CSS scroll-snap strip.  The mouse wheel over the
+   screenshots moves the slides (see below). Without this file the strip is still scrollable. */
 (function () {
   'use strict';
   var track = document.getElementById('car-track');
@@ -57,7 +53,6 @@
   function go(i) {
     i = Math.max(0, Math.min(slides.length - 1, i));
     var left = Math.min(slides[i].offsetLeft - track.offsetLeft - 4, track.scrollWidth - track.clientWidth);
-    if (pin.on) { window.scrollTo({ top: pin.start + left, behavior: 'smooth' }); return; }
     track.scrollTo({ left: left, behavior: 'smooth' });
   }
   prev.addEventListener('click', function () { go(cur - 1); });
@@ -70,40 +65,30 @@
   });
   track.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(paint); }, { passive: true });
 
-  // ---- pinned mode ----
-  var carousel = track.closest('.carousel');
-  var spacer = document.createElement('div'); spacer.className = 'car-spacer'; spacer.setAttribute('aria-hidden', 'true');
-  carousel.parentNode.insertBefore(spacer, carousel.nextSibling);
-  var pin = { on: false, start: 0, extra: 0, top: 0 };
-  var wide = window.matchMedia('(min-width: 861px) and (pointer: fine)');
+  // ---- the mouse wheel over the screenshots (owner: "only hovering over carousel images activates the horizontal
+  // scroll … otherwise there is no way to escape") ----
+  // While the pointer is over the band of screenshots AND it is fully on screen, the wheel (or a trackpad's
+  // vertical swipe) moves the slides sideways. Anywhere else — the captions, below, beside — the page scrolls. At the
+  // first or last slide the wheel goes back to the page, so it never traps the reader. When the wheel stops, the
+  // strip settles on the nearest slide.
+  var settle = 0;
   function navH() { var n = document.querySelector('.nav'); return n ? n.getBoundingClientRect().height : 0; }
-  function layout() {
-    var was = pin.on;
-    pin.on = false; carousel.classList.remove('pinned'); spacer.style.height = '0px';
-    track.style.scrollSnapType = ''; track.style.overflowX = '';
-    pin.top = navH() + 24;
-    var fits = carousel.offsetHeight <= window.innerHeight - pin.top - 16;
-    pin.extra = track.scrollWidth - track.clientWidth;
-    if (wide.matches && fits && pin.extra > 0) {
-      pin.on = true;
-      carousel.classList.add('pinned');
-      carousel.style.top = pin.top + 'px';
-      track.style.scrollSnapType = 'none'; track.style.overflowX = 'hidden';
-      spacer.style.height = pin.extra + 'px';
-      // The page's scroll position at which the carousel reaches its pinned place.
-      pin.start = carousel.getBoundingClientRect().top + window.scrollY - pin.top;
-      sync();
-    } else if (was) { track.scrollLeft = 0; }
-    paint();
-  }
-  function sync() {
-    if (!pin.on) return;
-    var x = Math.max(0, Math.min(pin.extra, window.scrollY - pin.start));
-    if (Math.abs(track.scrollLeft - x) > 0.5) track.scrollLeft = x;
-  }
-  window.addEventListener('scroll', function () { sync(); }, { passive: true });
-  window.addEventListener('resize', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(layout); });
-  if (wide.addEventListener) wide.addEventListener('change', layout);
-  Array.prototype.forEach.call(track.querySelectorAll('img'), function (im) { if (!im.complete) im.addEventListener('load', layout, { once: true }); });
-  layout();
+  track.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;             // a sideways trackpad swipe scrolls the strip itself
+    // The screenshots' band: from the top to the bottom of the images, across the whole strip (the gaps between
+    // slides included, or a still pointer would fall into a gap as the slides move and the page would take over).
+    var t = track.getBoundingClientRect(), r = slides[0].querySelector('.frame').getBoundingClientRect();
+    if (e.clientX < t.left || e.clientX > t.right || e.clientY < r.top || e.clientY > r.bottom) return;   // captions etc.
+    if (r.top < navH() - 1 || r.bottom > window.innerHeight + 1) return;   // not fully on screen: let the page bring it in
+    var d = e.deltaY * (e.deltaMode === 1 ? 32 : e.deltaMode === 2 ? track.clientWidth : 1);
+    var max = track.scrollWidth - track.clientWidth;
+    if ((d > 0 && track.scrollLeft >= max - 1) || (d < 0 && track.scrollLeft <= 1)) return;   // at an end: the page
+    e.preventDefault();
+    track.style.scrollSnapType = 'none'; track.style.scrollBehavior = 'auto';
+    track.scrollLeft = Math.max(0, Math.min(max, track.scrollLeft + d));
+    clearTimeout(settle);
+    settle = setTimeout(function () { track.style.scrollBehavior = ''; track.style.scrollSnapType = ''; go(index()); }, 160);
+  }, { passive: false });
+  window.addEventListener('resize', paint);
+  paint();
 })();
