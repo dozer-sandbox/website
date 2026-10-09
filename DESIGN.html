@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Docs design guide — Dozer Sandbox</title>
+<meta name="description" content="The style guide for the user manual pages on dozersandbox.com/docs: layout, typography, components and colour, shown as a living specimen.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="docs/docs.css">
+<style>
+/* specimen-only helpers; not part of docs.css */
+.spec-note { font-size: 14px; color: var(--ink-2); }
+.swatches { list-style: none; padding: 0 !important; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.swatches li { margin: 0 !important; padding: 0 !important; border: 1px solid #000; border-radius: 14px; overflow: hidden; font-size: 13px; line-height: 1.35; }
+.swatches i { display: block; height: 56px; border-bottom: 1px solid #000; }
+.swatches span { display: block; padding: 8px 10px 10px; }
+.swatches b { display: block; font: 700 12px var(--mono); }
+.demo { border: 1px dashed #000; border-radius: 14px; padding: 18px 20px 6px; margin: 1.2em 0 1.6em; }
+.demo > .label { display: inline-block; font: 700 11px var(--font); letter-spacing: .08em; text-transform: uppercase; background: #000; color: #fff; border-radius: 980px; padding: 2px 10px; margin: 0 0 12px; }
+.demo .chead { margin-bottom: 8px; }
+.scale { display: grid; gap: 10px; margin: 1.2em 0; }
+.scale > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; align-items: baseline; border-bottom: 1px solid var(--hair); padding-bottom: 10px; }
+.scale small { font: 600 12px var(--mono); color: var(--ink-2); }
+@media (max-width: 600px) { .scale > div { grid-template-columns: 1fr; gap: 2px; } }
+</style>
+</head>
+<body class="docs">
+<a class="skip" href="#main">Skip to the article</a>
+<header class="nav"><div class="nav-in">
+  <a class="nav-name" href="./">Dozer Sandbox</a>
+  <nav aria-label="Site"><a href="./#speed">Speed</a><a href="./#cli">CLI</a><a href="./#compare">Compare</a><a href="./#security">Security</a><a href="./#dashboard">Dashboard</a><a href="./#uses">Use cases</a><a href="./#features">Features</a><a href="timeline.html">Timeline</a><a href="docs/" aria-current="page">Docs</a></nav>
+  <a class="nav-docs" href="docs/">Docs</a>
+  <a class="nav-gh" href="https://github.com/dozer-sandbox/dozer-sandbox" aria-label="Source code on GitHub" title="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.9 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a>
+  <a class="pill" href="./#install">Install</a>
+</div></header>
+
+<main id="main">
+<div class="dlayout">
+
+<details class="chapters">
+  <summary>Chapters</summary>
+  <nav class="chapters-body" aria-label="Chapters">
+<h2>Start here</h2><ol>
+<li><a href="docs/getting-started.html">Getting started</a></li>
+<li><a href="docs/sandboxes-and-lifecycle.html">Sandboxes and their lifecycle</a></li>
+<li><a href="docs/terminals-and-sessions.html" aria-current="page">Terminals and sessions</a></li>
+<li><a href="docs/permissions-and-network.html">What the agent can do</a></li>
+</ol>
+<h2>Install and set up</h2><ol>
+<li><a href="docs/install-upgrade-uninstall.html">Install, upgrade, uninstall</a></li>
+<li><a href="docs/setting-up.html">Setting up this Mac</a></li>
+<li><a href="docs/projects.html">Projects</a></li>
+</ol>
+<h2>Using Dozer</h2><ol>
+<li><a href="docs/the-dashboard.html">The dashboard</a></li>
+<li><a href="docs/doz-serve.html">The dashboard on other devices</a></li>
+<li><a href="docs/images-and-bases.html">Images and bases</a></li>
+<li><a href="docs/agents-and-accounts.html">Agents and accounts</a></li>
+<li><a href="docs/codex.html">Codex</a></li>
+<li><a href="docs/signing-in-from-a-sandbox.html">Signing in from a sandbox</a></li>
+<li><a href="docs/github.html">GitHub as you</a></li>
+</ol>
+<h2>Files and tools</h2><ol>
+<li><a href="docs/the-tools-layer.html">The tools layer</a></li>
+<li><a href="docs/workspace-rules.html">Workspace rules</a></li>
+<li><a href="docs/the-workspace-view.html">The workspace view</a></li>
+<li><a href="docs/prompts-for-your-agent.html">Prompts for your agent</a></li>
+</ol>
+<h2>Looking after sandboxes</h2><ol>
+<li><a href="docs/restore-points-duplicates-templates.html">Restore points, duplicates, templates</a></li>
+<li><a href="docs/resources-and-disk-space.html">Resources and disk space</a></li>
+<li><a href="docs/letting-another-agent-drive.html">Letting another agent drive</a></li>
+</ol>
+<h2>Reference</h2><ol>
+<li><a href="docs/settings-reference.html">Settings reference</a></li>
+<li><a href="docs/security-model.html">Security model</a></li>
+<li><a href="docs/troubleshooting-and-faq.html">Troubleshooting and FAQ</a></li>
+</ol>
+<h2>Experimental</h2><ol>
+<li><a href="docs/audio-experimental.html">Audio sandboxes</a></li>
+</ol>
+  </nav>
+</details>
+
+<article class="article">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="docs/">Docs</a></li><li><a href="DESIGN.html" aria-current="page">Design guide</a></li></ol></nav>
+
+  <header class="chead">
+    <p class="eyebrow">Design guide</p>
+    <h1>Docs design guide</h1>
+    <p class="summary">How the manual looks on dozersandbox.com/docs. This page is built with the rules it describes, and every specimen below uses real text from the manual.</p>
+    <p class="meta">Source: <code>DESIGN.md</code> holds the rules in words, this page shows them. The CSS is <code>docs/docs.css</code>, on top of <code>site.css</code>.</p>
+  </header>
+
+  <details class="toc-m"><summary>On this page</summary>
+    <ol>
+      <li><a href="#principles">Principles</a></li><li><a href="#layout">Layout</a></li><li><a href="#typography">Typography</a></li><li><a href="#components">Components</a></li><li><a href="#colour">Colour</a></li><li><a href="#urls">URLs and structure</a></li><li><a href="#build">The build</a></li>
+    </ol>
+  </details>
+
+  <div class="prose">
+
+<h2 id="principles">Principles<a class="anchor" href="#principles" aria-label="Link to this section">#</a></h2>
+<ol>
+<li><strong>The same site.</strong> The docs use the home page's header, footer, black-on-white, hairlines, pills and hard black shadow, and the single accent <code>#ffd60a</code> with its tints. A reader should not notice a seam when they click <em>Docs</em>.</li>
+<li><strong>Built for reading and scanning.</strong> One column at 70 characters, 17px text on a 1.65 line height, strong headings, and a sidebar and an on-page contents so nobody scrolls to find a section.</li>
+<li><strong>Fast.</strong> Static HTML and two stylesheets. The page reads fully with JavaScript off; the only script is a 20-line progressive enhancement (the Copy button and the current-section marker). No web fonts, no third-party scripts, no images beyond the manual's own screenshots.</li>
+<li><strong>Accessible.</strong> Body text is black on white (21:1; the lightest text is <code>#555</code> at 7.5:1). Focus is a 3px black ring. There is a skip link, one <code>h1</code> per page, headings never skip a level, and tables and code scroll in boxes that can take keyboard focus.</li>
+<li><strong>Works at 390px.</strong> Nothing makes the page scroll sideways: wide things scroll inside their own box. The sidebar becomes a <em>Chapters</em> button.</li>
+</ol>
+
+<h2 id="layout">Layout<a class="anchor" href="#layout" aria-label="Link to this section">#</a></h2>
+<p>The header is the home page's (<code>.nav</code>), with <em>Docs</em> carrying <code>aria-current="page"</code> and the footer is the home page's footer. Below the header the page is a three-column grid, <code>.dlayout</code>.</p>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Layout by screen width"><table>
+<thead><tr><th>Width</th><th>Sidebar (chapters)</th><th>Article</th><th>On this page</th></tr></thead>
+<tbody>
+<tr><td>1180px and up</td><td>264px, sticky, always open</td><td>up to 70ch</td><td>224px, sticky, right</td></tr>
+<tr><td>860 to 1179px</td><td>264px, sticky, always open</td><td>fills the rest, up to 70ch</td><td>collapsed above the article</td></tr>
+<tr><td>under 860px</td><td>behind a <em>Chapters</em> button</td><td>full width, 16px gutters</td><td>collapsed above the article</td></tr>
+</tbody></table></div>
+<p>Both collapsed parts are <code>&lt;details&gt;</code>, so they open and close without JavaScript. The sidebar is the same element at every width: on wide screens its button is hidden and the list shown with <code>::details-content</code>; a browser without that falls back to showing the button, which still works.</p>
+
+<h3 id="sidebar">Sidebar<a class="anchor" href="#sidebar" aria-label="Link to this section">#</a></h3>
+<p>The chapter list, grouped as the manual's contents are (<em>Start here</em>, <em>Install and set up</em>, <em>Using Dozer</em>, <em>Files and tools</em>, <em>Looking after sandboxes</em>, <em>Reference</em>, <em>Experimental</em>). The current chapter has the accent tint, bold text and a 3px black bar on its left; hover is the soft tint. Group headings are 12px small caps. It is on the left of this page.</p>
+
+<h3 id="on-this-page">On this page<a class="anchor" href="#on-this-page" aria-label="Link to this section">#</a></h3>
+<p>Every <code>h2</code> and <code>h3</code> of the article, in grey with a hairline on the left. The section being read is black and bold with a 3px bar (set by the small script; without it, nothing is marked and nothing breaks). A chapter with fewer than three headings omits it.</p>
+
+<h3 id="chapter-header">Chapter header<a class="anchor" href="#chapter-header" aria-label="Link to this section">#</a></h3>
+<p>Breadcrumb (<em>Docs › Chapter title</em>), then an accent pill with the chapter number, the <code>h1</code>, a one-line summary in the secondary grey, and a hairline underneath. The summary is the manual page's first paragraph, cut at its first sentence.</p>
+<div class="demo"><span class="label">Specimen</span>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="docs/">Docs</a></li><li aria-current="page">Terminals and sessions</li></ol></nav>
+<header class="chead" style="border-bottom:0"><p class="eyebrow">Chapter 7</p><h1>Terminals and sessions</h1><p class="summary">A session is a terminal program running inside a sandbox: a shell, <code>claude</code>, <code>pi</code>, a dev server.</p></header></div>
+
+<h3 id="pager">Previous and next, and the edit link<a class="anchor" href="#pager" aria-label="Link to this section">#</a></h3>
+<p>At the foot of the article: two cards, previous on the left and next on the right, in the manual's reading order (<em>not</em> the sidebar's grouping order: chapter 6 follows 5). Below them a single quiet line, <em>Edit this page on GitHub</em>, linking to the chapter's <code>.md</code> in <code>dozer-sandbox/dozer-sandbox</code> on <code>main</code>.</p>
+<div class="demo"><span class="label">Specimen</span>
+<ul class="pager" style="margin-top:0"><li class="prev" style="list-style:none"><a href="#pager"><small>&larr; Previous</small><b>Sandboxes and their lifecycle</b></a></li><li class="next" style="list-style:none;grid-column:2"><a href="#pager"><small>Next &rarr;</small><b>What the agent can do</b></a></li></ul>
+<p class="edit"><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/docs/manual/07-terminals-and-sessions.md">Edit this page on GitHub</a> &middot; Chapter 7 of 25</p></div>
+
+<h3 id="contents-page">The contents page<a class="anchor" href="#contents-page" aria-label="Link to this section">#</a></h3>
+<p><code>/docs/</code> has no sidebar chapter marked. It is the manual's README: the introduction, the four <em>read first</em> chapters as a numbered list, then every chapter as a card (number in mono, title, the <em>read it when you want to…</em> line), then the conventions.</p>
+<div class="demo"><span class="label">Specimen</span>
+<ul class="chlist"><li><a href="docs/getting-started.html"><span class="n">01</span><b>Getting started</b><span>Install, set up, and talk to Claude in a sandbox in 15 minutes.</span></a></li><li><a href="docs/sandboxes-and-lifecycle.html"><span class="n">05</span><b>Sandboxes and their lifecycle</b><span>Pause, sleep, hibernate, wake; what is kept where.</span></a></li></ul></div>
+
+<h2 id="typography">Typography<a class="anchor" href="#typography" aria-label="Link to this section">#</a></h2>
+<p>The site's system stack (<code>-apple-system, BlinkMacSystemFont, "SF Pro…", Helvetica Neue…</code>) and its mono stack (<code>ui-monospace, "SF Mono", Menlo</code>). Nothing is downloaded. Headings are tight like the home page's, but a good deal smaller.</p>
+<div class="scale">
+<div><small>h1 · 34–46px</small><span style="font-size:42px;font-weight:700;letter-spacing:-.03em;line-height:1.06">Terminals and sessions</span></div>
+<div><small>h2 · 28px</small><span style="font-size:28px;font-weight:700;letter-spacing:-.025em;line-height:1.15">In the terminal</span></div>
+<div><small>h3 · 21px</small><span style="font-size:21px;font-weight:700;letter-spacing:-.015em">Restarting or ending a session</span></div>
+<div><small>h4 · 17px bold</small><span style="font-weight:700">Several people or windows can view one session</span></div>
+<div><small>body · 17px/1.65</small><span>Sessions live in the sandbox, not in your terminal: you <strong>attach</strong> to one, <strong>detach</strong>, come back later from another terminal or the browser.</span></div>
+<div><small>table · 15px</small><span style="font-size:15px">The default for a cell; secondary captions are 14px, labels 12px.</span></div>
+<div><small>code · 14.5px mono</small><span style="font:14.5px var(--mono)">doz attach my-app server</span></div>
+</div>
+<p>Rules. Measure: 70ch. Paragraph spacing: 1.1em (no indent). An <code>h2</code> has a hairline above it and 2.2em of space; <code>h3</code> and <code>h4</code> have no rule. Text is left-aligned, never justified, and uses <code>text-wrap: balance</code> on headings. Bold lead-ins (<strong>Concepts.</strong>) stay bold. Links to other chapters are plain links; there is no visited colour.</p>
+
+<h2 id="components">Components<a class="anchor" href="#components" aria-label="Link to this section">#</a></h2>
+
+<h3 id="inline-code">Inline code and keys<a class="anchor" href="#inline-code" aria-label="Link to this section">#</a></h3>
+<p>Inline code is <code>0.88em</code> mono, black on the soft accent tint (<code>--tint-soft</code>), a 5px radius, wrapping anywhere so a long setting key never forces a sideways scroll. Example: <code>doz up</code>, <code>sandbox.clipboard</code>, <code>~/.config/dozer-sandbox/doz.toml</code>. Keys use <code>&lt;kbd&gt;</code>: white, black border with a heavier bottom edge. Press <kbd>Ctrl</kbd>-<kbd>]</kbd> twice to leave the sandbox, or <kbd>Esc</kbd> to go back. The manual writes keys in bold (<strong>Ctrl-]</strong>); the converter turns bold text that names a key into <code>&lt;kbd&gt;</code> where it is clearly one, and leaves the rest bold.</p>
+
+<h3 id="code-blocks">Code blocks<a class="anchor" href="#code-blocks" aria-label="Link to this section">#</a></h3>
+<p>A white panel with a 1px black border, 14px radius and the site's hard shadow (<code>0 4px 0 #000</code>). A caption bar on the soft tint holds the language (<code>sh</code>, <code>text</code>, <code>yaml</code>, <code>toml</code>; lower case) and, when JavaScript runs, a <em>Copy</em> button. Text is 14.5px mono at 1.65 and never wraps: a long line scrolls inside the block (the block is keyboard-focusable). There is no syntax colouring; the only exception is a shell comment, which is grey <code>#555</code>. Copy copies the text with the comments left in, as the reader sees it. A literal <code>$ </code> prompt is not selected. Fences without a language show <code>text</code>.</p>
+<figure class="code"><figcaption><span>sh</span><button class="copy" type="button">Copy</button></figcaption><pre tabindex="0"><code>doz attach my-app                 <span class="c"># the sandbox's own session</span>
+doz attach my-app server          <span class="c"># a session by name</span>
+doz run my-app -- htop            <span class="c"># a NEW session running a program, attached</span>
+doz run my-app -d --session worker -- bash -lc 'make watch'    <span class="c"># start one in the background</span>
+doz sessions my-app               <span class="c"># list them</span>
+doz exec my-app -- ls /workspace  <span class="c"># a one-off command: no terminal, output and exit code pass through</span></code></pre></figure>
+<p>ASCII diagrams and terminal captures are <code>text</code> blocks with the same frame, with line height 1.3 so box-drawing characters join up (<code>.code.diagram</code>).</p>
+<figure class="code diagram"><figcaption><span>text</span><button class="copy" type="button">Copy</button></figcaption><pre tabindex="0"><code> doz: d detach · n next · p prev · s sessions · Esc back</code></pre></figure>
+<p>The one Mermaid diagram (chapter 5's state diagram) is rendered to an SVG at build time, in black strokes with accent-filled states, and shown as a figure; the source stays available in a <code>&lt;details&gt;</code> under it. No Mermaid library is ever shipped to the browser.</p>
+
+<h3 id="tables">Tables<a class="anchor" href="#tables" aria-label="Link to this section">#</a></h3>
+<p>Every table is wrapped in <code>.tablewrap</code>: a 1px black border, 14px radius, scrolling sideways inside itself (<code>tabindex="0"</code>, <code>role="region"</code> and an <code>aria-label</code> from the heading above it). The header row is the stronger accent tint (<code>--tint</code>) with a black rule beneath it; body rows have a grey hairline and every other row a 2.5% black wash. The <strong>first column is sticky</strong> and bold, so a row keeps its name while the rest scrolls. A table with five or more columns gets <code>.wide</code> (a minimum width of 860px). Cell text is 15px; code in a cell does not wrap.</p>
+<div class="tablewrap" tabindex="0" role="region" aria-label="The Ctrl-] menu"><table>
+<thead><tr><th>key</th><th>what it does</th></tr></thead>
+<tbody>
+<tr><td><kbd>Ctrl</kbd>-<kbd>]</kbd> again (or <kbd>d</kbd>)</td><td>detach — the session keeps running</td></tr>
+<tr><td><kbd>n</kbd> / <kbd>p</kbd></td><td>move this terminal to the sandbox's next / previous session</td></tr>
+<tr><td><kbd>s</kbd></td><td>list the sessions on that line (<code>1 shell* · 2 claude · …</code>); a number switches</td></tr>
+<tr><td><kbd>Esc</kbd> (or any other key)</td><td>back to the session</td></tr>
+</tbody></table></div>
+<p>The widest case is the settings reference (six columns). Scroll it sideways here; the key column stays.</p>
+<div class="tablewrap wide" tabindex="0" role="region" aria-label="Settings: ui.*"><table style="min-width:1100px">
+<thead><tr><th>key</th><th>default</th><th>values</th><th>applies</th><th>overridden by</th><th style="white-space:normal;min-width:22em">what it does</th></tr></thead>
+<tbody>
+<tr><td><code>ui.confirm_shutdown</code></td><td><code>true</code></td><td>boolean</td><td>at once</td><td>—</td><td style="min-width:22em">Shut Down asks first (its dialog's "don't ask again" sets this to false). Reset and Remove always ask for the name.</td></tr>
+<tr><td><code>ui.split_default</code></td><td><code>shell</code></td><td>shell | watch | attach | dialog</td><td>at once</td><td>—</td><td style="min-width:22em">What a terminal's Split opens: shell (a new shell session), watch (a read-only view of the left terminal's session), attach (a second, shared view of it), dialog (choose each time).</td></tr>
+<tr><td><code>ui.terminal_font_size</code></td><td><code>13</code></td><td>integer 9–32</td><td>at once</td><td>—</td><td style="min-width:22em">The browser terminal's font size, in points (a terminal opened from now on).</td></tr>
+<tr><td><code>ui.theme</code></td><td><code>auto</code></td><td>auto | light | dark</td><td>at once</td><td>—</td><td style="min-width:22em">The UI's colours: auto follows macOS.</td></tr>
+</tbody></table></div>
+
+<h3 id="quotes">Blockquotes and callouts<a class="anchor" href="#quotes" aria-label="Link to this section">#</a></h3>
+<p>The manual uses blockquotes three ways, and the converter tells them apart so each gets the right look.</p>
+<p><strong>Notes and tips</strong> are a blockquote that starts with a bold lead-in. They get a 4px black rule on the left, no fill, and text at body size.</p>
+<blockquote class="note"><p><strong>Detach, don't quit.</strong> Press <kbd>Ctrl</kbd>-<kbd>]</kbd> twice to leave the sandbox (once opens a small menu at the bottom: <code>d detach · n next · p prev · s sessions · Esc back</code>). The agent keeps running, and <code>doz up</code> brings you straight back to it.</p></blockquote>
+<p><strong>Warnings</strong> are the blockquotes whose lead-in says something must not be relied on (<em>A convenience, not a security boundary</em>, <em>Not in public releases</em>, <em>Experimental</em>). They are the one place the accent is used as a panel: the stronger tint, a 1px black border, 14px radius and a black <em>Warning</em> pill. The converter holds a short list of lead-ins that mean warning; anything else with a bold lead-in is a note.</p>
+<blockquote class="callout warn"><p><strong>A convenience, not a security boundary.</strong> The rules keep an agent from stumbling into files. Root in the sandbox — and the agent has <code>sudo</code> by default — can get around them. Anything that must not reach the sandbox at all belongs outside the shared folder (or in an isolated sandbox); see the <a href="docs/security-model.html">Security model</a>.</p></blockquote>
+<p><strong>Examples</strong> are a blockquote with no bold lead-in: a prompt to paste, or output to expect. They are mono on the soft tint with a 1px black border and a small <em>Example</em> label.</p>
+<blockquote class="example"><p>where are you running, and where is /workspace on my Mac?</p></blockquote>
+
+<h3 id="lists">Lists and numbered steps<a class="anchor" href="#lists" aria-label="Link to this section">#</a></h3>
+<p>Bullets are black discs; numbers are bold, tabular. Items are spaced 0.4em apart and may hold paragraphs, code blocks and nested lists, which are indented 1.5em. The numbered <em>Where a value comes from</em> list from the settings reference:</p>
+<ol>
+<li><strong>a command-line flag</strong> (for the few settings that have one — <code>--store</code>, <code>--progress</code>, <code>doz create --cpus</code>, …);</li>
+<li><strong>its environment variable</strong> (<code>DOZ_STORE</code>, <code>DOZ_PROGRESS</code>, <code>DOZ_HOST_IDLE</code>);</li>
+<li><strong>the file</strong>;</li>
+<li><strong>the default</strong>.</li>
+</ol>
+<ul>
+<li><strong>Several people or windows can view one session.</strong> What's typed in either shows in both.</li>
+<li><strong>The screen is kept inside the sandbox</strong>, so attaching from anywhere shows the current screen at once.</li>
+</ul>
+
+<h3 id="links">Links and heading anchors<a class="anchor" href="#links" aria-label="Link to this section">#</a></h3>
+<p>Links are black, underlined (1px, 3px offset), and on hover get the accent as a highlight with a thicker underline: there is no blue and no visited colour. A link off the site, such as <a href="https://brew.sh">Homebrew</a>, ends in a small arrow. A link to another chapter is the chapter's <code>.html</code> page, such as <a href="docs/signing-in-from-a-sandbox.html">Signing in from a sandbox</a>; one into a section is <code>chapter.html#section</code> and the target flashes the soft tint for a second.</p>
+<p>Every <code>h2</code>, <code>h3</code> and <code>h4</code> has an id (the slug of its text, deduplicated within the page, exactly as GitHub makes them so the manual's existing <code>#fragment</code> links keep working) and a <code>#</code> after it that appears on hover or focus, and always on touch screens at 45% grey. It is a link: click it and copy the address. Hover over any heading on this page to see it.</p>
+
+<h3 id="figures">Images and figures<a class="anchor" href="#figures" aria-label="Link to this section">#</a></h3>
+<p>A screenshot is framed like the home page's: 1px black border, 14px radius, the hard shadow, white behind it, never wider than the column, with its <code>width</code> and <code>height</code> attributes set so the page does not jump. The caption is the Markdown alt text, in 14px grey underneath. Images are copied with the pages and referenced as <code>/docs/images/…</code>, with the manual's alt text kept as the <code>alt</code>.</p>
+<figure class="shot"><div class="frame" style="padding:56px 24px;text-align:center;font:14px var(--font);color:var(--ink-2);background:var(--tint-soft)">screenshot, 100% of the column wide</div><figcaption>The setup wizard's first step. (From the manual's <code>images/wizard-welcome.png</code>.)</figcaption></figure>
+
+<h2 id="colour">Colour<a class="anchor" href="#colour" aria-label="Link to this section">#</a></h2>
+<p>Black, white, greys, and one accent. No other hue appears: no blue links, no red warnings, no green notes, no syntax colours. The accent is <code>#ffd60a</code>; the colour picker on the home page is local to that page and is not loaded in the docs.</p>
+<ul class="swatches">
+<li><i style="background:#fff"></i><span><b>#fff</b>Page, panels, code blocks, table body</span></li>
+<li><i style="background:#000"></i><span><b>#000</b>Text, borders, shadows, the focus ring, the Warning pill</span></li>
+<li><i style="background:#2b2b2d"></i><span><b>--ink-2 #2b2b2d</b>Summaries, captions, sidebar group names</span></li>
+<li><i style="background:#555"></i><span><b>#555 (7.5:1)</b>Shell comments, heading anchors; the lightest text</span></li>
+<li><i style="background:rgb(0 0 0/.22)"></i><span><b>--hair</b>Row lines, h2 rules, the contents rail</span></li>
+<li><i style="background:#ffd60a"></i><span><b>--accent</b>Chapter pill, link hover, button hover, Copy done</span></li>
+<li><i style="background:var(--tint)"></i><span><b>--tint (55%)</b>Current chapter, table header, warning panel, card hover</span></li>
+<li><i style="background:var(--tint-soft)"></i><span><b>--tint-soft (24%)</b>Inline code, code caption bar, example quote, link target flash</span></li>
+</ul>
+<p>Contrast is black on white, black on <code>--tint</code> and black on <code>--tint-soft</code>, all above 15:1. Grey text is only ever on white or the soft tint and is at least <code>#555</code>. Nothing is conveyed by colour alone (the current chapter also has a bar and bold weight).</p>
+
+<h2 id="urls">URLs and structure<a class="anchor" href="#urls" aria-label="Link to this section">#</a></h2>
+<p>The contents page is <code>/docs/</code> (a <code>docs/index.html</code>). Each chapter is <code>/docs/&lt;slug&gt;.html</code> where the slug is the Markdown file name <strong>without its number and extension</strong>: <code>07-terminals-and-sessions.md</code> becomes <code>/docs/terminals-and-sessions.html</code>. A URL never changes when chapters are renumbered. The chapter number is shown as the page's eyebrow (<em>Chapter 7</em>) and comes from the file name at build time. The site already serves <code>.html</code> files (<code>timeline.html</code>), so the docs follow that style.</p>
+<p>Links in the Markdown are rewritten by the converter: <code>11-signing-in-from-a-sandbox.md#section</code> becomes <code>signing-in-from-a-sandbox.html#section</code>; <code>README.md</code> becomes <code>./</code>; an image <code>images/x.png</code> stays <code>images/x.png</code> (copied); links out of the manual (<code>../CLI-USER-GUIDE.md</code>) become absolute GitHub URLs. A link that resolves to nothing fails the build. <code>tools/stamp.sh</code> fingerprints <code>docs.css</code> and <code>docs.js</code> like <code>site.css</code> (<code>?v=&lt;hash&gt;</code>), in every page under <code>docs/</code>, and <code>sitemap.xml</code> gets every page. The home page's <em>Docs</em> link, the footer's <em>Manual</em> link and <code>cli-commands.json</code>'s manual links change from GitHub to <code>/docs/…</code> at launch.</p>
+
+<h2 id="build">The build<a class="anchor" href="#build" aria-label="Link to this section">#</a></h2>
+<p>Described, not built. One script, <code>tools/docs-build.py APP_CHECKOUT</code>, in the style of <code>tools/cli-data.py</code>: it reads <code>APP_CHECKOUT/docs/manual/*.md</code> and writes <code>docs/*.html</code> and <code>docs/images/</code>, then you run <code>tools/stamp.sh</code> and commit. The pages are generated files, committed, like <code>cli-commands.json</code>; the manual in the app repo stays the single source of truth and no page is ever edited by hand.</p>
+<ul>
+<li><strong>The converter.</strong> Neither pandoc, cmark nor Python's <code>markdown</code> is installed here, so: a small, dependency-free Python converter for the subset the manual actually uses (ATX headings, paragraphs, bold, italic, inline code, links, images, bullet and numbered lists with nesting, pipe tables, blockquotes, fenced code, horizontal rules and a few HTML comments to drop), checked against every chapter. Fewer than 400 lines, no network, run with <code>python3 -I</code>. A single vendored MIT library (such as <code>markdown-it-py</code>) is the fallback if the subset grows, kept in <code>tools/vendor/</code> and never served.</li>
+<li><strong>It fails loudly.</strong> Unknown syntax, a broken chapter link or fragment, a missing image, a table row with the wrong cell count, or a heading level that skips all stop the build with a file and line.</li>
+<li><strong>It checks its own output.</strong> It parses the pages back and compares word counts and every code block with the source, so a silently dropped paragraph cannot ship.</li>
+<li><strong>In sync with the app.</strong> The script takes the checkout path as <code>cli-data.py</code> does, records the app commit it built from in a comment at the top of <code>docs/index.html</code>, and the release steps run it with the version's checkout so the docs and the binary match; the app repo's existing docs check (every command, flag and setting in the manual exists) stays where it is.</li>
+<li><strong>Templates.</strong> The page frame (header, sidebar, footer) lives in <code>tools/docs-template.html</code> so a change to the nav is one edit. The sidebar groups and the previous/next order come from the manual's <code>README.md</code> contents list, so a new chapter appears when it is added there.</li>
+</ul>
+  </div>
+
+  <p class="edit">This is a design page, not part of the manual. Rules in words: <code>DESIGN.md</code>.</p>
+</article>
+
+<nav class="toc" aria-label="On this page">
+  <h2>On this page</h2>
+  <ol>
+    <li><a href="#principles">Principles</a></li>
+    <li><a href="#layout">Layout</a>
+      <ol><li><a href="#sidebar">Sidebar</a></li><li><a href="#on-this-page">On this page</a></li><li><a href="#chapter-header">Chapter header</a></li><li><a href="#pager">Previous and next</a></li><li><a href="#contents-page">The contents page</a></li></ol></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#components">Components</a>
+      <ol><li><a href="#inline-code">Inline code and keys</a></li><li><a href="#code-blocks">Code blocks</a></li><li><a href="#tables">Tables</a></li><li><a href="#quotes">Blockquotes and callouts</a></li><li><a href="#lists">Lists and steps</a></li><li><a href="#links">Links and anchors</a></li><li><a href="#figures">Images and figures</a></li></ol></li>
+    <li><a href="#colour">Colour</a></li>
+    <li><a href="#urls">URLs and structure</a></li>
+    <li><a href="#build">The build</a></li>
+  </ol>
+</nav>
+
+</div>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <ul>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox">GitHub</a></li>
+    <li><a href="docs/">Manual</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
+    <li><a href="timeline.html">Timeline</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/LICENSE">MIT licence</a></li>
+    <li><a href="LICENSES/lucide.txt">Icon licence</a></li>
+  </ul>
+  <p>Requires Apple silicon and macOS 26 or later.</p>
+  <p>&copy; 2026 Johno Scott. Released under the MIT licence.</p>
+</div></footer>
+
+<script>
+/* docs.js (progressive enhancement, ~20 lines): Copy buttons and the current-section marker. */
+(function () {
+  document.documentElement.classList.add('js'); document.body.classList.add('js');
+  document.querySelectorAll('.code .copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.closest('.code').querySelector('code').innerText.replace(/\n$/, '');
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () {
+        b.textContent = 'Copied'; b.setAttribute('data-done', ''); setTimeout(function () { b.textContent = 'Copy'; b.removeAttribute('data-done'); }, 1500);
+      }, function () { b.textContent = 'Press ⌘C'; });
+    });
+  });
+  var links = {}; document.querySelectorAll('.toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting && links[e.target.id]) {
+      Object.keys(links).forEach(function (k) { links[k].removeAttribute('aria-current'); });
+      links[e.target.id].setAttribute('aria-current', 'true'); } });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  document.querySelectorAll('.prose h2[id], .prose h3[id]').forEach(function (h) { io.observe(h); });
+})();
+</script>
+</body>
+</html>
