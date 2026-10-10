@@ -27,7 +27,7 @@
 <meta name="twitter:image:alt" content="The Dozer Sandbox sleeping bulldozer, with the name and the line: Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac.">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../site.css?v=90c5d887">
+<link rel="stylesheet" href="../site.css?v=c5424ea6">
 <link rel="stylesheet" href="docs.css?v=9606a62a">
 <script defer src="docs.js?v=a2a39b76"></script>
 </head>
@@ -112,6 +112,8 @@
 </li>
 <li><a href="#things-that-run-outside-a-sandbox">Things that run outside a sandbox</a>
 </li>
+<li><a href="#what-leaves-your-mac">What leaves your Mac</a>
+</li>
 <li><a href="#what-dozer-cant-protect">What Dozer can&#x27;t protect</a>
 </li>
 <li><a href="#settings">Settings</a>
@@ -184,6 +186,13 @@
 <li><strong>Image preparation</strong> runs in a temporary VM with the <code>bake</code> permissions (package registries only), logged like any sandbox.</li>
 <li><strong>Keep-alive</strong>, when you turn it on, runs your Mac&#x27;s own <code>claude</code> once near expiry.</li>
 </ul>
+<h2 id="what-leaves-your-mac">What leaves your Mac<a class="anchor" href="#what-leaves-your-mac" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><strong>Anonymous usage statistics</strong>, in official builds only: counts and ranges about how Dozer is used, at most once a day, with a random install id — never anything from inside a sandbox, a name, path, host, command argument, account or key. Off with <code>doz config set telemetry.send_anonymous_usage_stats false</code>, <code>DO_NOT_TRACK=1</code>, or <code>--no-send-anonymous-usage-stats</code>; <code>doz telemetry show</code> prints exactly what would be sent. Builds from the open-source repository send nothing. See <a href="getting-started.html#usage-statistics-and-sign-up">Usage statistics and sign-up</a>.</li>
+<li><strong>The sign-up</strong>, only if you sign up: your email and what you ticked.</li>
+<li><strong>The update check</strong>: Dozer&#x27;s version and channel, at most once a day (<code>updates.mode off</code> stops it).</li>
+<li><strong>Your agent&#x27;s own traffic</strong>, through the proxy, to what you allow.</li>
+</ul>
 <h2 id="what-dozer-cant-protect">What Dozer can&#x27;t protect<a class="anchor" href="#what-dozer-cant-protect" aria-label="Link to this section">#</a></h2>
 <ul>
 <li><strong>Your shared folder.</strong> It&#x27;s the agent&#x27;s to change. Commit often. <a href="workspace-rules.html">Workspace rules</a> (<code>.dozignore</code>, <code>.dozreadonly</code>) keep an agent from stumbling into files there, but they are a convenience, not a boundary: root in the sandbox can get around them. A secret that must not reach a sandbox does not belong in the folder it shares.</li>
@@ -196,7 +205,7 @@
 <div class="tablewrap" tabindex="0" role="region" aria-label="Table: Settings"><table>
 <thead><tr><th scope="col">key</th><th scope="col">default</th><th scope="col">what it does</th></tr></thead>
 <tbody>
-<tr><td><code>defaults.permissions</code></td><td><code>standard</code></td><td>What a new sandbox&#x27;s agent may reach.</td></tr><tr><td><code>sandbox.clipboard</code></td><td><code>write</code></td><td>The clipboard bridge.</td></tr><tr><td><code>sandbox.browser_bridge</code></td><td><code>on</code></td><td>The browser bridge.</td></tr><tr><td><code>sandbox.open_files</code></td><td><code>on</code></td><td>The files bridge.</td></tr><tr><td><code>bridges.open_apps</code></td><td><code>&quot;&quot;</code></td><td>The apps a sandbox may name for the files bridge (none: default apps only).</td></tr><tr><td><code>defaults.github</code></td><td><code>off</code></td><td>&quot;Use GitHub as you&quot; for new sandboxes: <code>off</code>, <code>read</code> or <code>push</code>.</td></tr><tr><td><code>github.credentials</code></td><td><code>gh</code></td><td>Where &quot;Use GitHub as you&quot; gets your login: <code>gh</code>, <code>key</code> or <code>off</code>.</td></tr><tr><td><code>sandbox.ssh_agent</code></td><td><code>off</code></td><td>Forward your Mac&#x27;s ssh-agent (github.com:22 only).</td></tr><tr><td><code>sandbox.agent_sudo</code></td><td><code>true</code></td><td>The agent&#x27;s sudo inside its sandbox.</td></tr><tr><td><code>ui.allow_secret_entry</code></td><td><code>true</code></td><td>The dashboard may take a key or token.</td></tr><tr><td><code>claude.permissions</code></td><td><code>skip</code></td><td>Claude Code&#x27;s own permission prompts (<code>ask</code> to keep them).</td></tr>
+<tr><td><code>defaults.permissions</code></td><td><code>standard</code></td><td>What a new sandbox&#x27;s agent may reach.</td></tr><tr><td><code>sandbox.clipboard</code></td><td><code>write</code></td><td>The clipboard bridge.</td></tr><tr><td><code>sandbox.browser_bridge</code></td><td><code>on</code></td><td>The browser bridge.</td></tr><tr><td><code>sandbox.open_files</code></td><td><code>on</code></td><td>The files bridge.</td></tr><tr><td><code>bridges.open_apps</code></td><td><code>&quot;&quot;</code></td><td>The apps a sandbox may name for the files bridge (none: default apps only).</td></tr><tr><td><code>defaults.github</code></td><td><code>off</code></td><td>&quot;Use GitHub as you&quot; for new sandboxes: <code>off</code>, <code>read</code> or <code>push</code>.</td></tr><tr><td><code>github.credentials</code></td><td><code>gh</code></td><td>Where &quot;Use GitHub as you&quot; gets your login: <code>gh</code>, <code>key</code> or <code>off</code>.</td></tr><tr><td><code>sandbox.ssh_agent</code></td><td><code>off</code></td><td>Forward your Mac&#x27;s ssh-agent (github.com:22 only).</td></tr><tr><td><code>sandbox.agent_sudo</code></td><td><code>true</code></td><td>The agent&#x27;s sudo inside its sandbox.</td></tr><tr><td><code>ui.allow_secret_entry</code></td><td><code>true</code></td><td>The dashboard may take a key or token.</td></tr><tr><td><code>claude.permissions</code></td><td><code>skip</code></td><td>Claude Code&#x27;s own permission prompts (<code>ask</code> to keep them).</td></tr><tr><td><code>telemetry.send_anonymous_usage_stats</code></td><td><code>true</code></td><td>Official builds: anonymous usage statistics (<code>false</code>, or <code>DO_NOT_TRACK=1</code>, turns them off).</td></tr>
 </tbody></table></div>
 <!-- /manual text -->
 </div>
@@ -222,6 +231,8 @@
 </li>
 <li><a href="#things-that-run-outside-a-sandbox">Things that run outside a sandbox</a>
 </li>
+<li><a href="#what-leaves-your-mac">What leaves your Mac</a>
+</li>
 <li><a href="#what-dozer-cant-protect">What Dozer can&#x27;t protect</a>
 </li>
 <li><a href="#settings">Settings</a>
@@ -237,6 +248,8 @@
     <li><a href="./">Manual</a></li>
     <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
     <li><a href="../timeline.html">Timeline</a></li>
+    <li><a href="../privacy">Privacy</a></li>
+    <li><a href="../signup">Sign up</a></li>
     <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/LICENSE">MIT licence</a></li>
     <li><a href="../LICENSES/lucide.txt">Icon licence</a></li>
   </ul>

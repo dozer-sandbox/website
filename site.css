@@ -405,3 +405,49 @@ html { scroll-behavior: smooth; }
 @media (max-width: 700px) { .slide { flex-basis: 88%; } .slide figcaption b { font-size: 18px; } .car-dots { display: none; } .car-ui { gap: 14px; } }
 .car-track { scroll-behavior: smooth; }
 
+
+/* ---------- privacy and sign-up pages ---------- */
+.legal main { display: block; }
+.prose { max-width: 70ch; margin: 0 auto; padding: 56px 16px 88px; font-size: 17px; line-height: 1.65; }
+.prose h1 { font-size: clamp(34px, 6vw, 46px); line-height: 1.06; letter-spacing: -.03em; margin: 0 0 14px; text-wrap: balance; }
+.prose h2 { font-size: 28px; line-height: 1.15; letter-spacing: -.025em; margin: 2.2em 0 .6em; padding-top: 1em; border-top: 1px solid var(--hair); scroll-margin-top: 64px; }
+.prose h3 { font-size: 21px; line-height: 1.25; letter-spacing: -.015em; margin: 1.9em 0 .5em; scroll-margin-top: 64px; }
+.prose p { margin: 0 0 1.1em; overflow-wrap: break-word; }
+.prose ul { margin: 0 0 1.2em; padding-left: 1.3em; }
+.prose li { margin: 0 0 .5em; overflow-wrap: break-word; }
+.prose code { background: var(--tint-soft); padding: .08em .35em; border-radius: 5px; font-size: .88em; overflow-wrap: anywhere; }
+.prose a { text-underline-offset: 3px; }
+.toc { border: 1px solid #000; border-radius: 16px; padding: 14px 20px 8px; margin: 22px 0 8px; background: var(--tint-soft); }
+.toc-h { font-size: 13px; font-weight: 700; letter-spacing: .02em; margin: 0 0 6px !important; }
+.toc ol { margin: 0; padding-left: 1.2em; columns: 2; column-gap: 28px; font-size: 15px; line-height: 1.5; }
+.toc li { margin: 0 0 .35em; break-inside: avoid; }
+.tbl { overflow-x: auto; border: 1px solid #000; border-radius: 14px; margin: 0 0 1.4em; background: #fff; }
+.tbl:focus-visible { outline: 3px solid #000; outline-offset: 3px; }
+.tbl table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.45; min-width: 560px; }
+.tbl th, .tbl td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--hair); }
+.tbl thead th { border-bottom: 1px solid #000; background: var(--tint-soft); font-size: 14px; }
+.tbl tbody th { width: 27%; font-weight: 700; }
+.tbl tbody tr:last-child th, .tbl tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 600px) { .toc ol { columns: 1; } .prose { font-size: 16px; padding-top: 36px; } .prose h2 { font-size: 24px; } }
+/* sign-up form */
+.signup .lede-s { font-size: 19px; line-height: 1.4; color: var(--ink-2); margin: 0 0 28px; }
+.signup .note { border: 1px solid #000; border-radius: 12px; padding: 12px 16px; background: var(--tint); }
+.signup .field { margin: 0 0 22px; }
+.signup label[for] { display: block; font-weight: 700; margin: 0 0 6px; }
+.signup input[type=email] { width: 100%; font: inherit; padding: 13px 16px; border: 1px solid #000; border-radius: 12px; background: #fff; color: #000; }
+.signup input[type=email]:focus-visible { outline: 3px solid #000; outline-offset: 2px; }
+.signup fieldset { border: 0; padding: 0; margin: 0 0 22px; }
+.signup legend { font-weight: 700; padding: 0; margin: 0 0 10px; }
+.signup .muted { font-weight: 400; color: var(--ink-2); font-size: 14px; }
+.signup .check { display: flex; gap: 12px; align-items: flex-start; border: 1px solid #000; border-radius: 14px; padding: 12px 16px; margin: 0 0 10px; cursor: pointer; background: #fff; }
+.signup .check:has(input:checked) { background: var(--tint); }
+.signup .check input { width: 20px; height: 20px; margin: 3px 0 0; accent-color: #000; flex: none; }
+.signup .check b { display: block; }
+.signup .check small { display: block; color: var(--ink-2); font-size: 14px; line-height: 1.4; }
+.signup .msg { border: 1px solid #000; border-radius: 12px; padding: 10px 14px; margin: 0 0 16px; background: #fff; font-weight: 600; }
+.signup button.pill { font-family: inherit; cursor: pointer; }
+.signup button.pill:disabled { opacity: .55; cursor: default; }
+.signup .result { border: 1px solid #000; border-radius: 18px; padding: 24px 26px; background: var(--tint); box-shadow: 0 3px 0 #000; }
+.signup .result:focus-visible { outline: 3px solid #000; outline-offset: 3px; }
+.signup .result-title { font-size: 24px; font-weight: 700; letter-spacing: -.02em; margin: 0 0 6px !important; }
+.signup .result p:last-child { margin: 0; }

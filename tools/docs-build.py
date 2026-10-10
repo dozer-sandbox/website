@@ -948,6 +948,8 @@ def crawl():
         target = os.path.normpath(os.path.join(OUT, path)) if path else os.path.join(OUT, f)
         if os.path.isdir(target):
             target = os.path.join(target, 'index.html')
+        if not os.path.exists(target) and os.path.exists(target + '.html'):
+            continue  # a clean URL (GitHub Pages serves privacy.html at /privacy)
         if not os.path.exists(target):
             raise BuildError('docs/%s: a link to a missing file: %s' % (f, r))
         if frag:

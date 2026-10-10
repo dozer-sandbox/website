@@ -27,7 +27,7 @@
 <meta name="twitter:image:alt" content="The Dozer Sandbox sleeping bulldozer, with the name and the line: Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac.">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../site.css?v=90c5d887">
+<link rel="stylesheet" href="../site.css?v=c5424ea6">
 <link rel="stylesheet" href="docs.css?v=9606a62a">
 <script defer src="docs.js?v=a2a39b76"></script>
 </head>
@@ -121,6 +121,7 @@
 <li><a href="#defaults"><code>[defaults]</code></a></li>
 <li><a href="#agent"><code>[agent]</code></a></li>
 <li><a href="#updates"><code>[updates]</code></a></li>
+<li><a href="#telemetry"><code>[telemetry]</code></a></li>
 <li><a href="#resources"><code>[resources]</code></a></li>
 <li><a href="#sandbox"><code>[sandbox]</code></a></li>
 <li><a href="#sessions"><code>[sessions]</code></a></li>
@@ -229,6 +230,12 @@ doz config unset --sandbox my-app sandbox.clipboard       <span class="c"># foll
 <thead><tr><th scope="col">key</th><th scope="col">default</th><th scope="col">values</th><th scope="col">applies</th><th scope="col">overridden by</th><th scope="col">what it does</th></tr></thead>
 <tbody>
 <tr><td><code>updates.mode</code></td><td><code>notify</code></td><td>off | notify | auto</td><td>next command</td><td><code>$DOZ_UPDATES</code></td><td>Updates: notify (at most once a day, and when doz ui opens, look for a newer doz and say how to upgrade — one line on a terminal, a banner on the dashboard), auto (also install it: brew upgrade, or the signed download for a tarball install — only while no sandbox runs and no session is attached, else it notifies; then: restart to apply, doz host restart), or off (never look). Never a downgrade; a feed that does not verify is ignored.</td></tr><tr><td><code>updates.channel</code></td><td><code>stable</code></td><td>stable | beta | canary</td><td>next command</td><td>—</td><td>Which releases you are offered: stable, beta (beta and stable) or canary (every build, first). A Homebrew install&#x27;s own formula (doz, doz-beta, doz-canary) decides while this is not set; doz upgrade --channel switches both.</td></tr>
+</tbody></table></div>
+<h3 id="telemetry"><code>[telemetry]</code><a class="anchor" href="#telemetry" aria-label="Link to this section">#</a></h3>
+<div class="tablewrap wide" tabindex="0" role="region" aria-label="Table: [telemetry]"><table>
+<thead><tr><th scope="col">key</th><th scope="col">default</th><th scope="col">values</th><th scope="col">applies</th><th scope="col">overridden by</th><th scope="col">what it does</th></tr></thead>
+<tbody>
+<tr><td><code>telemetry.send_anonymous_usage_stats</code></td><td><code>true</code></td><td>boolean</td><td>next command</td><td><code>$DOZ_SEND_ANONYMOUS_USAGE_STATS</code>, <code>--no-send-anonymous-usage-stats / --send-anonymous-usage-stats</code></td><td>Official builds send anonymous usage statistics: at most once a day, counts and ranges about how Dozer itself is used (commands by name, failures by exit code, which agents, bases and network presets new sandboxes use, setup sizes as ranges, start and wake times rounded to 50 ms, how long sandboxes ran and slept as ranges, which features were used, this Mac&#x27;s macOS version, chip family, memory and cores as ranges) with a random install id — never a name, path, host, command argument, file or anything from inside a sandbox. false (or DO_NOT_TRACK=1, or --no-send-anonymous-usage-stats on one command) sends nothing and records nothing. doz telemetry show prints exactly what would be sent. Builds from the open-source repository send nothing whatever this says.</td></tr>
 </tbody></table></div>
 <h3 id="resources"><code>[resources]</code><a class="anchor" href="#resources" aria-label="Link to this section">#</a></h3>
 <div class="tablewrap wide" tabindex="0" role="region" aria-label="Table: [resources]"><table>
@@ -341,6 +348,7 @@ doz config unset --sandbox my-app sandbox.clipboard       <span class="c"># foll
 <li><a href="#defaults"><code>[defaults]</code></a></li>
 <li><a href="#agent"><code>[agent]</code></a></li>
 <li><a href="#updates"><code>[updates]</code></a></li>
+<li><a href="#telemetry"><code>[telemetry]</code></a></li>
 <li><a href="#resources"><code>[resources]</code></a></li>
 <li><a href="#sandbox"><code>[sandbox]</code></a></li>
 <li><a href="#sessions"><code>[sessions]</code></a></li>
@@ -367,6 +375,8 @@ doz config unset --sandbox my-app sandbox.clipboard       <span class="c"># foll
     <li><a href="./">Manual</a></li>
     <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
     <li><a href="../timeline.html">Timeline</a></li>
+    <li><a href="../privacy">Privacy</a></li>
+    <li><a href="../signup">Sign up</a></li>
     <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/LICENSE">MIT licence</a></li>
     <li><a href="../LICENSES/lucide.txt">Icon licence</a></li>
   </ul>

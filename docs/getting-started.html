@@ -27,7 +27,7 @@
 <meta name="twitter:image:alt" content="The Dozer Sandbox sleeping bulldozer, with the name and the line: Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac.">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../site.css?v=90c5d887">
+<link rel="stylesheet" href="../site.css?v=c5424ea6">
 <link rel="stylesheet" href="docs.css?v=9606a62a">
 <script defer src="docs.js?v=a2a39b76"></script>
 </head>
@@ -108,6 +108,8 @@
 <ol>
 <li><a href="#what-you-just-set-up">What you just set up</a></li>
 </ol></li>
+<li><a href="#usage-statistics-and-sign-up">Usage statistics and sign-up</a>
+</li>
 <li><a href="#your-first-project">Your first project</a>
 </li>
 <li><a href="#talk-to-your-agent">Talk to your agent</a>
@@ -149,11 +151,12 @@ doz --version</code></pre></figure>
 <li><strong>Checks.</strong> Apple silicon, macOS, the virtualization permission, disk space. A required check that fails stops setup and says why; an optional one (Claude Code not installed, for example) is a warning.</li>
 <li><strong>Your Claude account.</strong> If Claude Code is signed in on this Mac, Dozer offers to use that login. Otherwise paste an API key or a <code>claude setup-token</code> token (it is never echoed), or choose <em>Decide later</em>.</li>
 <li><strong>Images.</strong> <strong>Claude Code</strong> is ticked; <strong>pi</strong> and the plain <strong>lab</strong> shell are optional. Anything you leave out is prepared the first time you use it.</li>
+<li><strong>Stay in touch (optional).</strong> Release news, early access and support by email — skip it with <kbd>Enter</kbd>. See <a href="#usage-statistics-and-sign-up">Usage statistics and sign-up</a>.</li>
 <li><strong>Preparing.</strong> Dozer downloads the base system and installs the agent and its tools inside a VM. It takes a few minutes. <strong>You don&#x27;t have to wait:</strong> press <kbd>Ctrl</kbd>-<kbd>C</kbd> and it carries on in the background; <code>doz onboard --status</code> shows it again.</li>
 </ol>
 <p><strong>In your browser:</strong></p>
 <figure class="code"><figcaption data-gen><span>sh</span><button class="copy" type="button">Copy</button></figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>doz ui</code></pre></figure>
-<p>The dashboard opens on the <strong>setup wizard</strong>: the same steps, and at the end an optional <strong>First sandbox</strong>.</p>
+<p>The dashboard opens on the <strong>setup wizard</strong>: the same steps, and at the end an optional <strong>First sandbox</strong> and an optional <strong>Stay in touch</strong>.</p>
 <figure class="shot"><div class="frame"><img src="images/wizard-welcome.png" alt="The setup wizard&#x27;s first step" width="1100" height="859" loading="lazy" decoding="async"></div><figcaption>The setup wizard&#x27;s first step</figcaption></figure>
 <p>Details: <a href="setting-up.html">Setting up</a>.</p>
 <h3 id="what-you-just-set-up">What you just set up<a class="anchor" href="#what-you-just-set-up" aria-label="Link to this section">#</a></h3>
@@ -164,6 +167,16 @@ doz --version</code></pre></figure>
 <li><strong>Your credentials never enter a sandbox.</strong> The agent sees a stand-in; the proxy adds your real login as each request leaves for Anthropic.</li>
 <li><strong>Two files hold your choices:</strong> <code>~/.config/dozer-sandbox/doz.toml</code> (your settings for this Mac) and a project&#x27;s <code>doz_project.yaml</code> (its sandbox). Everything else is kept by the host.</li>
 </ul>
+<h2 id="usage-statistics-and-sign-up">Usage statistics and sign-up<a class="anchor" href="#usage-statistics-and-sign-up" aria-label="Link to this section">#</a></h2>
+<p><strong>Official builds</strong> (Homebrew, the release download) <strong>send anonymous usage statistics</strong>, so we can see what to fix and improve: at most once a day, counts and ranges about how Dozer itself is used — which commands ran and how often they failed (by exit code), which agents, bases and network presets new sandboxes use, the size of your setup as ranges, typical start and wake times rounded to 50 ms, how long sandboxes ran and slept and how long agents worked (as ranges), which features you used (the dashboard, the installed app, <code>doz serve</code>, workspace rules, GitHub access, restore points, templates), which built-in image-preparation step failed, and your Mac&#x27;s macOS version, chip family, memory and cores as ranges — with a random install id. <strong>Never</strong> a sandbox, image or project name, a file or folder name or path, anything inside a sandbox, anything you type or a program prints, a command&#x27;s arguments, a host or website, an account, email or key. Our server adds your country from the connection and does not keep your IP address.</p>
+<p>The first time an official build runs it says so in one line. See exactly what would be sent, and turn it off with any one of these:</p>
+<figure class="code"><figcaption data-gen><span>sh</span><button class="copy" type="button">Copy</button></figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>doz telemetry show                                      <span class="c"># on or off, why, and the exact messages</span>
+doz config set telemetry.send_anonymous_usage_stats false   <span class="c"># off (or the switch in the dashboard&#x27;s Settings)</span>
+DO_NOT_TRACK=1 doz ls                                   <span class="c"># off whenever DO_NOT_TRACK is set</span>
+doz ls --no-send-anonymous-usage-stats                  <span class="c"># off for one command</span>
+doz telemetry reset                                     <span class="c"># a new random install id</span></code></pre></figure>
+<p><strong>Signing up is optional</strong>: <code>doz signup</code> (or the setup&#x27;s <em>Stay in touch</em>) asks for an email and what you want — release news, early access, support. A confirmation email comes first; every email has a one-click unsubscribe, and your email is never linked to the statistics.</p>
+<p><strong>Builds from the open-source repository send nothing.</strong> The statistics and sign-up code is part of the official builds only and is not open source; this repository holds the list of what may be sent and every switch. The full policy: <a href="https://dozersandbox.com/privacy">dozersandbox.com/privacy</a>.</p>
 <h2 id="your-first-project">Your first project<a class="anchor" href="#your-first-project" aria-label="Link to this section">#</a></h2>
 <p>A sandbox works on one project folder, shared into it at <code>/workspace</code>: the agent&#x27;s changes appear on your Mac at once, and your editor sees them live.</p>
 <figure class="code"><figcaption data-gen><span>sh</span><button class="copy" type="button">Copy</button></figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>cd ~/code/my-app
@@ -240,6 +253,8 @@ doz point fork my-app before-refactor try-2    <span class="c"># or try again in
 <ol>
 <li><a href="#what-you-just-set-up">What you just set up</a></li>
 </ol></li>
+<li><a href="#usage-statistics-and-sign-up">Usage statistics and sign-up</a>
+</li>
 <li><a href="#your-first-project">Your first project</a>
 </li>
 <li><a href="#talk-to-your-agent">Talk to your agent</a>
@@ -263,6 +278,8 @@ doz point fork my-app before-refactor try-2    <span class="c"># or try again in
     <li><a href="./">Manual</a></li>
     <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
     <li><a href="../timeline.html">Timeline</a></li>
+    <li><a href="../privacy">Privacy</a></li>
+    <li><a href="../signup">Sign up</a></li>
     <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/LICENSE">MIT licence</a></li>
     <li><a href="../LICENSES/lucide.txt">Icon licence</a></li>
   </ul>
