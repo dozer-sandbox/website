@@ -151,8 +151,8 @@ doz --version</code></pre></figure>
 <li><strong>Checks.</strong> Apple silicon, macOS, the virtualization permission, disk space. A required check that fails stops setup and says why; an optional one (Claude Code not installed, for example) is a warning.</li>
 <li><strong>Your Claude account.</strong> If Claude Code is signed in on this Mac, Dozer offers to use that login. Otherwise paste an API key or a <code>claude setup-token</code> token (it is never echoed), or choose <em>Decide later</em>.</li>
 <li><strong>Images.</strong> <strong>Claude Code</strong> is ticked; <strong>pi</strong> and the plain <strong>lab</strong> shell are optional. Anything you leave out is prepared the first time you use it.</li>
-<li><strong>Stay in touch (optional).</strong> Release news, early access and support by email — skip it with <kbd>Enter</kbd>. See <a href="#usage-statistics-and-sign-up">Usage statistics and sign-up</a>.</li>
 <li><strong>Preparing.</strong> Dozer downloads the base system and installs the agent and its tools inside a VM. It takes a few minutes. <strong>You don&#x27;t have to wait:</strong> press <kbd>Ctrl</kbd>-<kbd>C</kbd> and it carries on in the background; <code>doz onboard --status</code> shows it again.</li>
+<li><strong>Stay in touch (optional).</strong> Release news, early access and tips and tricks by email — skip it with <kbd>Enter</kbd>. See <a href="#usage-statistics-and-sign-up">Usage statistics and sign-up</a>.</li>
 </ol>
 <p><strong>In your browser:</strong></p>
 <figure class="code"><figcaption data-gen><span>sh</span><button class="copy" type="button">Copy</button></figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>doz ui</code></pre></figure>
@@ -175,7 +175,7 @@ doz config set telemetry.send_anonymous_usage_stats false   <span class="c"># of
 DO_NOT_TRACK=1 doz ls                                   <span class="c"># off whenever DO_NOT_TRACK is set</span>
 doz ls --no-send-anonymous-usage-stats                  <span class="c"># off for one command</span>
 doz telemetry reset                                     <span class="c"># a new random install id</span></code></pre></figure>
-<p><strong>Signing up is optional</strong>: <code>doz signup</code> (or the setup&#x27;s <em>Stay in touch</em>) asks for an email and what you want — release news, early access, support. A confirmation email comes first; every email has a one-click unsubscribe, and your email is never linked to the statistics.</p>
+<p><strong>Signing up is optional</strong>: <code>doz signup</code> (or the setup&#x27;s <em>Stay in touch</em>) asks for an email and what you want — release news, early access, tips and tricks. A confirmation email comes first; every email has a one-click unsubscribe, and your email is never linked to the statistics.</p>
 <p><strong>Builds from the open-source repository send nothing.</strong> The statistics and sign-up code is part of the official builds only and is not open source; this repository holds the list of what may be sent and every switch. The full policy: <a href="https://dozersandbox.com/privacy">dozersandbox.com/privacy</a>.</p>
 <h2 id="your-first-project">Your first project<a class="anchor" href="#your-first-project" aria-label="Link to this section">#</a></h2>
 <p>A sandbox works on one project folder, shared into it at <code>/workspace</code>: the agent&#x27;s changes appear on your Mac at once, and your editor sees them live.</p>
