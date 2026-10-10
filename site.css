@@ -451,3 +451,12 @@ html { scroll-behavior: smooth; }
 .signup .result:focus-visible { outline: 3px solid #000; outline-offset: 3px; }
 .signup .result-title { font-size: 24px; font-weight: 700; letter-spacing: -.02em; margin: 0 0 6px !important; }
 .signup .result p:last-child { margin: 0; }
+
+/* ---------- sign-up section on the home page ---------- */
+.stay .wrap { max-width: 680px; }
+.stay .signup-box { text-align: left; max-width: 560px; margin: 0 auto; }
+.stay .signup-box .check { background: #fff; }
+.stay .signup-box .check:has(input:checked) { background: var(--accent); }
+.signup .fine-s { font-size: 13px; color: var(--ink-2); margin: 14px 0 0; }
+.uses.tone .cases li { background: #fff; }
+.uses.tone .cases li:nth-child(2) { background: var(--accent); }

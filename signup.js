@@ -2,14 +2,18 @@
    Everything shown is fixed text set with textContent; the address is never put back into the page. */
 (function () {
   'use strict';
-  var form = document.getElementById('signup-form');
+  var ENDPOINT = 'https://subscribe.dozersandbox.com/v1/signup';
+  var roots = document.querySelectorAll('[data-signup-root]');
+  Array.prototype.forEach.call(roots, attach);
+
+  function attach(root) {
+  var form = root.querySelector('form[data-signup]');
   if (!form) return;
-  var err = document.getElementById('signup-error');
-  var result = document.getElementById('signup-result');
-  var rTitle = document.getElementById('signup-result-title');
-  var rText = document.getElementById('signup-result-text');
-  var btn = document.getElementById('signup-submit');
-  var ENDPOINT = 'https://telemetry.dozersandbox.com/v1/signup';
+  var err = root.querySelector('[data-signup-error]');
+  var result = root.querySelector('[data-signup-result]');
+  var rTitle = root.querySelector('[data-signup-title]');
+  var rText = root.querySelector('[data-signup-text]');
+  var btn = form.querySelector('button[type=submit]');
 
   function showError(text) { err.textContent = text; err.hidden = false; }
   function clearError() { err.textContent = ''; err.hidden = true; }
@@ -51,4 +55,5 @@
       showError('We couldn’t reach the server. Check your connection and try again — or run doz signup in Terminal.');
     });
   });
+  }
 })();

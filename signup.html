@@ -27,14 +27,14 @@
 <meta name="twitter:image:alt" content="The Dozer Sandbox sleeping bulldozer, with the name and the line: Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="site.css?v=c5424ea6">
-<script defer src="signup.js?v=2a5e1bff"></script>
+<link rel="stylesheet" href="site.css?v=66546733">
+<script defer src="signup.js?v=9fc3fecc"></script>
 </head>
 <body class="legal">
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav"><div class="nav-in">
   <a class="nav-name" href="./">Dozer Sandbox</a>
-  <nav aria-label="Site"><a href="./#speed">Speed</a><a href="./#cli">CLI</a><a href="./#tour">Web UI</a><a href="./#compare">Compare</a><a href="./#security">Security</a><a href="./#dashboard">Dashboard</a><a href="./#uses">Use cases</a><a href="./#features">Features</a><a href="timeline.html">Timeline</a><a href="docs/">Docs</a></nav>
+  <nav aria-label="Site"><a href="./#speed">Speed</a><a href="./#cli">CLI</a><a href="./#tour">Web UI</a><a href="./#compare">Compare</a><a href="./#security">Security</a><a href="./#uses">Use cases</a><a href="./#features">Features</a><a href="timeline.html">Timeline</a><a href="docs/">Docs</a></nav>
   <a class="nav-docs" href="docs/">Docs</a>
   <a class="nav-gh" href="https://github.com/dozer-sandbox/dozer-sandbox" aria-label="Source code on GitHub" title="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a>
   <a class="pill" href="./#install">Install</a>
@@ -43,8 +43,9 @@
 <p class="eyebrow">Stay in touch</p>
 <h1>Sign up.</h1>
 <p class="lede-s">Release news, early access, support. Email only; we confirm by email; unsubscribe in one click. <a href="privacy">Privacy &rarr;</a></p>
+<div class="signup-box signup" data-signup-root>
 <noscript><p class="note">This form needs JavaScript &mdash; or run <code>doz signup</code> in Terminal.</p></noscript>
-<form id="signup-form" action="#" method="post">
+<form data-signup action="#" method="post">
   <div class="field"><label for="email">Email</label>
   <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="you@example.com"></div>
   <fieldset><legend>What would you like to hear about? <span class="muted">Choose at least one.</span></legend>
@@ -52,10 +53,11 @@
     <label class="check"><input type="checkbox" name="interests" value="early-access"><span><b>Early access</b><small>Try beta and canary builds before they are released.</small></span></label>
     <label class="check"><input type="checkbox" name="interests" value="support"><span><b>Support</b><small>Help when something goes wrong.</small></span></label>
   </fieldset>
-  <p class="msg" id="signup-error" role="alert" hidden></p>
-  <button class="pill big" type="submit" id="signup-submit">Sign up</button>
+  <p class="msg" data-signup-error role="alert" hidden></p>
+  <button class="pill big" type="submit">Sign up</button>
 </form>
-<div class="result" id="signup-result" role="status" aria-live="polite" tabindex="-1" hidden><p class="result-title" id="signup-result-title"></p><p id="signup-result-text"></p></div>
+<div class="result" data-signup-result role="status" aria-live="polite" tabindex="-1" hidden><p class="result-title" data-signup-title></p><p data-signup-text></p></div>
+</div>
 </div></main>
 <footer class="foot"><div class="wrap">
   <ul>
