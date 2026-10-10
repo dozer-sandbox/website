@@ -134,3 +134,14 @@ repo stays the single source; pages are never hand-edited).
   `docs/index.html`; run with the release's checkout so docs and binary match. Sidebar groups and prev/next
   order come from the manual's `README.md`; the page frame lives in `tools/docs-template.html`.
 - **Mermaid**: needs a build-time renderer or a hand-drawn SVG for the single diagram; no library is shipped.
+
+## 9. The blog (`/blog`)
+
+Generated, like the docs: `python3 tools/blog-build.py <posts repo>` reads the private posts repository
+(`posts/YYYY-MM-DD-slug/index.md` + images; see its README) and writes `blog/index.html`, `blog/<slug>.html`
+(served at `/blog/<slug>`), `blog/images/<slug>/`, `blog/feed.xml` (Atom, full content) and the blog entries of
+`sitemap.xml`. Only `status: published` posts are built; `--drafts --out <dir outside this repo>` previews drafts.
+The Markdown is rendered by `docs-build.py`'s renderer (imported), so code blocks, tables and images look like the
+docs'; the page chrome is the root pages' header and footer. Never edit `blog/` by hand. The order for a publish:
+`tools/docs-build.py` (if the manual changed), then `tools/blog-build.py`, then `tools/stamp.sh` (it fingerprints the
+links on `blog/*.html` too), then commit.

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Dozer Sandbox blog</title>
+  <subtitle>News, early access and tips and tricks from Dozer Sandbox.</subtitle>
+  <id>https://dozersandbox.com/blog/</id>
+  <link rel="self" type="application/atom+xml" href="https://dozersandbox.com/blog/feed.xml"/>
+  <link rel="alternate" type="text/html" href="https://dozersandbox.com/blog/"/>
+  <updated>2026-10-11T00:00:00Z</updated>
+  <author><name>Dozer Sandbox</name><uri>https://dozersandbox.com/</uri></author>
+  <entry>
+    <title>Introducing Dozer Sandbox</title>
+    <id>https://dozersandbox.com/blog/introducing-dozer-sandbox</id>
+    <link rel="alternate" type="text/html" href="https://dozersandbox.com/blog/introducing-dozer-sandbox"/>
+    <published>2026-10-11T00:00:00Z</published>
+    <updated>2026-10-11T00:00:00Z</updated>
+    <summary>Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac — free and open source. Here's what it is, why it exists, and how to try it in a minute.</summary>
+    <category term="release-news" label="Release news"/>
+    <content type="html">&lt;p&gt;Coding agents are at their best when you stop approving every command. They&amp;#x27;re at their most worrying then too: the agent can read your files, run anything, and reach any site, all with your keys in its environment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dozer Sandbox&lt;/strong&gt; gives each agent its own small Linux computer on your Mac, so you can let it work.&lt;/p&gt;
+&lt;h2 id="what-a-sandbox-is"&gt;What a sandbox is&lt;a class="anchor" href="https://dozersandbox.com/blog/introducing-dozer-sandbox#what-a-sandbox-is" aria-label="Link to this section"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Each sandbox is a small Linux virtual machine with one project folder from your Mac inside it, at &lt;code&gt;/workspace&lt;/code&gt;. Run Claude Code, Codex or pi in it with the permission prompts off: the VM is the boundary.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Fast.&lt;/strong&gt; A sandbox starts in about a third of a second and pauses in a millisecond.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resumable.&lt;/strong&gt; Put it to sleep and it gives its memory back. Wake it and every program is still running where you left it, mid-sentence.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secure.&lt;/strong&gt; The network goes through a policy you can read, and &lt;strong&gt;your API keys never go inside&lt;/strong&gt;: the agent sees a placeholder, and the real key is added on your Mac on the way out.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="shot"&gt;&lt;div class="frame"&gt;&lt;img src="https://dozersandbox.com/blog/images/introducing-dozer-sandbox/dashboard.jpg" alt="The dashboard while an agent works" width="1280" height="860" loading="lazy" decoding="async"&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;h2 id="try-it"&gt;Try it&lt;a class="anchor" href="https://dozersandbox.com/blog/introducing-dozer-sandbox#try-it" aria-label="Link to this section"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You need a Mac with Apple silicon and macOS 26 or later, and Homebrew.&lt;/p&gt;
+&lt;figure class="code"&gt;&lt;figcaption data-gen&gt;&lt;span&gt;sh&lt;/span&gt;&lt;button class="copy" type="button"&gt;Copy&lt;/button&gt;&lt;/figcaption&gt;&lt;pre tabindex="0" role="region" aria-label="Code (sh)"&gt;&lt;code&gt;brew trust --tap dozer-sandbox/tap
+brew install dozer-sandbox/tap/doz
+doz ui&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;The dashboard opens on a short setup wizard: it checks your Mac, asks how your agent should sign in, and prepares an image. Then &lt;strong&gt;New sandbox&lt;/strong&gt; and you&amp;#x27;re in. Prefer the terminal? &lt;code&gt;doz onboard&lt;/code&gt;, then &lt;code&gt;doz up&lt;/code&gt; in a project folder.&lt;/p&gt;
+&lt;h2 id="free-open-source-and-honest-about-it"&gt;Free, open source, and honest about it&lt;a class="anchor" href="https://dozersandbox.com/blog/introducing-dozer-sandbox#free-open-source-and-honest-about-it" aria-label="Link to this section"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Dozer Sandbox is free, and its source is on &lt;a href="https://github.com/dozer-sandbox/dozer-sandbox"&gt;GitHub&lt;/a&gt;. The official builds send anonymous usage statistics (counts, never your work), which you can see with &lt;code&gt;doz telemetry show&lt;/code&gt; and switch off in one line. The &lt;a href="https://dozersandbox.com/privacy"&gt;privacy policy&lt;/a&gt; lists every field.&lt;/p&gt;
+&lt;p&gt;This blog is where news, early access and tips will appear. They&amp;#x27;re also sent by email to anyone who &lt;a href="https://dozersandbox.com/signup"&gt;signs up&lt;/a&gt; for them. Thanks for reading, and for trying it.&lt;/p&gt;</content>
+  </entry>
+</feed>

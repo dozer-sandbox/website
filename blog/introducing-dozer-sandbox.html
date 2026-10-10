@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Introducing Dozer Sandbox — Dozer Sandbox blog</title>
+<meta name="description" content="Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac — free and open source. Here&#x27;s what it is, why it exists, and how to try it in a minute.">
+<link rel="canonical" href="https://dozersandbox.com/blog/introducing-dozer-sandbox">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dozer Sandbox">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Introducing Dozer Sandbox — Dozer Sandbox blog">
+<meta property="og:description" content="Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac — free and open source. Here&#x27;s what it is, why it exists, and how to try it in a minute.">
+<meta property="og:url" content="https://dozersandbox.com/blog/introducing-dozer-sandbox">
+<meta property="og:image" content="https://dozersandbox.com/og-image.png">
+<meta property="og:image:secure_url" content="https://dozersandbox.com/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Dozer Sandbox sleeping bulldozer, with the name and the line: Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Introducing Dozer Sandbox — Dozer Sandbox blog">
+<meta name="twitter:description" content="Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac — free and open source. Here&#x27;s what it is, why it exists, and how to try it in a minute.">
+<meta name="twitter:image" content="https://dozersandbox.com/og-image.png">
+<meta name="twitter:image:alt" content="The Dozer Sandbox sleeping bulldozer, with the name and the line: Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac.">
+<meta property="article:published_time" content="2026-10-11">
+<meta property="article:tag" content="Release news">
+<link rel="alternate" type="application/atom+xml" title="Dozer Sandbox blog" href="feed.xml">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../site.css?v=79f3d96c">
+<link rel="stylesheet" href="../docs/docs.css?v=9606a62a">
+<script defer src="../docs/docs.js?v=a2a39b76"></script>
+<script defer src="../signup.js?v=9fc3fecc"></script>
+</head>
+<body class="docs blog">
+<a class="skip" href="#main">Skip to the post</a>
+<header class="nav"><div class="nav-in">
+  <a class="nav-name" href="../">Dozer Sandbox</a>
+  <nav aria-label="Site"><a href="../#speed">Speed</a><a href="../#cli">CLI</a><a href="../#tour">Web UI</a><a href="../#compare">Compare</a><a href="../#security">Security</a><a href="../#uses">Use cases</a><a href="../#features">Features</a><a href="../timeline.html">Timeline</a><a href="./" aria-current="page">Blog</a><a href="../docs/">Docs</a></nav>
+  <a class="nav-docs" href="../docs/">Docs</a>
+  <a class="nav-gh" href="https://github.com/dozer-sandbox/dozer-sandbox" aria-label="Source code on GitHub" title="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a>
+  <a class="pill" href="../#install">Install</a>
+</div></header>
+<main id="main">
+<article class="prose article post">
+<p class="crumbs"><a href="./">&lsaquo; All posts</a></p>
+<header class="post-head"><p class="post-meta"><time datetime="2026-10-11">11 October 2026</time> <span class="chip">Release news</span></p>
+<h1>Introducing Dozer Sandbox</h1>
+<p class="post-summary">Fast, resumable, secure Linux sandboxes for AI coding agents on your Mac — free and open source. Here&#x27;s what it is, why it exists, and how to try it in a minute.</p></header>
+<p>Coding agents are at their best when you stop approving every command. They&#x27;re at their most worrying then too: the agent can read your files, run anything, and reach any site, all with your keys in its environment.</p>
+<p><strong>Dozer Sandbox</strong> gives each agent its own small Linux computer on your Mac, so you can let it work.</p>
+<h2 id="what-a-sandbox-is">What a sandbox is<a class="anchor" href="#what-a-sandbox-is" aria-label="Link to this section">#</a></h2>
+<p>Each sandbox is a small Linux virtual machine with one project folder from your Mac inside it, at <code>/workspace</code>. Run Claude Code, Codex or pi in it with the permission prompts off: the VM is the boundary.</p>
+<ul>
+<li><strong>Fast.</strong> A sandbox starts in about a third of a second and pauses in a millisecond.</li>
+<li><strong>Resumable.</strong> Put it to sleep and it gives its memory back. Wake it and every program is still running where you left it, mid-sentence.</li>
+<li><strong>Secure.</strong> The network goes through a policy you can read, and <strong>your API keys never go inside</strong>: the agent sees a placeholder, and the real key is added on your Mac on the way out.</li>
+</ul>
+<figure class="shot"><div class="frame"><img src="images/introducing-dozer-sandbox/dashboard.jpg" alt="The dashboard while an agent works" width="1280" height="860" loading="lazy" decoding="async"></div></figure>
+<h2 id="try-it">Try it<a class="anchor" href="#try-it" aria-label="Link to this section">#</a></h2>
+<p>You need a Mac with Apple silicon and macOS 26 or later, and Homebrew.</p>
+<figure class="code"><figcaption data-gen><span>sh</span><button class="copy" type="button">Copy</button></figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>brew trust --tap dozer-sandbox/tap
+brew install dozer-sandbox/tap/doz
+doz ui</code></pre></figure>
+<p>The dashboard opens on a short setup wizard: it checks your Mac, asks how your agent should sign in, and prepares an image. Then <strong>New sandbox</strong> and you&#x27;re in. Prefer the terminal? <code>doz onboard</code>, then <code>doz up</code> in a project folder.</p>
+<h2 id="free-open-source-and-honest-about-it">Free, open source, and honest about it<a class="anchor" href="#free-open-source-and-honest-about-it" aria-label="Link to this section">#</a></h2>
+<p>Dozer Sandbox is free, and its source is on <a href="https://github.com/dozer-sandbox/dozer-sandbox">GitHub</a>. The official builds send anonymous usage statistics (counts, never your work), which you can see with <code>doz telemetry show</code> and switch off in one line. The <a href="https://dozersandbox.com/privacy">privacy policy</a> lists every field.</p>
+<p>This blog is where news, early access and tips will appear. They&#x27;re also sent by email to anyone who <a href="https://dozersandbox.com/signup">signs up</a> for them. Thanks for reading, and for trying it.</p>
+</article>
+<aside class="post-sub" aria-labelledby="sub-h"><div class="post-sub-in">
+<h2 id="sub-h">Get posts like this by email</h2>
+<p>Release news. <a href="./">Read past issues &rarr;</a></p>
+<div class="signup-box signup" data-signup-root>
+<noscript><p class="note">This form needs JavaScript &mdash; or run <code>doz signup</code> in Terminal.</p></noscript>
+<form data-signup action="#" method="post">
+  <div class="field"><label for="post-email">Email</label>
+  <input id="post-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="you@example.com"></div>
+  <fieldset><legend>What would you like to hear about? <span class="muted">Choose at least one.</span></legend>
+    <label class="check"><input type="checkbox" name="interests" value="release-news" checked><span><b>Release news</b><small>New versions and what changed.</small></span></label>
+    <label class="check"><input type="checkbox" name="interests" value="early-access"><span><b>Early access</b><small>Try beta and canary builds before they are released.</small></span></label>
+    <label class="check"><input type="checkbox" name="interests" value="tips"><span><b>Tips and tricks</b><small>Ways to get more out of Dozer, now and then.</small></span></label>
+  </fieldset>
+  <p class="msg" data-signup-error role="alert" hidden></p>
+  <button class="pill big" type="submit">Sign up</button>
+  <p class="fine-s">Email only. We confirm by email, and every email has a one-click unsubscribe. <a href="../privacy">Privacy &rarr;</a></p>
+</form>
+<div class="result" data-signup-result role="status" aria-live="polite" tabindex="-1" hidden><p class="result-title" data-signup-title></p><p data-signup-text></p></div>
+</div>
+</div></aside>
+</main>
+<footer class="foot"><div class="wrap">
+  <ul>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox">GitHub</a></li>
+    <li><a href="../docs/">Manual</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/releases">Releases</a></li>
+    <li><a href="../timeline.html">Timeline</a></li>
+    <li><a href="../blog/">Blog</a></li>
+    <li><a href="../privacy">Privacy</a></li>
+    <li><a href="../signup">Sign up</a></li>
+    <li><a href="https://github.com/dozer-sandbox/dozer-sandbox/blob/main/LICENSE">MIT licence</a></li>
+    <li><a href="../LICENSES/lucide.txt">Icon licence</a></li>
+  </ul>
+  <p>Requires Apple silicon and macOS 26 or later.</p>
+  <p>&copy; 2026 Johno Scott. Released under the MIT licence.</p>
+</div></footer>
+</body>
+</html>
