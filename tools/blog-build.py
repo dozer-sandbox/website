@@ -235,6 +235,7 @@ def head(title, desc, url, kind, extra=''):
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../site.css">
+<script src="../nav.js"></script>
 <link rel="stylesheet" href="../docs/docs.css">
 <script defer src="../docs/docs.js"></script>
 <script defer src="../signup.js"></script>
@@ -443,7 +444,7 @@ def main():
     if out == SITE:
         sitemap(posts)
     else:                                  # a preview copy: the page assets the pages link to
-        for f in ('site.css', 'site.js', 'signup.js', 'favicon.png', 'apple-touch-icon.png', 'og-image.png',
+        for f in ('site.css', 'site.js', 'signup.js', 'nav.js', 'favicon.png', 'apple-touch-icon.png', 'og-image.png',
                   'docs/docs.css', 'docs/docs.js'):
             os.makedirs(os.path.dirname(os.path.join(out, f)) or out, exist_ok=True)
             shutil.copyfile(os.path.join(SITE, f), os.path.join(out, f))
